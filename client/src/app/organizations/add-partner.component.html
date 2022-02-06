@@ -1,0 +1,66 @@
+<div class="animated fadeIn">
+  <div class="row">
+
+      <div class="card">
+        <div class="card-header">
+          Add
+          <strong>Partner</strong>
+        </div>
+        <div class="card-body">
+          <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+          (ngSubmit)="onFormSubmit(clientForm)" 
+          #clientForm="ngForm">              
+            <div class="form-group row">
+              <label class="col-md-3 form-control-label" for="select">Select Profile</label>
+              <div class="col-md-9">
+                  <select [(ngModel)]="partnership.organizationID" name="organizationID" class="form-control input-lg" size="1">          
+                      <option *ngFor="let a of organization" [value]="a.organizationID">
+                          {{a.organizationName}}
+                      </option>
+                  </select>     
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 form-control-label" for="select">Select Partner</label>
+              <div class="col-md-9">
+                  <select [(ngModel)]="partnership.ownerID" name="ownerID" class="form-control input-lg" size="1">          
+                      <option *ngFor="let a of owner" [value]="a.ownerID">
+                        {{a.title}} {{a.firstName}} {{a.lastName}}
+                      </option>
+                  </select>     
+                  <div class="col-md-3">
+                              
+                </div>
+      
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-5 form-control-label" for="input-large">Owner Percentage</label>
+              <div class="col-sm-6">
+                <input  [(ngModel)] = "partnership.ownerPercentage" type="text" 
+                id="ownerPercentage" name="ownerPercentage"
+                 class="form-control form-control-lg" placeholder="%">
+                 
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-5 form-control-label" for="input-large">Condition</label>
+              <div class="col-sm-6">
+                <input  [(ngModel)] = "partnership.condition" type="textarea" 
+                id="condition" name="condition"
+                 class="form-control form-control-lg" placeholder=" ">                 
+                </div>
+            </div>          
+          </form>
+        </div>
+
+        <div class="card-footer">          
+          <button type="submit" (click)="onFormSubmit(clientForm)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+          <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        </div>
+      </div>
+    </div><!--/.row-->
+</div>
+

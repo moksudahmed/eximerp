@@ -1,0 +1,28 @@
+<div class="">
+  <h1>New userroles</h1>
+
+  <div class="body">
+    <form class="" action="/userroles/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">createdAt</label>
+          <input type="datetime" name="createdAt" value="<%= element.createdAt %>" required="false">
+        </div>
+        <div class="">
+          <label for="">updatedAt</label>
+          <input type="datetime" name="updatedAt" value="<%= element.updatedAt %>" required="false">
+        </div>
+        <div class="">
+          <label for="">roleId</label>
+          <input type="number" name="roleId" value="<%= element.roleId %>" required="false">
+        </div>
+        <div class="">
+          <label for="">userId</label>
+          <input type="number" name="userId" value="<%= element.userId %>" required="false">
+        </div>
+      <button type="submit">Update userroles</button>
+    </form>
+    <br />
+    <a href="/userroles">Index</a>
+  </div>
+</div>

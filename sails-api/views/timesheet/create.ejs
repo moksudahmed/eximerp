@@ -1,0 +1,36 @@
+<div class="">
+	<h1>New timesheet</h1>
+	<h5>By sails-inverse-model</h5>
+
+	<div class="body">
+		<form class="" action="/timesheet/create" method="post">
+				<div class="">
+					<label for="">attendanceDate</label>
+					<input type="date" name="attendanceDate" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">present</label>
+					<input type="checkbox" name="present" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">timesIn</label>
+					<input type="datetime" name="timesIn" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">timesOut</label>
+					<input type="datetime" name="timesOut" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">timesheetID</label>
+					<input type="number" name="timesheetID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">employeeID</label>
+					<input type="number" name="employeeID" value="" required="true">
+				</div>
+			<button type="submit">Save timesheet</button>
+		</form>
+		<br />
+		<a href="/timesheet">Index</a>
+	</div>
+</div>

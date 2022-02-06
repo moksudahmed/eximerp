@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New joinitemtowarehouse</h1>
+
+  <div class="body">
+    <form class="" action="/joinitemtowarehouse/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">warehouseID</label>
+          <input type="number" name="warehouseID" value="<%= element.warehouseID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">itemID</label>
+          <input type="number" name="itemID" value="<%= element.itemID %>" required="false">
+        </div>
+      <button type="submit">Update joinitemtowarehouse</button>
+    </form>
+    <br />
+    <a href="/joinitemtowarehouse">Index</a>
+  </div>
+</div>

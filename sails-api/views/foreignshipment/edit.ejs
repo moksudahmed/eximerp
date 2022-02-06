@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New foreignshipment</h1>
+
+  <div class="body">
+    <form class="" action="/foreignshipment/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">placeOfLoading</label>
+          <input type="text" name="placeOfLoading" value="<%= element.placeOfLoading %>" required="true">
+        </div>
+        <div class="">
+          <label for="">placeOfUnloading</label>
+          <input type="text" name="placeOfUnloading" value="<%= element.placeOfUnloading %>" required="true">
+        </div>
+        <div class="">
+          <label for="">customsName</label>
+          <input type="text" name="customsName" value="<%= element.customsName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">route</label>
+          <input type="text" name="route" value="<%= element.route %>" required="true">
+        </div>
+        <div class="">
+          <label for="">foreignShipmentID</label>
+          <input type="number" name="foreignShipmentID" value="<%= element.foreignShipmentID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">billOfEntryID</label>
+          <input type="number" name="billOfEntryID" value="<%= element.billOfEntryID %>" required="true">
+        </div>
+      <button type="submit">Update foreignshipment</button>
+    </form>
+    <br />
+    <a href="/foreignshipment">Index</a>
+  </div>
+</div>

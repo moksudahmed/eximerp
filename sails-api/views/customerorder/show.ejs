@@ -1,0 +1,39 @@
+<h1>Show customerorder</h1>
+
+	<p>
+		<strong>discount:</strong>
+		<%= element.discount %>
+	</p>
+	<p>
+		<strong>orderDate:</strong>
+		<%= element.orderDate %>
+	</p>
+	<p>
+		<strong>receiveDate:</strong>
+		<%= element.receiveDate %>
+	</p>
+	<p>
+		<strong>status:</strong>
+		<%= element.status %>
+	</p>
+	<p>
+		<strong>orderTotal:</strong>
+		<%= element.orderTotal %>
+	</p>
+	<p>
+		<strong>customerOrderID:</strong>
+		<%= element.customerOrderID %>
+	</p>
+	<p>
+		<strong>clientAccountID:</strong>
+		<%= element.clientAccountID %>
+	</p>
+	<p>
+		<strong>employeeID:</strong>
+		<%= element.employeeID %>
+	</p>
+
+<br>
+<a href="/customerorder/edit/<%= element.id %>">Edit</a>
+<a href="/customerorder/create">New</a>
+<a href="/customerorder">Back</a>

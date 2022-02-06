@@ -1,0 +1,62 @@
+<div class="form-group row">
+  <label class="col-md-3 form-control-label" for="select">Select Account</label>
+  <div class="col-md-9">
+      <select [(ngModel)]="accountName" (ngModelChange)="onChange($event)" class="form-control input-lg" size="1">          
+          <option *ngFor="let a of subSidiary" [value]="a.chartOfAccountID.chartOfAccountID">
+            {{a.chartOfAccountID.accountName}}
+          </option>
+      </select>     
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> SubSidiary Account
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Account No</th>    
+              <th>Account Name</th>   
+              <th>Address</th>     
+              <th>Branch</th>
+              <th>Type</th>                
+              <th>Account Holder</th>                     
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>        
+              <tr *ngFor="let l of subSidiaryAccounts">  
+                  <td>{{l.accountNo}}</td>                     
+                  <td>{{l.accountName}}</td>
+                  <td>{{l.address}}</td>                     
+                  <td>{{l.branch}}</td> 
+                  <td>{{l.type}}</td> 
+                  <td>{{l.accountHolder}}</td> 
+                  <td>
+                      <span class="badge badge-success">Active</span>
+                    </td>    
+          
+            </tr>         
+                    
+          </tbody>
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div></div>
+  <!--/.col-->

@@ -1,0 +1,85 @@
+<div class="card">
+    <div class="card-header">
+      <strong>Profile:</strong> {{branchName}}
+        </div>
+    <div class="card-body">
+        <div class="row">
+                <div class="col-md-8">
+                  <h1>{{branchName}}</h1>  
+                  <!--  <figure class="figure">
+                            <img src="assets\img\logo.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                            <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                          </figure>    
+                        -->
+                </div>
+            <div class="col-md-8">
+            <ul>
+                <li *ngFor="let o of organization">
+                        <h2>{{ o.organizationName | uppercase }}
+                                <button type="button" class="btn btn-link"><i class="fa fa-link"></i>&nbsp; Edit</button>
+                        </h2>
+                        <div><span>{{o.address}}</span></div>
+                        <div><span>{{o.city}}</span></div>
+                        <div><span>{{o.contactNo}}</span></div>
+                        <div><span>{{o.emailAddress}}</span></div>
+                      
+                </li>
+              </ul>                 
+        </div>
+          </div>
+          <hr>
+          
+          <div class="row">
+                <div class="col-md-4">
+                    <h2>Braches</h2>
+                <ul class="heroes">
+                    <li *ngFor="let b of branch"
+                      [class.selected]="b.branchID === selectedId">
+                     <span class="badge" [routerLink]="['../branchdetails/', b.branchID]">{{ b.branchID }}</span>
+                     <span class="" [routerLink]="['../branchdetails/', b.branchID]">{{ b.branchName }}</span>
+                    </li>
+                  </ul>                 
+            </div>
+            
+            <div class="col-md-4">
+                    <h2>Departments</h2>
+                <ul class="heroes">
+                    <li *ngFor="let d of department"
+                   >
+                   <span class="badge" routerLink="/organizations/depatmentdetails/{{d.departmentID}}">{{d.departmentID}}</span>                                     
+                   <span class="" routerLink="/organizations/depatmentdetails/{{d.departmentID}}">{{d.departmentName}}</span>
+                    </li>
+                  </ul>                 
+            </div>
+              </div>
+      
+      
+      <hr>
+      <div class="row">
+          <div class="col-md-4">
+              <h2>Factories</h2>
+          <ul class="heroes">
+              <li *ngFor="let f of factory "
+             >
+             <span class="badge" routerLink="/organizations/factorydetails/{{f.factoryID}}">{{f.factoryID}}</span>                                     
+             <span class="" routerLink="/organizations/factorydetails/{{f.factoryID}}">{{f.factoryName}}</span>
+              </li>
+            </ul>                 
+         </div>
+         <div class="col-md-4">
+                <h2>Warehouse</h2>
+            <ul class="heroes">
+                <li *ngFor="let w of warehouse "
+               >
+               <span class="badge" routerLink="/organizations/factorydetails/{{w.warehouseID}}">{{w.warehouseID}}</span>                                     
+                <span class="" routerLink="/organizations/factorydetails/{{w.warehouseID}}">{{w.name}}</span>
+             </li>
+              </ul>                 
+        </div>
+        </div>
+
+    </div>
+    <div class="card-footer">
+        </div>
+  </div>
+  

@@ -1,0 +1,130 @@
+<div class ="panel panel-default" *ngIf=employee>
+    <div class="row">  
+    <div class="form-group col-sm-2">  
+      <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">ID</span>
+         <input type="text" class="form-control" value ={{employee.employeeID}} aria-describedby="basic-addon1">
+        </div>
+    </div>
+      
+   <div class="form-group col-sm-2">  
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Title</span>
+        <input type="text" class="form-control" value ={{person.title}} aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="form-group col-sm-4">  
+      <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">First Name</span>
+          <input type="text" class="form-control" value ={{person.firstName}} aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class="form-group col-sm-4"> 
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">First Name</span>
+            <input type="text" class="form-control" value ={{person.lastName}} aria-describedby="basic-addon1">
+          </div>
+        </div>
+        </div>
+        <div class="row">  
+            <div class="form-group col-sm-4"> 
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">DOB</span>
+                    <input type="text" class="form-control" value ={{person.dateOfBirth}} aria-describedby="basic-addon1">
+                  </div>
+                </div>
+            <div class="form-group col-sm-4"> 
+          <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Sex</span>
+              <input type="text" class="form-control" value ={{person.gender}} aria-describedby="basic-addon1">
+            </div>
+            </div>
+           
+            <div class="form-group col-sm-4"> 
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Email</span>
+                <input type="text" class="form-control" value ={{person.emailAddress}} aria-describedby="basic-addon1">
+              </div>
+              </div>
+            
+            </div>  
+            <div class="row">  
+            <div class="form-group col-sm-6"> 
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Mobile No</span>
+                    <input type="text" class="form-control" value ={{person.mobileNo}} aria-describedby="basic-addon1">
+                  </div>
+            </div>   
+            <div class="form-group col-sm-6"> 
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">maritalStatus</span>
+                    <input type="text" class="form-control" value ={{person.maritalStatus}} aria-describedby="basic-addon1">
+                  </div>
+            </div>            
+          </div>         
+          <div class="row"> 
+              <div class="form-group col-sm-4">   
+                  <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Designation</span>
+                      <input type="text" class="form-control" value ={{employee.designation}} aria-describedby="basic-addon1">
+                    </div> 
+                  </div>  
+              <div class="form-group col-sm-4">    
+              <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Date of Joining</span>
+                  <input type="text" class="form-control" value ={{employee.joningDate}} aria-describedby="basic-addon1">
+                </div>
+              </div>
+                <div class="form-group col-sm-4">  
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Date of leaving</span>
+                    <input type="text" class="form-control" value ={{employee.leavingDate}} aria-describedby="basic-addon1">
+                  </div>
+                </div>       
+          
+        </div>              
+        <div class="row"> 
+            <div class="form-group col-sm-4">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">overtimeRate</span>
+                    <input type="text" class="form-control" value ={{salaryProfile.overtimeRate}} aria-describedby="basic-addon1">
+                  </div>
+                </div>  
+                <div class="form-group col-sm-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">providentFund</span>
+                        <input type="text" class="form-control" value ={{salaryProfile.providentFund}} aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                <div class="form-group col-sm-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">taxRate</span>
+                          <input type="text" class="form-control" value ={{salaryProfile.taxRate}} aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                 
+        </div>
+        <div class="row"> 
+        <div class="form-group col-sm-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">hourlyRate</span>
+                  <input type="text" class="form-control" value ={{salaryProfile.hourlyRate}} aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="form-group col-sm-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">commissionRate</span>
+                  <input type="text" class="form-control" value ={{salaryProfile.commissionRate}} aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="form-group col-sm-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">paymentType</span>
+                  <input type="text" class="form-control" value ={{salaryProfile.paymentType}} aria-describedby="basic-addon1">
+            </div>
+        </div>
+    </div>
+  <a class ="btn btn-info" (click)="goBack()">Cancel</a>
+  
+</div>
+

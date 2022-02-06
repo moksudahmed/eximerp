@@ -1,0 +1,16 @@
+<div class="">
+  <h1>New localshipment</h1>
+
+  <div class="body">
+    <form class="" action="/localshipment/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">localShipmentID</label>
+          <input type="number" name="localShipmentID" value="<%= element.localShipmentID %>" required="false">
+        </div>
+      <button type="submit">Update localshipment</button>
+    </form>
+    <br />
+    <a href="/localshipment">Index</a>
+  </div>
+</div>

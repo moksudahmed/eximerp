@@ -1,0 +1,56 @@
+
+<h2>CHART OF ACCOUNT</h2>
+<div *ngIf=accountData>
+  <h3>{{ accountData.accountName }}</h3>
+  <div>
+    <label>Id: </label>{{ accountData.chartOfAccountID }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="accountData.accountName" placeholder="Name"/>
+  </div>
+  <div>
+    <label>Category Type: </label>
+    <!--<input [(ngModel)]="accountData.categoryType" placeholder="Category"/>-->
+    <select class="form-control" id="select"
+    [(ngModel)] = "accountData.categoryType" name = "categoryType">              
+      <option>Assets</option>
+      <option>Expense</option>
+      <option>Liability</option>
+      <option>Owners Equity</option>
+      <option>Revenue</option>              
+    </select> 
+  </div>
+  <div>
+    <label>Under Category: </label>
+    <select class="form-control" id="select"
+                    [(ngModel)] = "accountData.underCategory" name = "underCategory">              
+                      <option>Current Assets</option>
+                      <option>Fixed Assets</option>
+                      <option>Contra Assets</option>
+                      <option>Contra Current Assets</option>
+                      <option>Expense</option>
+                      <option>Current Liability</option>
+                      <option>Long term loan</option>
+                      <option>Owners Equity</option>
+                      <option>Income</option>              
+                    </select>  
+                   
+   <!-- <input [(ngModel)]="accountData.underCategory" placeholder="Under Category"/>-->
+  </div>
+  <div>
+    <label>Nature Type: </label>
+    <input [(ngModel)]="accountData.natureType" placeholder="Category Type"/>
+  </div>
+  
+  <p>
+    <button (click)="updateAccount()">Update</button>
+    <button (click)="goBack()">Cancel</button>
+ 
+  </p>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

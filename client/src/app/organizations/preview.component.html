@@ -1,0 +1,200 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Setup organization</h2></strong>
+      </div>
+      <div class="card-body">
+        <pre>{{this.formDataService.organization | json}}</pre>
+        <!--<h4>
+         <label for="inputdate">Organization Name : {{this.formDataService.organization.organizationName}}</label> <br />
+        </h4>
+        <p>
+          <label for="inputdate">Address : {{this.formDataService.organization.address}} {{this.formDataService.organization.postalcode}} {{this.formDataService.organization.city}} {{this.formDataService.organization.country}}</label> <br />         
+        </p>
+        <p>
+          <label for="inputdate">Contact No : {{this.formDataService.organization.contactNo}}</label> <br />         
+        </p>
+        <p>
+          <label for="inputdate">Email : {{this.formDataService.organization.emailAddress}}</label> <br />         
+        </p>
+        <p>
+          <label for="inputdate">Email : {{this.formDataService.organization.emailAddress}}</label> <br />         
+        </p>
+        <p>
+          <label for="inputdate">VAT : {{this.formDataService.organization.vat}} TIN No: {{this.formDataService.organization.tinNo}}</label> <br />         
+        </p>
+        <p>
+          <label for="inputdate">Licence No : {{this.formDataService.organization.licenceNo}}</label> <br />         
+        </p>
+        <p>
+          <label for="inputdate">Started At : {{this.formDataService.organization.startedAt}}</label> <br />         
+        </p>-->
+      </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Owner Details</h2></strong>
+      </div>
+      <div class="card-body">
+           <pre>{{this.formDataService.owner | json}}</pre>
+      </div>
+    </div>
+ 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Brnach Details</h2></strong>
+      </div>
+      <div class="card-body">
+        <pre>{{this.formDataService.branch | json}}</pre>
+       <!-- <h4>
+          <label for="inputdate">Branch Name : {{this.formDataService.branch.branchName}}</label> <br />
+         </h4>
+         <p>
+          <label for="inputdate">Address : {{this.formDataService.branch.branchAddress}} {{this.formDataService.branch.city}} {{this.formDataService.branch.country}}</label> <br />         
+        </p>
+        <p>
+          <label for="inputdate">Contact : {{this.formDataService.branch.contactNo}} {{this.formDataService.organization.emailAddress}}</label> <br />         
+        </p>-->
+      </div>
+    </div>
+  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Department Details</h2></strong>
+      </div>
+      <div class="card-body">
+           <pre>{{this.formDataService.department | json}}</pre>
+      </div>
+    </div>
+ 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Warehouse Details</h2></strong>
+      </div>
+      <div class="card-body">
+           <pre>{{this.formDataService.warehouse | json}}</pre>
+      </div>
+    </div>
+    <div class="card-footer">   
+      <div class="row">
+        
+       </div>   
+       <button type="submit"   routerLinkActive="active" [routerLink]="['/organizations/profile-step4']"  class="btn btn-primary">
+        <i class="fa fa-dot-circle-o"></i>Back</button>          
+    
+      <button (click)="onSubmit()"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+    </div>  
+    </div>
+  </div>
+ <!-- <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Order Details</h2></strong>
+      </div>
+      <div class="card-body">
+        
+        <div class="row"><h4>
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <th>Item ID</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Weight</th>
+           </thead>
+            <tbody>
+              <tr *ngFor="let data of orderDetails; let i = index"> 
+                <td>
+                  {{data.itemID}}
+                </td>
+                <td>
+                  {{data.quantity}}
+                </td>
+                <td>
+                  {{data.unitPrice}}
+                </td>
+                <td>
+                  {{data.weight}}
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </h4>
+        </div>
+          <div class="row">
+          <h4>
+          <label for="inputdate">Order Total : {{this.formDataService.purchaseOrder.orderTotal}}</label> <br />
+          <label for="inputdate">TAX : {{this.formDataService.purchaseOrder.tax}}</label> <br />
+          <label for="inputdate">Vat : {{this.formDataService.purchaseOrder.vat}}</label> <br />
+          <label for="inputdate">Net Total : {{this.formDataService.purchaseOrder.netTotal}}</label> <br />
+        </h4>
+        </div>
+      </div>
+   </div>
+  </div>
+  </div>
+   <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Sales Contract</h2></strong>
+      </div>
+      <div class="card-body">
+        <h4>
+         <label for="inputdate">Payment Terms : {{this.formDataService.salesContract.paymentTerms}}</label> <br/>
+         <label for="inputdate">Bank Name : {{this.formDataService.salesContract.bankName}}</label><br/>
+         <label for="inputdate">Imported : {{this.formDataService.salesContract.isImported}}</label><br/>
+         <label for="inputdate">Contract No : {{this.formDataService.salesContract.contractNo}}</label><br/>
+         <label for="inputdate">Date : {{this.formDataService.salesContract.date}}</label><br/>
+         <label for="inputdate">Delivery Period From : {{this.formDataService.salesContract.deliveryPeriodFrom}}</label><br/>
+         <label for="inputdate">Delivery Period To : {{this.formDataService.salesContract.deliveryPeriodTo}}</label><br/>
+         <label for="inputdate">IECNo : {{this.formDataService.salesContract.iECNo}}</label><br/>
+         <label for="inputdate">Route : {{this.formDataService.salesContract.route}}</label><br/>
+         <label for="inputdate">Determination Of Meserment : {{this.formDataService.salesContract.determinationOfMeserment}}</label><br/>
+         <label for="inputdate">Mode Of Transport : {{this.formDataService.salesContract.modeOfTransport}}</label><br/>
+         <label for="inputdate">Payment Method : {{this.formDataService.salesContract.paymentMethod}}</label><br/>
+         <label for="inputdate">Witness ID : {{this.formDataService.salesContract.witnessID}}</label><br/>
+        </h4>
+        </div>
+       
+      <div class="card-footer">   
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="reset" class="btn btn-sm btn-danger" value="Back" routerLinkActive="active" [routerLink]="['/purchase/salescontract']"><i class="fa fa-arrow-circle-left"></i> Back</button>
+         </div>
+         <div class="col-sm-8">
+            <button value="Complete" (click)="onFormSubmit()" type="submit" class="btn btn-sm btn-primary" ><i class="fa fa-save"></i> Save Order</button>        
+        
+          <button (click) ="printPdf()" value="Complete" type="submit" class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Print Order</button>        
+          <button value="Complete" type="submit" class="btn btn-sm btn-warning"  routerLinkActive="active" routerLink="/purchase/invoice"><i class="fa fa-envelope"></i> Email Order</button>        
+       </div>
+       
+        <div class="col-sm-2">
+          <button value="Complete" type="submit" class="btn btn-sm btn-success" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="fa fa-times-circle"></i> Finish</button>        
+        </div>
+         </div> -->  
+       <!-- <button (click)="onFormSubmit(purcheaseRequestForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button> -->     
+   <!--   </div>
+    </div>
+   </div>
+  </div>-->
+</div>

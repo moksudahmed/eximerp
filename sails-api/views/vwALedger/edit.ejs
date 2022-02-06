@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New vwALedger</h1>
+
+  <div class="body">
+    <form class="" action="/vwALedger/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">journalID</label>
+          <input type="number" name="journalID" value="<%= element.journalID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">transactionTitle</label>
+          <input type="text" name="transactionTitle" value="<%= element.transactionTitle %>" required="true">
+        </div>
+        <div class="">
+          <label for="">accountName</label>
+          <input type="text" name="accountName" value="<%= element.accountName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">debitCredit</label>
+          <input type="text" name="debitCredit" value="<%= element.debitCredit %>" required="true">
+        </div>
+        <div class="">
+          <label for="">amount</label>
+          <input type="number" name="amount" value="<%= element.amount %>" required="true">
+        </div>
+      <button type="submit">Update vwALedger</button>
+    </form>
+    <br />
+    <a href="/vwALedger">Index</a>
+  </div>
+</div>

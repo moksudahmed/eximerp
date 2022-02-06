@@ -1,0 +1,24 @@
+<div class="">
+  <h1>New owner</h1>
+
+  <div class="body">
+    <form class="" action="/owner/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">designation</label>
+          <input type="text" name="designation" value="<%= element.designation %>" required="true">
+        </div>
+        <div class="">
+          <label for="">ownerPercentage</label>
+          <input type="number" name="ownerPercentage" value="<%= element.ownerPercentage %>" required="true">
+        </div>
+        <div class="">
+          <label for="">ownerID</label>
+          <input type="number" name="ownerID" value="<%= element.ownerID %>" required="false">
+        </div>
+      <button type="submit">Update owner</button>
+    </form>
+    <br />
+    <a href="/owner">Index</a>
+  </div>
+</div>

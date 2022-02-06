@@ -1,0 +1,388 @@
+<div class="animated fadeIn">  
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>Employee Record</strong>            
+          </div>      
+      <div class="card-header">
+        <i class="fa fa-edit">Personal Infomation</i>
+        <div class="card-actions">
+          <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
+          <a href="#" class="btn-minimize"><i class="icon-arrow-up"></i></a>
+          <a href="#" class="btn-close"><i class="icon-close"></i></a>
+        </div>
+      </div>
+      <div class="card-body">
+          <form novalidate  enctype="multipart/form-data" class="form-horizontal "          
+          #employeeForm="ngForm">   
+                 
+              <div class="row">         
+                  <div class="form-group col-sm-2">
+                      <label for="ctitle">Title</label>  
+                   
+                      <select name="title" [(ngModel)]="person.title" class="form-control" id="ctitle">
+                          <option *ngFor="let item of titles" [ngValue]="item">{{item}}</option>
+                      </select>
+                    </div>
+                  
+                <div class="col-lg-5">
+                  <div class="form-group">
+                      <label class="form-control-label" for="prependedInput">First Name</label>
+                      <div class="controls">
+                        <div class="input-prepend input-group">                
+                          <input type="text" class="form-control"
+                          [(ngModel)] = "person.firstName"
+                          id="inputfirstName"
+                          name="firstName"
+                          placeholder="firstName">
+                        </div>             
+                      </div>
+                    </div>
+                </div>            
+                <div class="col-lg-5">
+                    <div class="form-group">
+                      <label class="form-control-label" for="prependedInput">Last Name</label>
+                      <div class="controls">
+                        <div class="input-prepend input-group">                
+                          <input type="text" class="form-control"
+                          [(ngModel)] = "person.lastName"
+                          id="lastName"
+                          name="lastName"
+                          placeholder="Last Name">
+                        </div>             
+                      </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="row">  
+            <div class="form-group col-sm-4">
+                <label for="inputdate">Date Of Birth</label>
+                <input type="date" class="form-control"
+                  [(ngModel)] = "person.dateOfBirth"
+                  id="inputdate"
+                  name="dateOfBirth"
+                  placeholder="date">
+              </div>
+              <div class="form-group col-sm-2">
+                  <label for="gender">Sex</label>
+                  <select name="gender" [(ngModel)]="person.gender" class="form-control" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>                
+                  </select>              
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="inputemail">Email</label>
+                    <input type="email"
+                    [(ngModel)] = "person.emailAddress"
+                     id="emailinput" name="emailAddress" 
+                     class="form-control" placeholder="Enter Email">               
+                  </div>
+              </div>
+              <div class="row">  
+                  <div class="form-group col-sm-6">                  
+                        <label class="form-control-label" for="prependedInput">Mobile No</label>
+                        <div class="controls">
+                          <div class="input-prepend input-group">                
+                            <input type="text" class="form-control"
+                            [(ngModel)] = "address.mobileNo1"
+                            id="inputmobileNo"
+                            name="mobileNo1"
+                            placeholder="mobileNo1">                    
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-group col-sm-2">
+                      <label for="maritalStatus">Marital Status</label>
+                      <select name="maritalStatus" [(ngModel)]="person.maritalStatus" class="form-control" id="maritalStatus">
+                          <option value="single">Single</option>
+                          <option value="married">Married</option>
+                          <option value="divorced">Divorced</option>
+                          <option value="never married">Never Married</option>                        
+                        </select>                     
+                    </div>
+              </div>          
+             
+              <i class="fa fa-edit">Address</i>
+              <div class="row">  
+                  <div class="form-group col-sm-6">                  
+                      <label class="form-control-label" for="prependedInput">Address Line 1</label>
+                      <div class="controls">
+                        <div class="input-prepend input-group">                
+                          <input type="text" class="form-control"
+                          [(ngModel)] = "address.addressLine1"
+                          id="inputaddressLine1"
+                          name="addressLine1"
+                          placeholder="addressLine1">                    
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">  
+                  <div class="form-group col-sm-6">                  
+                      <label class="form-control-label" for="prependedInput">Address Line 2</label>
+                      <div class="controls">
+                        <div class="input-prepend input-group">                
+                          <input type="text" class="form-control"
+                          [(ngModel)] = "address.addressLine2"
+                          id="inputaddressLine2"
+                          name="addressLine2"
+                          placeholder="addressLine2">                    
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">  
+                  <div class="form-group col-sm-4">                  
+                      <label class="form-control-label" for="prependedInput">Postcode</label>
+                      <div class="controls">
+                        <div class="input-prepend input-group">                
+                          <input type="text" class="form-control"
+                          [(ngModel)] = "address.postcode"
+                          id="postcode"
+                          name="postcode"
+                          placeholder="postcode">                    
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-4">                  
+                    <label class="form-control-label" for="prependedInput">City</label>
+                    <div class="controls">
+                      <div class="input-prepend input-group">                
+                        <input type="text" class="form-control"
+                        [(ngModel)] = "address.city"
+                        id="city"
+                        name="city"
+                        placeholder="city">                    
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group col-sm-4">                  
+                  <label class="form-control-label" for="prependedInput">Country</label>
+                  <div class="controls">
+                    <div class="input-prepend input-group">                
+                      <input type="text" class="form-control"
+                      [(ngModel)] = "address.country"
+                      id="country"
+                      name="country"
+                      placeholder="country">                    
+                  </div>
+                </div>
+            </div>
+              </div>
+              <i class="fa fa-edit">Employee Details</i>
+              <div class="row">  
+                  <div class="form-group col-sm-4">                  
+                      <label class="form-control-label" for="prependedInput">Designation</label>
+                      <div class="controls">
+                        <div class="input-prepend input-group">                
+                          <input type="text" class="form-control"
+                          [(ngModel)] = "employee.designation"
+                          id="designation"
+                          name="designation"
+                          placeholder="designation">                    
+                      </div>
+                    </div>
+                </div>             
+                <div class="form-group col-sm-4">
+                    <label for="inputdate">Date of joning</label>
+                    <input type="date" class="form-control"
+                      [(ngModel)] = "employee.joningDate"
+                      id="inputdate"
+                      name="joningDate"
+                      placeholder="joningDate">
+                  </div>
+                  <div class="form-group col-sm-4">
+                      <label for="inputdate">Date of Leaving</label>
+                      <input type="date" class="form-control"
+                        [(ngModel)] = "employee.leavingDate"
+                        id="inputdate"
+                        name="leavingDate"
+                        placeholder="leavingDate">
+                    </div>
+              </div>
+              <div class="row">
+              <div class="form-group">
+                  <button type="button" class="btn btn-info"  (click)="addAcademicHistory()">+ Academic History</button>
+                  <ng2-smart-table [settings]="settings" [source]="data"
+                (deleteConfirm)="modifyData($event)"
+                (createConfirm)="addData($event)"
+                ></ng2-smart-table>
+              </div>
+              </div>
+              <div class="row">
+                  <div class="form-group">
+                      <button type="button" class="btn btn-info"  (click)="addEmploymentHistory()">+ Employment History</button>
+                      <ng2-smart-table [settings]="epmsettings" [source]="edata"
+                    (deleteConfirm)="modifyData($event)"
+                    (createConfirm)="addEmploymentData($event)"
+                    ></ng2-smart-table>
+                  </div>
+                  </div>      
+                  
+                  <!-- Salary Profile -->
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">                
+                          <label for="ccmonth">Profile Type</label>
+                          <select name="profileType" [(ngModel)]="salaryProfile.profileType" class="form-control" id="profileType">
+                              <option value="full-time">Full Time</option>
+                              <option value="per-time">Par Time</option>                
+                              <option value="contract">Contractual</option>                
+                            </select>                                                  
+                      
+                      </div>
+                    </div><!--/.row-->                 
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label for="overtimeRate">overtimeRate</label>
+                          <input type="number" class="form-control" id="overtimeRate" 
+                          [(ngModel)] = "salaryProfile.overtimeRate"
+                          id="inputovertimeRate"
+                          name="overtimeRate"
+                          placeholder="000">
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="providentFund">providentFund</label>
+                            <input type="number" class="form-control" id="providentFund" 
+                            [(ngModel)] = "salaryProfile.providentFund"
+                            id="inputprovidentFund"
+                            name="providentFund"
+                            placeholder="000">
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="cvv">taxRate</label>
+                              <input type="number" class="form-control" id="taxRate" 
+                              [(ngModel)] = "salaryProfile.taxRate"
+                              id="inputtaxRate"
+                              name="taxRate"
+                              placeholder="000">
+                            </div>
+                          </div>
+                    </div><!--/.row-->    
+                    <i class="fa fa-edit">Salary Profile</i>            
+                    <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Salary Type</label>                      
+                        <ul id="payment">
+                        <li *ngFor="let option of options">
+                            <input type="radio" name="price" (click)="switchPrimar(option.id)" 
+                            [checked]="option.id == selectedOption.id" 
+                             value= {{option.id}}>{{option.name}}
+                        </li>
+                      </ul>                             
+                    </div>   
+                  <div class="row">
+                    <ng-template [ngIf]="selectedOption.name == 'Hourly'" #primaryBlock> 
+                        <div class="col-sm-4">                                               
+                          <div class="form-group">
+                              <label for="cvv">Hourly Rate</label>
+                              <input type="number" class="form-control" id="hourlyRate" 
+                              [(ngModel)] = "salaryProfile.hourlyRate"
+                              id="inputhourlyRate"
+                              name="hourlyRate"
+                              placeholder="000">
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template [ngIf]="selectedOption.name == 'Commissioned'" #secondaryBlock>
+                        <div class="col-sm-4">    
+                        <div class="form-group">
+                            <label for="cvv">Commission Rate</label>
+                            <input type="number" class="form-control" id="commissionRate" 
+                            [(ngModel)] = "salaryProfile.commissionRate"
+                            id="inputcommissionRate"
+                            name="commissionRate"
+                            placeholder="000">
+                          </div>
+                        </div>
+                    </ng-template>
+                    <ng-template [ngIf]="selectedOption.name == 'Monthly'" #elseBlock>
+                        <div class="col-sm-3">    
+                            <div class="form-group">
+                                <label for="cvv">Basic Salary</label>
+                                <input type="number" class="form-control" id="basicSalary" 
+                                [(ngModel)] = "monthly.basicSalary"
+                                id="inputbasicSalary"
+                                name="basicSalary"
+                                placeholder="000">
+                              </div>
+                            </div>
+                            <div class="col-sm-3">    
+                                <div class="form-group">
+                                    <label for="cvv">Convince</label>
+                                    <input type="number" class="form-control" id="convince" 
+                                    [(ngModel)] = "monthly.convince"
+                                    id="inputconvince"
+                                    name="convince"
+                                    placeholder="000">
+                                  </div>
+                                </div>
+                                <div class="col-sm-3">    
+                                    <div class="form-group">
+                                        <label for="cvv">Festival Bonus</label>
+                                        <input type="number" class="form-control" id="festivalBonus" 
+                                        [(ngModel)] = "monthly.festivalBonus"
+                                        id="inputfestivalBonus"
+                                        name="festivalBonus"
+                                        placeholder="000">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-3">    
+                                        <div class="form-group">
+                                            <label for="cvv">House Rent</label>
+                                            <input type="number" class="form-control" id="houseRent" 
+                                            [(ngModel)] = "monthly.houseRent"
+                                            id="inputhouseRent"
+                                            name="houseRent"
+                                            placeholder="000">
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-3">    
+                                            <div class="form-group">
+                                                <label for="cvv">Medical Allowance</label>
+                                                <input type="number" class="form-control" id="medicalAllowance" 
+                                                [(ngModel)] = "monthly.medicalAllowance"
+                                                id="inputmedicalAllowance"
+                                                name="medicalAllowance"
+                                                placeholder="000">
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-3">    
+                                                <div class="form-group">
+                                                    <label for="cvv">Other Allowance</label>
+                                                    <input type="number" class="form-control" id="otherAllowance" 
+                                                    [(ngModel)] = "monthly.otherAllowance"
+                                                    id="inputotherAllowance"
+                                                    name="otherAllowance"
+                                                    placeholder="000">
+                                                  </div>
+                                                </div>
+                                                <div class="col-sm-3">    
+                                                    <div class="form-group">
+                                                        <label for="cvv">Increment</label>
+                                                        <input type="number" class="form-control" id="increment" 
+                                                        [(ngModel)] = "monthly.increment"
+                                                        id="inputincrement"
+                                                        name="increment"
+                                                        placeholder="000">
+                                                      </div>
+                                                    </div>
+                    </ng-template>
+                  </div>
+                  
+              <div class="form-actions">
+              </div>
+            <button (click)="onFormSubmit(employeeForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>            
+            <button class="btn btn-secondary" type="button">Cancel</button>
+          
+        </form>
+        </div>
+      </div>
+    </div>
+  </div> <!--/.col-->
+</div><!--/.row-->

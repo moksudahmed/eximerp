@@ -1,0 +1,482 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Purchase Order</h2></strong>
+        <small>Form</small>
+      </div>
+      <div class="card-body">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(purcheaseRequestForm)" 
+        #purcheaseRequestForm="ngForm">  
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="name">Purchease Order Date</label>
+              <input [(ngModel)]="model.date" type="date" name="date" class="form-control" id="date" placeholder="Date">                        
+            </div>  
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="name">From</label>
+              <input [(ngModel)]="branchName" type="text" name="brnch" class="form-control" id="branch" value= {{branchName}}>                        
+            </div>  
+          </div>  
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="name">Amount</label>
+              <input type="text" name="brnch" class="form-control" id="branch" value={{orderTotal}}>                        
+            </div>  
+          </div>         
+        </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">To</label>          
+                <select class="form-control" id="select" (change)="filterChanged($event.target.value)"
+                [(ngModel)] = "model.localID" type ="number" name = "supplierID">    
+                <option [ngValue]="undefined" disabled selected>Choose Local ID</option>                          
+                <option *ngFor="let i of local" [value]="i.supplierID">
+                {{i.supplierID}}
+            </option>
+            </select>  
+            </div>   
+            </div> 
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Supplier Name</label>
+                <input [(ngModel)]="name" type="text" name="name" class="form-control" id="name" value= {{inidividualSupplier[0].per_name}}>                        
+              </div>  
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Mailling Address</label>
+                <textarea>{{inidividualSupplier[0].addressLine1}}, {{inidividualSupplier[0].postcode}}, {{inidividualSupplier[0].city}}, {{inidividualSupplier[0].country}}</textarea>
+              </div>  
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Mobile No</label>
+                <input [(ngModel)]="mobile" type="text" name="mobile" class="form-control" id="mobile" value= {{inidividualSupplier[0].mobileNo1}}>                        
+              </div>  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Shipping Date</label>
+                <input [(ngModel)]="model.shippingDate" type="date" name="shippingDate" class="form-control" id="shippingDate" placeholder="Shipping Date">                        
+              </div>    
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Shipping Address</label>
+                <textarea [(ngModel)]="addressLine1">{{inidividualSupplier[0].addressLine1}}, {{inidividualSupplier[0].postcode}}, {{inidividualSupplier[0].city}}, {{inidividualSupplier[0].country}}</textarea>
+              </div>  
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Ship By</label>
+                <input [(ngModel)]="model.shippingDate" type="text" name="shippingDate" class="form-control" id="shippingDate" placeholder="Ship by">                                 
+              </div>  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="name">Purchase Request ID</label>          
+                <select class="form-control" id="select" (change)="getRequestCart($event.target.value)"
+                [(ngModel)] = "model.purchaseRequestID" type ="number" name = "name">    
+                <option [ngValue]="undefined" disabled selected>Choose Purchase Request ID</option>                          
+                <option *ngFor="let p of purchaseRequeast" [value]="p.purchaseRequestID">
+                {{p.purchaseRequestID}}  {{p.date}}
+                 </option>
+                </select>  
+            </div>
+  
+            </div>
+              
+          </div>
+          <div class="row">
+            
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <strong>Purchease Request Cart</strong>
+                  <small></small>
+                </div>
+                <div class="card-body">
+              <div id="table" class="table-editable">
+              
+              
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                  <tr>
+                    <th class="text-center">Item ID</th>
+                    <th class="text-center">Item Name</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Weight</th>
+                    <th class="text-center">Unit Price</th>
+                    <th class="text-center">Sort</th>
+                    <th class="text-center">Remove</th>
+                  </tr>
+                  <tr *ngFor="let s of cart; let i = index">
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'itemID', $event)" (blur)="updateList(id, 'itemID', $event)">{{s.itemID}}</span>
+                    </td>
+                    <td>
+                      <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{s.name}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'quantity', $event)" (blur)="updateList(id, 'quantity', $event)">{{s.quantity}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'weight', $event)" (blur)="updateList(id, 'weight', $event)">{{s.weight}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'unitPrice', $event)" (blur)="updateList(id, 'unitPrice', $event)">{{s.unitPrice}}</span>
+                    </td>
+                    <td>
+                      <span class="table-up">
+                        <a class="text-sucess">
+                          <i class="fa fa-long-arrow-up" style="font-size:28px;color:indigo;"></i>
+                        </a>              
+                      </span>
+                      <span class="table-down">
+                        <a class="text-sucess">
+                          <i class="fa fa-long-arrow-down" style="font-size:28px;color:indigo;"></i>
+                        </a>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="table-remove">
+                        <a (click)="remove(id)">
+                          <i class="fa fa-minus-circle" aria-hidden="true" style="font-size:40px;color:red;"></i>
+                        </a>  
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+                </div>
+              </div>
+            </div>
+            
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                  <label for="name">Discount</label>
+                  <input [(ngModel)]="model.discount" type="number" name="discount" class="form-control" id="discount" placeholder="Discount">                        
+              </div>          
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                  <label for="name">Order Total</label>
+                  <input [(ngModel)]="model.orderTotal" type="number" name="orderTotal" class="form-control" id="orderTotal" placeholder="orderTotal">                        
+              </div>  
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                  <label for="name">Tex</label>
+                  <input [(ngModel)]="model.tex" type="number" name="tex" class="form-control" id="tex" placeholder="Tex">                        
+              </div> 
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                  <label for="name">Vat</label>
+                  <input [(ngModel)]="model.vat" type="number" name="vat" class="form-control" id="vat" placeholder="Vat">                        
+              </div>  
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="name">Net Total</label>
+                <input [(ngModel)]="model.netTotal" type="number" name="netTotal" class="form-control" id="netTotal" placeholder="Net Total">                        
+              </div>  
+            </div>
+          </div>
+        </form>      
+      </div>
+      </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="col-sm-3">
+    <div class="card">
+        <div class="card-header">
+          <strong>Sales Contract</strong>
+          <small><code>Create it</code></small>
+        </div>
+        <div class="card-body">
+            <a button type="button" class="btn btn-primary btn-lg btn-block" routerLink="/purchase/salescontract/"><i class="icon-pencil"></i>+ Add sales contract</a>                        
+          <!--<ul class="heroes">
+              <li *ngFor="let s of salesContract | async">                      
+               <span class="badge" >{{s.salesContractID}}</span>                                     
+               <span class="" >{{s.letterCreditID}}</span>
+               <span class="xbadge" >X</span>
+               <!<span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+              <!--</li>
+            </ul>-->
+         </div>
+      </div>   
+    </div>   
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-header">
+          <strong>Letter Credit</strong>
+          <small><code>Create it</code></small>
+        </div>
+        <div class="card-body">
+            <a button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/purchase/lc/{{model.purchaseRequestID}}"><i class="icon-pencil"></i>+ Add LC</a>       
+          <ul class="heroes">
+              <li *ngFor="let l of lc">                      
+               <span class="badge" >{{l.letterCreditID}}</span>                                     
+               <span class="" >{{l.date}}</span>
+               <span class="xbadge" >X</span>
+               <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+              </li>
+            </ul>
+         </div>
+      </div>      
+    </div>
+    <div class="col-sm-3">
+          <div class="card">
+            <div class="card-header">
+              <strong>Bill of Entry</strong>
+              <small><code>Create it</code></small>
+            </div>
+            <div class="card-body">
+                <a button type="button" class="btn btn-success btn-lg btn-block" routerLink="/purchase/billofentry/"><i class="icon-pencil"></i>+ Bill of Entry</a>                      
+              <ul class="heroes">
+                  <li *ngFor="let b of billOfEntry">                      
+                   <span class="badge" >{{b.billOfEntryID}}</span>                                     
+                   <span class="" >{{b.date}}</span>
+                   <span class="xbadge" >X</span>
+                   <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                    <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+                  </li>
+                </ul>
+             </div>
+          </div>      
+          </div>
+
+         
+</div>
+</div>
+  
+  
+
+
+  <div class="row">
+    <div class="col-sm-6">
+   
+   
+<div class="card">
+  <div class="card-header">
+    <strong>Purchase Order</strong>
+    <small>Form</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onFormSubmit(purcheaseRequestForm)" 
+      #purcheaseRequestForm="ngForm">  
+       <div class="form-group">
+          <label for="name">Date</label>
+          <input [(ngModel)]="model.date" type="date" name="date" class="form-control" id="date" placeholder="Date">                        
+        </div>
+               
+          <div class="form-group">
+              <label for="name">Discount</label>
+              <input [(ngModel)]="model.discount" type="number" name="discount" class="form-control" id="discount" placeholder="Discount">                        
+          </div>          
+          <div class="form-group">
+              <label for="name">Order Total</label>
+              <input [(ngModel)]="model.orderTotal" type="number" name="orderTotal" class="form-control" id="orderTotal" placeholder="orderTotal">                        
+          </div>  
+          <div class="form-group">
+              <label for="name">Shipping Date</label>
+              <input [(ngModel)]="model.shippingDate" type="date" name="shippingDate" class="form-control" id="shippingDate" placeholder="Shipping Date">                        
+            </div>  
+          <div class="form-group">
+              <label for="name">Tex</label>
+              <input [(ngModel)]="model.tex" type="number" name="tex" class="form-control" id="tex" placeholder="Tex">                        
+          </div> 
+          <div class="form-group">
+              <label for="name">Vat</label>
+              <input [(ngModel)]="model.vat" type="number" name="vat" class="form-control" id="vat" placeholder="Vat">                        
+          </div>  
+          <div class="form-group">
+            <label for="name">Net Total</label>
+            <input [(ngModel)]="model.netTotal" type="number" name="netTotal" class="form-control" id="netTotal" placeholder="Net Total">                        
+        </div>  
+   
+        <div class="form-group">
+            <label for="name">SalesContract ID</label>
+            <div class="input-group">
+                <select class="form-control" id="select"
+                [(ngModel)] = "model.salesContractID" name = "name" type="number">    
+                <option [ngValue]="undefined" disabled selected>Choose Contract</option>                          
+                <option *ngFor="let s of salesContract" [value]="s.salesContractID">
+                {{s.salesContractID}}                                    
+                </option>
+                </select>
+               </div>  
+        </div>                
+             
+        <div class="form-group">
+          <label for="name">Local Supplier</label>          
+          <select class="form-control" id="select" (change)="filterChanged($event.target.value)"
+          [(ngModel)] = "model.localID" type ="number" name = "supplierID">    
+          <option [ngValue]="undefined" disabled selected>Choose Local ID</option>                          
+          <option *ngFor="let i of local" [value]="i.supplierID">
+          {{i.supplierID}}
+      </option>
+      </select>  
+      </div> 
+        <div class="form-group">
+            <label for="name">Purchase Request ID</label>          
+            <select class="form-control" id="select" (change)="filterChanged($event.target.value)"
+            [(ngModel)] = "model.purchaseRequestID" type ="number" name = "name">    
+            <option [ngValue]="undefined" disabled selected>Choose Purchase Request ID</option>                          
+            <option *ngFor="let p of purchaseRequeast" [value]="p.purchaseRequestID">
+            {{p.purchaseRequestID}}
+        </option>
+        </select>  
+        </div>
+
+        <div class="form-group">
+          <label for="name">Qutation ID</label>          
+          <select class="form-control" id="select"
+          [(ngModel)] = "model.qutationID" type ="number" name = "name">    
+          <option [ngValue]="undefined" disabled selected>Choose qutation ID</option>                          
+          <option *ngFor="let q of qutation | async" [value]="q.qutationID">
+          {{q.qutationID}}
+      </option>
+      </select>  
+      </div>
+ 
+  </form>
+  
+  </div>
+  <div class="card-footer">
+      <button (click)="onFormSubmit(purcheaseRequestForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>
+</div>
+
+</div>
+  
+</div>
+
+
+<!--
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+              <strong>Purchase Order</strong>
+              <small>Form</small>
+            </div>
+            <div class="card-body">
+          
+        <i class="fa fa-align-justify"></i> Ppurchease Request Cart
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Item ID</th>                        
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Weight</th>
+              <th>Unit Price</th>
+              <th>Action</th>                
+            </tr>
+          </thead>
+          <tbody>
+              
+              <tr *ngFor="let s of cart; let i = index">
+                  <td>{{s.itemID}}</td>
+                  <td>{{s.name}}</td>                     
+                  <td>{{s.quantity}}</td>                  
+                  <td>{{s.weight}}</td>            
+                  <td>
+                      <input type="text" [(ngModel)]="s.unitPrice" [disabled]="!s.isEditable"/>
+                    </td>                                
+                  
+                  <td>
+                          <button (click)="s.isEditable=!s.isEditable" *ngIf="!s.isEditable">Edit</button>
+                          <button *ngIf="s.isEditable" (click)="s.isEditable=!s.isEditable">Save</button>             
+                      <a button type="button" class="btn btn-danger btn-sm" (click)="removeItem(s.itemID)"><i class="icon-trash"></i></a>                
+                    </td>    
+          
+            </tr>         
+                    
+          </tbody>
+        </table>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="card">
+                      <div class="card-header">
+                        <strong>Purchease Request Cart</strong>
+                        <small></small>
+                      </div>
+                      <div class="card-body">
+                    
+                  <i class="fa fa-align-justify"></i> Purchease Request Cart
+                  <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th>Item ID</th>                        
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Weight</th>
+                        <th>Unit Price</th>
+                        <th>Action</th>                
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr *ngFor="let s of cart; let i = index">
+                            <td>{{s.itemID}}</td>
+                            <td>{{s.name}}</td>                     
+                            <td>{{s.quantity}}</td>                  
+                            <td>{{s.weight}}</td>            
+                            <td>
+                                <input type="text" [(ngModel)]="s.unitPrice" [disabled]="!s.isEditable"/>
+                              </td>                                
+                            
+                            <td>
+                                   <button (click)="s.isEditable=!s.isEditable" *ngIf="!s.isEditable">Edit</button>
+                                    <button *ngIf="s.isEditable" (click)="s.isEditable=!s.isEditable">Save</button>            
+                                    <a button type="button" class="btn btn-danger btn-sm" (click)="removeItem(s.itemID)"><i class="icon-trash"></i></a>                
+                                  </td>    
+                        
+                          </tr>         
+                                  
+                        </tbody>
+                      </table>
+                      </div>
+                  </div>
+                  
+                  </div>
+              </div>
+-->

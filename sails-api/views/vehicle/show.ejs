@@ -1,0 +1,31 @@
+<h1>Show vehicle</h1>
+
+	<p>
+		<strong>type:</strong>
+		<%= element.type %>
+	</p>
+	<p>
+		<strong>name:</strong>
+		<%= element.name %>
+	</p>
+	<p>
+		<strong>loadingCapacity:</strong>
+		<%= element.loadingCapacity %>
+	</p>
+	<p>
+		<strong>vehicleNo:</strong>
+		<%= element.vehicleNo %>
+	</p>
+	<p>
+		<strong>driverName:</strong>
+		<%= element.driverName %>
+	</p>
+	<p>
+		<strong>vehicleID:</strong>
+		<%= element.vehicleID %>
+	</p>
+
+<br>
+<a href="/vehicle/edit/<%= element.id %>">Edit</a>
+<a href="/vehicle/create">New</a>
+<a href="/vehicle">Back</a>

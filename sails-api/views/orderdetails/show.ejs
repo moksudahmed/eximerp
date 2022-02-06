@@ -1,0 +1,35 @@
+<h1>Show orderdetails</h1>
+
+	<p>
+		<strong>discount:</strong>
+		<%= element.discount %>
+	</p>
+	<p>
+		<strong>quantity:</strong>
+		<%= element.quantity %>
+	</p>
+	<p>
+		<strong>unitPrice:</strong>
+		<%= element.unitPrice %>
+	</p>
+	<p>
+		<strong>total:</strong>
+		<%= element.total %>
+	</p>
+	<p>
+		<strong>orderDetailsID:</strong>
+		<%= element.orderDetailsID %>
+	</p>
+	<p>
+		<strong>customerOrderID:</strong>
+		<%= element.customerOrderID %>
+	</p>
+	<p>
+		<strong>itemID:</strong>
+		<%= element.itemID %>
+	</p>
+
+<br>
+<a href="/orderdetails/edit/<%= element.id %>">Edit</a>
+<a href="/orderdetails/create">New</a>
+<a href="/orderdetails">Back</a>

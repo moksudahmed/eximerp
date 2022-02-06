@@ -1,0 +1,71 @@
+<h1>disbusrmentpayment</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 disbusrmentpayment
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>paymentMadeBy</th>
+			<th>remarks</th>
+			<th>disbusrmentPaymentID</th>
+			<th>employeeID</th>
+			<th>payrollID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.paymentMadeBy %>
+					</td>
+					<td>
+						<%= item.remarks %>
+					</td>
+					<td>
+						<%= item.disbusrmentPaymentID %>
+					</td>
+					<td>
+						<%= item.employeeID %>
+					</td>
+					<td>
+						<%= item.payrollID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/disbusrmentpayment/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/disbusrmentpayment/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/disbusrmentpayment/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/disbusrmentpayment/create">New</a>

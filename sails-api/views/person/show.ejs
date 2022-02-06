@@ -1,0 +1,43 @@
+<h1>Show person</h1>
+
+	<p>
+		<strong>title:</strong>
+		<%= element.title %>
+	</p>
+	<p>
+		<strong>firstName:</strong>
+		<%= element.firstName %>
+	</p>
+	<p>
+		<strong>lastName:</strong>
+		<%= element.lastName %>
+	</p>
+	<p>
+		<strong>dateOfBirth:</strong>
+		<%= element.dateOfBirth %>
+	</p>
+	<p>
+		<strong>gender:</strong>
+		<%= element.gender %>
+	</p>
+	<p>
+		<strong>emailAddress:</strong>
+		<%= element.emailAddress %>
+	</p>
+	<p>
+		<strong>mobileNo:</strong>
+		<%= element.mobileNo %>
+	</p>
+	<p>
+		<strong>maritalStatus:</strong>
+		<%= element.maritalStatus %>
+	</p>
+	<p>
+		<strong>personID:</strong>
+		<%= element.personID %>
+	</p>
+
+<br>
+<a href="/person/edit/<%= element.id %>">Edit</a>
+<a href="/person/create">New</a>
+<a href="/person">Back</a>

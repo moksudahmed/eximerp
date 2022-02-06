@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New employmenthistory</h1>
+
+  <div class="body">
+    <form class="" action="/employmenthistory/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">designation</label>
+          <input type="text" name="designation" value="<%= element.designation %>" required="true">
+        </div>
+        <div class="">
+          <label for="">organizationName</label>
+          <input type="text" name="organizationName" value="<%= element.organizationName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">address</label>
+          <input type="text" name="address" value="<%= element.address %>" required="true">
+        </div>
+        <div class="">
+          <label for="">joiningDate</label>
+          <input type="date" name="joiningDate" value="<%= element.joiningDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">leavingDate</label>
+          <input type="date" name="leavingDate" value="<%= element.leavingDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">employmentHistoryID</label>
+          <input type="number" name="employmentHistoryID" value="<%= element.employmentHistoryID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">personID</label>
+          <input type="number" name="personID" value="<%= element.personID %>" required="true">
+        </div>
+      <button type="submit">Update employmenthistory</button>
+    </form>
+    <br />
+    <a href="/employmenthistory">Index</a>
+  </div>
+</div>

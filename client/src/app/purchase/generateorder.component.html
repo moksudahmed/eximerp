@@ -1,0 +1,88 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <strong><h2>Purchase Order</h2></strong>
+          <small>Local</small>
+        </div>
+        <div class="card-body">
+          <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+          (ngSubmit)="onFormSubmit(purcheaseRequestForm)" 
+          #purcheaseRequestForm="ngForm">  
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="name">Purchease Order Date</label>
+                <input [(ngModel)]="model.date" type="date" name="date" class="form-control" id="date" placeholder="Date">                        
+              </div>  
+            </div>
+         </div>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="form-group">
+                <label for="name">Type</label>
+                <label class="radio-inline" for="inline-radio1">
+                  <input type="radio" id="inline-radio1" name="inline-radios" value="local" [(ngModel)]="type"> Local
+                </label>
+                <label class="radio-inline" for="inline-radio2">
+                  <input type="radio" id="inline-radio2" name="inline-radios" value="international" [(ngModel)]="type"> International
+                </label>
+              </div>  
+            </div>
+         </div>
+         <div class="row">
+          <div class="col-sm-8">
+            <label for="name">Add Qutation</label>
+            <label class="switch switch-lg switch-3d switch-primary">
+              <input type="checkbox" class="switch-input" id="qutation" 
+              name="qutation" [(ngModel)]="qutation">
+              <span class="switch-label"></span>
+              <span class="switch-handle"></span>
+              </label>
+           </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <label for="name">Add Sales Contract</label>
+              <label class="switch switch-lg switch-3d switch-primary">
+                <input type="checkbox" class="switch-input" id="contract" 
+                name="contract" [(ngModel)]="contract">
+                <span class="switch-label"></span>
+                <span class="switch-handle"></span>
+                </label>
+             </div>
+            </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <label for="name">Add LC</label>
+              <label class="switch switch-lg switch-3d switch-primary">
+                <input type="checkbox" class="switch-input" id="lc" 
+                name="lc" [(ngModel)]="lc">
+                <span class="switch-label"></span>
+                <span class="switch-handle"></span>
+                </label>
+             </div>
+            </div>
+          
+         <input type="button" value="Cancel" routerLinkActive="active" [routerLink]="['/dashboard']">
+         <input type="button" value="Continue" (click)="submit()" routerLinkActive="active" [routerLink]="['/purchase/order']">
+        </form>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <tr>
+      <td>Full Address</td>
+      <td><input type="text" [(ngModel)]="addressDetails.status" #fullAddress /></td>
+  </tr>
+  <tr>
+    <td></td>
+   
+      <td></td>
+  </tr>
+</table>

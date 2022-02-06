@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New purchaserequestcart</h1>
+
+  <div class="body">
+    <form class="" action="/purchaserequestcart/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">itemID</label>
+          <input type="number" name="itemID" value="<%= element.itemID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="true">
+        </div>
+        <div class="">
+          <label for="">quantity</label>
+          <input type="number" name="quantity" value="<%= element.quantity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">weight</label>
+          <input type="number" name="weight" value="<%= element.weight %>" required="true">
+        </div>
+        <div class="">
+          <label for="">purchaseRequestCartID</label>
+          <input type="number" name="purchaseRequestCartID" value="<%= element.purchaseRequestCartID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">purchaseRequestID</label>
+          <input type="number" name="purchaseRequestID" value="<%= element.purchaseRequestID %>" required="true">
+        </div>
+      <button type="submit">Update purchaserequestcart</button>
+    </form>
+    <br />
+    <a href="/purchaserequestcart">Index</a>
+  </div>
+</div>

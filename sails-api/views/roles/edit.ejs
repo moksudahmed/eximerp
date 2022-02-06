@@ -1,0 +1,28 @@
+<div class="">
+  <h1>New roles</h1>
+
+  <div class="body">
+    <form class="" action="/roles/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">id</label>
+          <input type="number" name="id" value="<%= element.id %>" required="false">
+        </div>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="true">
+        </div>
+        <div class="">
+          <label for="">createdAt</label>
+          <input type="datetime" name="createdAt" value="<%= element.createdAt %>" required="false">
+        </div>
+        <div class="">
+          <label for="">updatedAt</label>
+          <input type="datetime" name="updatedAt" value="<%= element.updatedAt %>" required="false">
+        </div>
+      <button type="submit">Update roles</button>
+    </form>
+    <br />
+    <a href="/roles">Index</a>
+  </div>
+</div>

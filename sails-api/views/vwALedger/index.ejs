@@ -1,0 +1,75 @@
+<h1>vwALedger</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 vwALedger
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>journalID</th>
+			<th>date</th>
+			<th>transactionTitle</th>
+			<th>accountName</th>
+			<th>debitCredit</th>
+			<th>amount</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.journalID %>
+					</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.transactionTitle %>
+					</td>
+					<td>
+						<%= item.accountName %>
+					</td>
+					<td>
+						<%= item.debitCredit %>
+					</td>
+					<td>
+						<%= item.amount %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/vwALedger/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/vwALedger/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/vwALedger/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/vwALedger/create">New</a>

@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New commissioned</h1>
+
+  <div class="body">
+    <form class="" action="/commissioned/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">commissionRate</label>
+          <input type="number" name="commissionRate" value="<%= element.commissionRate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">commissionedID</label>
+          <input type="number" name="commissionedID" value="<%= element.commissionedID %>" required="false">
+        </div>
+      <button type="submit">Update commissioned</button>
+    </form>
+    <br />
+    <a href="/commissioned">Index</a>
+  </div>
+</div>

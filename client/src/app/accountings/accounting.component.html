@@ -1,0 +1,418 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Accounting:</strong>
+      </div>
+  <div class="card-body">
+      <div class="row">
+              <div class="col-md-8">
+                <h1>Branch:{{branchName}}</h1>  
+                <!--  <figure class="figure">
+                          <img src="assets\img\logo.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                          <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                        </figure>    
+                      -->
+              </div>
+          <div class="col-md-8">
+          <ul>
+              <li *ngFor="let o of organization">
+                      <h2>{{ o.organizationName | uppercase }}
+                              <button type="button" class="btn btn-link"><i class="fa fa-link"></i>&nbsp; Edit</button>
+                      </h2>
+                      <div><span>{{o.address}}</span></div>
+                      <div><span>{{o.city}}</span></div>
+                      <div><span>{{o.contactNo}}</span></div>
+                      <div><span>{{o.emailAddress}}</span></div>
+                    
+              </li>
+            </ul>                 
+      </div>
+        </div>
+        <hr>
+        
+        <div class="row">
+          <div class="col-sm-8 col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <strong>Financial Year</strong>
+                <span class="float-right">                  
+                  <button class="btn btn-primary"
+                  (click)="openModal(template)">+</button>    
+                </span>      
+              </div>       
+              <div class="card-body">
+                <table class="table table-bordered table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th>Year Name</th>                      
+                      <th>Username</th>
+                      <th>Date registered</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    <tr *ngFor="let f of fYears">
+                    <td>{{f.yearName}}</td>
+                    <td>{{f.startDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{f.endDate | date: 'dd/MM/yyyy'}}</td>                    
+                    <td> <button type="button" class="btn btn-primary" (click)="openModal(template)"><i class="fa fa-pencil"></i>&nbsp;</button>
+                    </td>                        
+                    </tr>        
+                        
+                  </tbody>
+                </table>   
+              </div>
+
+            </div>
+            
+          </div>
+            <div class="col-sm-8 col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <strong>Chart of Accounts</strong>
+                  <span class="float-right">                  
+                    <button class="btn btn-primary"
+                    (click)="openModal(charttemplate)">+</button>    
+                  </span>      
+                </div>  
+                <div class="card-body">
+                  <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th>Account Name</th>                      
+                        <th>Category</th>
+                        <th>Nature</th>                     
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr *ngFor="let c of chartOfAccount">
+                       <td>{{c.accountName}}</td>
+                       <td>{{c.categoryType}}</td>
+                       <td>{{c.natureType}}</td>                   
+                       <td> <button type="button" class="btn btn-primary"><i class="fa fa-pencil"></i>&nbsp;</button>
+                       </td>                        
+                      </tr>        
+                          
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+         
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-md-12">
+        <div class="card">
+          <div class="card-header">
+          <strong>Transaction</strong>
+          <span class="float-right">                  
+            <button class="btn btn-primary"
+            (click)="openModal(transactiontemplate)">+</button>    
+          </span>      
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Account</th>
+                <th>Debit</th>                
+                <th>Credit</th>                     
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of trans">                
+                    <td>{{transaction.transactionDate | date: 'dd/MM/yyyy'}}</td> 
+                    <td>{{transaction.transactionTitle}}</td> 
+                    <td>{{transaction.entryDateTime | date: 'dd/MM/yyyy'}}</td> 
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                      </td>    
+            
+              </tr>         
+                      
+            </tbody>
+          </table>
+
+        </div>
+        </div>
+      </div>
+    </div>
+        
+    <hr>
+
+  </div>
+  <div class="card-footer">
+      </div>
+</div>
+
+
+
+<ng-template #template>
+  <div class="modal-header">
+
+    <!-- Modal Title -->
+    <h4 class="modal-title pull-left">Add Financial Year</h4>
+
+    <!-- Close Button -->
+    <button type="button" 
+            class="close pull-right" 
+            (click)="modalRef.hide()">           
+      <span aria-hidden="true">&times;</span>
+      
+    </button>
+  </div>
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+    <div class="animated fadeIn">   
+    
+          <div class="card">
+            <div class="card-header">
+              Add
+              <strong>Financial Year</strong>
+            </div>
+            <div class="card-body">
+              <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+              (ngSubmit)="onFormSubmit(clientForm)" 
+              #clientForm="ngForm">              
+                
+            <div class="form-group row">
+              <label class="col-sm-5 form-control-label" for="text-area-input">Year Name</label>
+              <div class="col-sm-9">
+                <input  [(ngModel)] = "financialYear.yearName" type="text" 
+                id="yearName" name="yearName" required value="{{selectedYear.yearName}}"
+                 class="form-control form-control-lg">
+                
+              </div>
+            </div>
+            
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="input-large">Start Date</label>
+                  <div class="col-sm-9">
+                    <input [(ngModel)] = "financialYear.startDate" type="date" 
+                    id="startDate" name="startDate" required
+                     class="form-control form-control-lg">
+                  
+                    </div>
+                </div>     
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="input-large">End Date</label>
+                  <div class="col-sm-9">
+                    <input [(ngModel)] = "financialYear.endDate" type="date" 
+                    id="endDate" name="endDate"
+                     class="form-control form-control-lg">
+                  
+                    </div>
+                </div>          
+              </form>
+            </div>
+    
+            <div class="card-footer">          
+              <button type="submit" (click)="onFormSubmit(clientForm)" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create</button>
+            </div>
+          </div>
+     
+    </div>
+    
+  </div>
+</ng-template>
+
+
+
+
+
+<ng-template #charttemplate>
+  <div class="modal-header">
+
+    <!-- Modal Title -->
+    <h4 class="modal-title pull-left">Add Chart of Account</h4>
+
+    <!-- Close Button -->
+    <button type="button" 
+            class="close pull-right" 
+            (click)="modalRef.hide()">           
+      <span aria-hidden="true">&times;</span>
+      
+    </button>
+  </div>
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+    <div class="animated fadeIn">   
+    
+          <div class="card">
+            <div class="card-header">
+              Add
+              <strong>Chart of Account</strong>
+            </div>
+            <div class="card-body">
+              <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+              (ngSubmit)="onChartofAccountFormSubmit(chartOfAccountForm)" 
+              #chartOfAccountForm="ngForm">       
+            <div class="card-header">
+              <strong>Chart OF Account</strong>
+              <small>Create</small>
+            </div>
+            <div class="card-block">                             
+            
+             
+                <div class="form-group">
+                    <label for="inputaccountName">Account Name</label>
+                    <input type="text" class="form-control"
+                      [(ngModel)] = "accounts.accountName"
+                      id="inputaccountName"
+                      name="accountName"
+                      placeholder="accountName">
+                  </div>
+                  <div class="form-group">             
+                      <label for="categoryType">Select Category</label>
+                      <select class="form-control" id="select"
+                      [(ngModel)] = "accounts.categoryType" name = "categoryType">              
+                        <option>Assets</option>
+                        <option>Expense</option>
+                        <option>Liability</option>
+                        <option>Owners Equity</option>
+                        <option>Revenue</option>              
+                      </select>  
+                     
+                    </div>
+                  <div class="form-group">
+                      <label for="inputdesription">desription</label>
+                      <input type="text" class="form-control"
+                        [(ngModel)] = "accounts.desription"
+                        id="inputdesription"
+                        name="desription"
+                        placeholder="desription">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputunderCategory">underCategory</label>
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "accounts.underCategory"
+                          id="inputunderCategory"
+                          name="underCategory"
+                          placeholder="underCategory">
+                      </div>
+                      <div class="form-group">
+                          <label for="inputnatureType">natureType</label>
+                          <input type="text" class="form-control"
+                            [(ngModel)] = "accounts.natureType"
+                            id="inputnatureType"
+                            name="natureType"
+                            placeholder="natureType">
+                        </div>
+        
+           
+            </div>
+            
+          </form>
+            </div>
+    
+            <div class="card-footer">          
+              <button type="submit" (click)="onChartofAccountFormSubmit(chartOfAccountForm)" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create</button>
+            </div>
+          </div>
+     
+    </div>
+    
+  </div>
+</ng-template>
+
+
+<ng-template #transactiontemplate>
+  <div class="modal-header">
+
+    <!-- Modal Title -->
+    <h4 class="modal-title pull-left">Transaction</h4>
+
+    <!-- Close Button -->
+    <button type="button" 
+            class="close pull-right" 
+            (click)="modalRef.hide()">           
+      <span aria-hidden="true">&times;</span>
+      
+    </button>
+  </div>
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+    <div class="animated fadeIn">   
+    
+          <div class="card">
+            <div class="card-header">
+              Add
+              <strong>Transaction</strong>
+            </div>
+            <div class="card-body">
+              <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+              (ngSubmit)="onChartofAccountFormSubmit(chartOfAccountForm)" 
+              #chartOfAccountForm="ngForm">       
+            <div class="card-header">
+              <strong>Transaction</strong>
+              <small>Create</small>
+            </div>
+            <div class="card-block">                             
+            
+             
+                <div class="form-group">
+                    <label for="inputaccountName">Account Name</label>
+                    <input type="text" class="form-control"
+                      [(ngModel)] = "accounts.accountName"
+                      id="inputaccountName"
+                      name="accountName"
+                      placeholder="accountName">
+                  </div>
+                  <div class="form-group">             
+                      <label for="categoryType">Select Category</label>
+                      <select class="form-control" id="select"
+                      [(ngModel)] = "accounts.categoryType" name = "categoryType">              
+                        <option>Assets</option>
+                        <option>Expense</option>
+                        <option>Liability</option>
+                        <option>Owners Equity</option>
+                        <option>Revenue</option>              
+                      </select>  
+                     
+                    </div>
+                  <div class="form-group">
+                      <label for="inputdesription">desription</label>
+                      <input type="text" class="form-control"
+                        [(ngModel)] = "accounts.desription"
+                        id="inputdesription"
+                        name="desription"
+                        placeholder="desription">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputunderCategory">underCategory</label>
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "accounts.underCategory"
+                          id="inputunderCategory"
+                          name="underCategory"
+                          placeholder="underCategory">
+                      </div>
+                      <div class="form-group">
+                          <label for="inputnatureType">natureType</label>
+                          <input type="text" class="form-control"
+                            [(ngModel)] = "accounts.natureType"
+                            id="inputnatureType"
+                            name="natureType"
+                            placeholder="natureType">
+                        </div>
+        
+           
+            </div>
+            
+          </form>
+            </div>
+    
+            <div class="card-footer">          
+              <button type="submit" (click)="onChartofAccountFormSubmit(chartOfAccountForm)" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create</button>
+            </div>
+          </div>
+     
+    </div>
+    
+  </div>
+</ng-template>

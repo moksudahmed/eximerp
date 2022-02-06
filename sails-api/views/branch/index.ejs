@@ -1,0 +1,95 @@
+<h1>branch</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 branch
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>address</th>
+			<th>branchName</th>
+			<th>contactNo</th>
+			<th>emailAddress</th>
+			<th>branchID</th>
+			<th>organizationID</th>
+			<th>employeeID</th>
+			<th>city</th>
+			<th>country</th>
+			<th>createdAt</th>
+			<th>updatedAt</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.address %>
+					</td>
+					<td>
+						<%= item.branchName %>
+					</td>
+					<td>
+						<%= item.contactNo %>
+					</td>
+					<td>
+						<%= item.emailAddress %>
+					</td>
+					<td>
+						<%= item.branchID %>
+					</td>
+					<td>
+						<%= item.organizationID %>
+					</td>
+					<td>
+						<%= item.employeeID %>
+					</td>
+					<td>
+						<%= item.city %>
+					</td>
+					<td>
+						<%= item.country %>
+					</td>
+					<td>
+						<%= item.createdAt %>
+					</td>
+					<td>
+						<%= item.updatedAt %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/branch/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/branch/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/branch/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/branch/create">New</a>

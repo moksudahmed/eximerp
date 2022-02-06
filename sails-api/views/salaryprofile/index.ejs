@@ -1,0 +1,87 @@
+<h1>salaryprofile</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 salaryprofile
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>overtimeRate</th>
+			<th>profileType</th>
+			<th>providentFund</th>
+			<th>taxRate</th>
+			<th>salaryProfileID</th>
+			<th>employeeID</th>
+			<th>hourlyRate</th>
+			<th>commissionRate</th>
+			<th>paymentType</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.overtimeRate %>
+					</td>
+					<td>
+						<%= item.profileType %>
+					</td>
+					<td>
+						<%= item.providentFund %>
+					</td>
+					<td>
+						<%= item.taxRate %>
+					</td>
+					<td>
+						<%= item.salaryProfileID %>
+					</td>
+					<td>
+						<%= item.employeeID %>
+					</td>
+					<td>
+						<%= item.hourlyRate %>
+					</td>
+					<td>
+						<%= item.commissionRate %>
+					</td>
+					<td>
+						<%= item.paymentType %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/salaryprofile/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/salaryprofile/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/salaryprofile/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/salaryprofile/create">New</a>

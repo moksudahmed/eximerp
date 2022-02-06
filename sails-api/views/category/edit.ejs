@@ -1,0 +1,32 @@
+<div class="">
+  <h1>New category</h1>
+
+  <div class="body">
+    <form class="" action="/category/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">categoryName</label>
+          <input type="text" name="categoryName" value="<%= element.categoryName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">description</label>
+          <input type="text" name="description" value="<%= element.description %>" required="true">
+        </div>
+        <div class="">
+          <label for="">level</label>
+          <input type="number" name="level" value="<%= element.level %>" required="true">
+        </div>
+        <div class="">
+          <label for="">hasSubCategory</label>
+          <input type="checkbox" name="hasSubCategory" value="<%= element.hasSubCategory %>" required="true">
+        </div>
+        <div class="">
+          <label for="">categoryID</label>
+          <input type="number" name="categoryID" value="<%= element.categoryID %>" required="false">
+        </div>
+      <button type="submit">Update category</button>
+    </form>
+    <br />
+    <a href="/category">Index</a>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="">
+  <h1>New journal</h1>
+
+  <div class="body">
+    <form class="" action="/journal/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">amount</label>
+          <input type="number" name="amount" value="<%= element.amount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">debitCredit</label>
+          <input type="text" name="debitCredit" value="<%= element.debitCredit %>" required="true">
+        </div>
+        <div class="">
+          <label for="">invoiceNo</label>
+          <input type="text" name="invoiceNo" value="<%= element.invoiceNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">journalID</label>
+          <input type="number" name="journalID" value="<%= element.journalID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">chartOfAccountID</label>
+          <input type="number" name="chartOfAccountID" value="<%= element.chartOfAccountID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">subSidiaryAccountID</label>
+          <input type="number" name="subSidiaryAccountID" value="<%= element.subSidiaryAccountID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">transactionID</label>
+          <input type="number" name="transactionID" value="<%= element.transactionID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">particulars</label>
+          <input type="text" name="particulars" value="<%= element.particulars %>" required="true">
+        </div>
+      <button type="submit">Update journal</button>
+    </form>
+    <br />
+    <a href="/journal">Index</a>
+  </div>
+</div>

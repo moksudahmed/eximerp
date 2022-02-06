@@ -1,0 +1,87 @@
+<h1>billofentry</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 billofentry
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>date</th>
+			<th>quantity</th>
+			<th>registrationNo</th>
+			<th>itemInvoiceValue</th>
+			<th>totalTaxAmount</th>
+			<th>totalAccessableValue</th>
+			<th>billOfEntryID</th>
+			<th>letterCreditID</th>
+			<th>cNFAgentID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.quantity %>
+					</td>
+					<td>
+						<%= item.registrationNo %>
+					</td>
+					<td>
+						<%= item.itemInvoiceValue %>
+					</td>
+					<td>
+						<%= item.totalTaxAmount %>
+					</td>
+					<td>
+						<%= item.totalAccessableValue %>
+					</td>
+					<td>
+						<%= item.billOfEntryID %>
+					</td>
+					<td>
+						<%= item.letterCreditID %>
+					</td>
+					<td>
+						<%= item.cNFAgentID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/billofentry/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/billofentry/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/billofentry/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/billofentry/create">New</a>

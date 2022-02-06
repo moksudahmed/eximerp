@@ -1,0 +1,48 @@
+<div class="">
+  <h1>New wages</h1>
+
+  <div class="body">
+    <form class="" action="/wages/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">grossIncome</label>
+          <input type="number" name="grossIncome" value="<%= element.grossIncome %>" required="true">
+        </div>
+        <div class="">
+          <label for="">netIncome</label>
+          <input type="number" name="netIncome" value="<%= element.netIncome %>" required="true">
+        </div>
+        <div class="">
+          <label for="">overtime</label>
+          <input type="number" name="overtime" value="<%= element.overtime %>" required="true">
+        </div>
+        <div class="">
+          <label for="">status</label>
+          <input type="text" name="status" value="<%= element.status %>" required="true">
+        </div>
+        <div class="">
+          <label for="">totalCommission</label>
+          <input type="number" name="totalCommission" value="<%= element.totalCommission %>" required="true">
+        </div>
+        <div class="">
+          <label for="">totalHour</label>
+          <input type="number" name="totalHour" value="<%= element.totalHour %>" required="true">
+        </div>
+        <div class="">
+          <label for="">wagesID</label>
+          <input type="number" name="wagesID" value="<%= element.wagesID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">payrollID</label>
+          <input type="number" name="payrollID" value="<%= element.payrollID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">salaryProfileID</label>
+          <input type="number" name="salaryProfileID" value="<%= element.salaryProfileID %>" required="false">
+        </div>
+      <button type="submit">Update wages</button>
+    </form>
+    <br />
+    <a href="/wages">Index</a>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="">
+  <h1>New stocklevel</h1>
+
+  <div class="body">
+    <form class="" action="/stocklevel/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">stockTrackingDate</label>
+          <input type="date" name="stockTrackingDate" value="<%= element.stockTrackingDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">quantityInStock</label>
+          <input type="number" name="quantityInStock" value="<%= element.quantityInStock %>" required="true">
+        </div>
+        <div class="">
+          <label for="">stockLevelID</label>
+          <input type="number" name="stockLevelID" value="<%= element.stockLevelID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">itemID</label>
+          <input type="number" name="itemID" value="<%= element.itemID %>" required="false">
+        </div>
+      <button type="submit">Update stocklevel</button>
+    </form>
+    <br />
+    <a href="/stocklevel">Index</a>
+  </div>
+</div>

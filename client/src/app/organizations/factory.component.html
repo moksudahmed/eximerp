@@ -1,0 +1,77 @@
+
+<div class="card">
+  <div class="card-header">
+    <strong>New</strong>
+    <small>Factory</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onFormSubmit(factoryForm)" 
+      #factoryForm="ngForm">  
+          
+            
+            <div class="form-group row">
+              <label class="col-sm-3 form-control-label" for="select">Select Organization</label>
+              <div class="col-sm-6">
+                  <select [(ngModel)]="factory.organizationID" name="organizationID" class="form-control input-lg" size="1"
+                  #branchSelect (change)='onOptionsSelected(branchSelect.value)'>          
+                      <option *ngFor="let a of _organization" [value]="a.organizationID">
+                          {{a.organizationName}}
+                      </option>
+                  </select>     
+              </div>
+            </div>
+
+         <!--   <div class="form-group row">
+              <label class="col-sm-3 form-control-label" for="select">Select Branch</label>
+              <div class="col-sm-6">
+                  <select [(ngModel)]="factory.branchID" name="branchID" class="form-control input-lg" size="1">          
+                      <option *ngFor="let a of branch" [value]="a.branchID">
+                          {{a.branchName}}
+                      </option>
+                  </select>     
+              </div>
+            </div>-->
+
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Factory Name</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.factoryName" type="text" name="factoryName" class="form-control" 
+                        id="factoryName" placeholder="Factory Name" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Address</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.factoryAddress" type="textarea" name="factoryAddress" class="form-control" 
+                    id="factoryAddress" placeholder="Factory Address" required>     
+                </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Contact No</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.contactNo" type="text" name="contactNo" class="form-control" 
+                        id="contactNo" placeholder="contactNoe" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Email</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.emailAddress" type="text" name="emailAddresse" class="form-control" 
+                        id="emailAddress" placeholder="emailAddress" required>                                              
+                      </div>
+              </div>
+             
+            
+            
+  </form>
+  </div>
+  <div class="card-footer">
+      <button (click)="onFormSubmit(factoryForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>

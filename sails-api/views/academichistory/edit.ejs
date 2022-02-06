@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New academichistory</h1>
+
+  <div class="body">
+    <form class="" action="/academichistory/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">degreeName</label>
+          <input type="text" name="degreeName" value="<%= element.degreeName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">institutionName</label>
+          <input type="text" name="institutionName" value="<%= element.institutionName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">awardingBody</label>
+          <input type="text" name="awardingBody" value="<%= element.awardingBody %>" required="true">
+        </div>
+        <div class="">
+          <label for="">passingYear</label>
+          <input type="number" name="passingYear" value="<%= element.passingYear %>" required="true">
+        </div>
+        <div class="">
+          <label for="">result</label>
+          <input type="text" name="result" value="<%= element.result %>" required="true">
+        </div>
+        <div class="">
+          <label for="">academicHistoryID</label>
+          <input type="number" name="academicHistoryID" value="<%= element.academicHistoryID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">personID</label>
+          <input type="number" name="personID" value="<%= element.personID %>" required="true">
+        </div>
+      <button type="submit">Update academichistory</button>
+    </form>
+    <br />
+    <a href="/academichistory">Index</a>
+  </div>
+</div>

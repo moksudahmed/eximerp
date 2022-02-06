@@ -1,0 +1,77 @@
+
+<div class="card">
+  <div class="card-header">
+    <strong>New</strong>
+    <small>Department</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onFormSubmit(clientForm)" 
+      #clientForm="ngForm">  
+          
+              <div class="form-group row">
+                <label class="col-sm-3 form-control-label" for="select">Select Organization</label>
+                <div class="col-sm-6">
+                    <select [(ngModel)]="model.organizationID" name="organizationID" class="form-control input-lg" size="1"
+                    #branchSelect (change)='onOptionsSelected(branchSelect.value)'>          
+                        <option *ngFor="let a of _organization" [value]="a.organizationID">
+                            {{a.organizationName}}
+                        </option>
+                    </select>     
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 form-control-label" for="select">Select Branch</label>
+                <div class="col-sm-6">
+                    <select [(ngModel)]="model.branchID" name="branchID" class="form-control input-lg" size="1">          
+                        <option *ngFor="let a of branch" [value]="a.branchID">
+                            {{a.branchName}}
+                        </option>
+                    </select>     
+                </div>
+              </div>
+  
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Name of the Department</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="model.departmentName" type="text" name="departmentName" class="form-control" 
+                        id="departmentName" placeholder="Department Name" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Address</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="model.location" type="textarea" name="address" class="form-control" 
+                    id="address" placeholder="Address" required>     
+                </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Contact No</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="model.contactNo" type="text" name="contactNo" class="form-control" 
+                        id="contactNo" placeholder="contactNoe" required>                                              
+                      </div>
+               
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Email Address</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="model.emailAddress" type="text" name="emailAddress" class="form-control" 
+                        id="emailAddress" placeholder="emailAddress" required>                                              
+                      </div>
+               
+              </div>
+              
+              
+  </form>
+  </div>
+  <div class="card-footer">
+      <button (click)="onFormSubmit(clientForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>

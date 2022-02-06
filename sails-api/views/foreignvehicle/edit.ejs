@@ -1,0 +1,28 @@
+<div class="">
+  <h1>New foreignvehicle</h1>
+
+  <div class="body">
+    <form class="" action="/foreignvehicle/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">nationality</label>
+          <input type="text" name="nationality" value="<%= element.nationality %>" required="true">
+        </div>
+        <div class="">
+          <label for="">passportNo</label>
+          <input type="text" name="passportNo" value="<%= element.passportNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">foreignVehicleID</label>
+          <input type="number" name="foreignVehicleID" value="<%= element.foreignVehicleID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">foreignShipmentID</label>
+          <input type="number" name="foreignShipmentID" value="<%= element.foreignShipmentID %>" required="true">
+        </div>
+      <button type="submit">Update foreignvehicle</button>
+    </form>
+    <br />
+    <a href="/foreignvehicle">Index</a>
+  </div>
+</div>

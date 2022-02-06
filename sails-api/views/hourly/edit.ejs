@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New hourly</h1>
+
+  <div class="body">
+    <form class="" action="/hourly/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">hourlyWages</label>
+          <input type="number" name="hourlyWages" value="<%= element.hourlyWages %>" required="true">
+        </div>
+        <div class="">
+          <label for="">hourlyID</label>
+          <input type="number" name="hourlyID" value="<%= element.hourlyID %>" required="false">
+        </div>
+      <button type="submit">Update hourly</button>
+    </form>
+    <br />
+    <a href="/hourly">Index</a>
+  </div>
+</div>

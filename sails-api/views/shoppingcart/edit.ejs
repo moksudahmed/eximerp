@@ -1,0 +1,32 @@
+<div class="">
+  <h1>New shoppingcart</h1>
+
+  <div class="body">
+    <form class="" action="/shoppingcart/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">itemId</label>
+          <input type="number" name="itemId" value="<%= element.itemId %>" required="true">
+        </div>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="true">
+        </div>
+        <div class="">
+          <label for="">quantity</label>
+          <input type="number" name="quantity" value="<%= element.quantity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">shoppingCartID</label>
+          <input type="number" name="shoppingCartID" value="<%= element.shoppingCartID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">clientAccountID</label>
+          <input type="number" name="clientAccountID" value="<%= element.clientAccountID %>" required="true">
+        </div>
+      <button type="submit">Update shoppingcart</button>
+    </form>
+    <br />
+    <a href="/shoppingcart">Index</a>
+  </div>
+</div>

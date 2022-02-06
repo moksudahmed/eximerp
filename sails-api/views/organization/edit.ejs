@@ -1,0 +1,52 @@
+<div class="">
+  <h1>New organization</h1>
+
+  <div class="body">
+    <form class="" action="/organization/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">organizationName</label>
+          <input type="text" name="organizationName" value="<%= element.organizationName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">address</label>
+          <input type="text" name="address" value="<%= element.address %>" required="true">
+        </div>
+        <div class="">
+          <label for="">city</label>
+          <input type="text" name="city" value="<%= element.city %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactNo</label>
+          <input type="text" name="contactNo" value="<%= element.contactNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">emailAddress</label>
+          <input type="text" name="emailAddress" value="<%= element.emailAddress %>" required="true">
+        </div>
+        <div class="">
+          <label for="">logo</label>
+          <input type="text" name="logo" value="<%= element.logo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">country</label>
+          <input type="text" name="country" value="<%= element.country %>" required="true">
+        </div>
+        <div class="">
+          <label for="">createdAt</label>
+          <input type="" name="createdAt" value="<%= element.createdAt %>" required="true">
+        </div>
+        <div class="">
+          <label for="">updatedAt</label>
+          <input type="" name="updatedAt" value="<%= element.updatedAt %>" required="true">
+        </div>
+      <button type="submit">Update organization</button>
+    </form>
+    <br />
+    <a href="/organization">Index</a>
+  </div>
+</div>

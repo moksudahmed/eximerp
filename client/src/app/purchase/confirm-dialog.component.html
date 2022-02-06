@@ -1,0 +1,88 @@
+<div class="modal-body">
+		<div class="card">
+				<div class="card-header">
+				  <strong>Witness</strong>
+				  <small>Record</small>
+					<button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+							<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="card-body">
+						<div class="row">
+								<div class="form-group col-sm-6">   
+										<label for="dateOfBirth">Title</label>
+					 
+												<input type="text" [(ngModel)] = "model.title" class="form-control" id="title" placeholder="Title">
+											</div>
+											  
+								</div>
+								<div class="row">
+
+								<div class="form-group col-sm-6">   
+										<label for="dateOfBirth">First Name</label>
+					 				
+												<input type="text" class="form-control" [(ngModel)] = "model.firstName" id="firstName" placeholder="First Name">
+												
+													
+									</div>
+									<div class="form-group col-sm-6">   
+											<label for="dateOfBirth">Last Name</label>
+					 				
+										<input type="text" class="form-control" [(ngModel)] = "model.lastName" id="lastName" placeholder="Last Name">
+									
+										</div>
+					</div>
+				  
+				  <div class="row">
+					<div class="form-group col-sm-12">
+					  <label for="dateOfBirth">Date Of Birth</label>
+					  <input type="date" class="form-control" [(ngModel)] = "model.dateOfBirth" id="dateOfBirth" placeholder="Enter your Date Of Birth">
+					</div>
+					
+					</div><!--/.row-->
+					<div class="row">
+							<div class="form-group col-sm-3">   											
+									<label class="form-control-label">Gender</label>                          
+							</div>
+									<div class="form-group col-sm-9">   											
+							
+									<div class="input-group">                               
+										<label class="radio-inline" for="inline-radio2">Male</label>                            
+										<input [(ngModel)] = "model.gender" type="radio" id="inline-radio1" name="inline-radios" value="male">                            
+									
+										<label class="radio-inline" for="inline-radio2">Female</label>
+										<input [(ngModel)] = "model.gender" type="radio" id="inline-radio2" name="inline-radios" value="female">										
+									</div>
+					</div>
+					</div>
+					<div class="row">
+							<div class="form-group col-sm-6">   											
+									<label for="dateOfBirth">Marital Status</label>					 		
+								<input type="text" class="form-control" [(ngModel)] = "model.maritalStatus" id="maritalStatus" placeholder="Marital Status">
+						</div>
+					</div>
+					<div class="row">
+					<div class="form-group col-sm-6">   						
+ 				  <label for="dateOfBirth">Email Address</label>
+					<input type="text" class="form-control" [(ngModel)] = "model.emailAddress" id="emailAddress" placeholder="Email Address">
+				  </div>
+				  <div class="form-group col-sm-6">   						
+							<label for="dateOfBirth">Mobile No</label>
+					
+						  <input type="text" class="form-control" [(ngModel)] = "model.mobileNo" id="mobileNo" placeholder="Mobile No">
+					</div>
+				</div>
+				
+				
+				<div class="card-footer">
+					
+						<ng-container *ngIf="options.length">
+								<button type="button"  class="btn btn-sm btn-primary" (click)="respond()">Save</button>
+								<button type="button" class="btn btn-sm btn-danger" (click)="onCancel()">Cancel</button>
+							</ng-container>
+						
+				</div>
+			  
+			  </div>  
+	
+</div>

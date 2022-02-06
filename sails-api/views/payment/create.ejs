@@ -1,0 +1,36 @@
+<div class="">
+	<h1>New payment</h1>
+	<h5>By sails-inverse-model</h5>
+
+	<div class="body">
+		<form class="" action="/payment/create" method="post">
+				<div class="">
+					<label for="">amount</label>
+					<input type="number" name="amount" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">paymentDate</label>
+					<input type="date" name="paymentDate" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">paymentType</label>
+					<input type="text" name="paymentType" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">status</label>
+					<input type="text" name="status" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">paymentID</label>
+					<input type="number" name="paymentID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">clientAccountID</label>
+					<input type="number" name="clientAccountID" value="" required="false">
+				</div>
+			<button type="submit">Save payment</button>
+		</form>
+		<br />
+		<a href="/payment">Index</a>
+	</div>
+</div>

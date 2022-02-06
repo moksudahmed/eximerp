@@ -1,0 +1,226 @@
+<div class="modal-body">
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<div class="card">
+    <div class="card-header">
+      <strong>Letter Credit</strong>
+      <small>Form</small>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="card-body">
+         
+          <!--<div class="form-group">
+                <label for="name">Department ID</label>
+                <input [(ngModel)]="model.departmentID" type="number" name="departmentID" class="form-control" id="departmentID" placeholder="Department ID">                        
+            </div>-->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="inputdate">Date</label>
+                        <input type="date" class="form-control"
+                          [(ngModel)] = "model.date"
+                          id="inputdate"
+                          name="date"
+                          placeholder="Date">
+                      </div>      
+                      
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="form-group">
+                          <label for="inputdate">LC Date</label>
+                          <input type="date" class="form-control"
+                            [(ngModel)] = "model.LCDate"
+                            id="inputdate"
+                            name="LCDate"
+                            placeholder="LC Date">
+                        </div>     
+                    </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="inputdate">LCAF Date</label>
+                        <input type="date" class="form-control"
+                          [(ngModel)] = "model.LCAFDate"
+                          id="inputdate"
+                          name="LCAFDate"
+                          placeholder="LCAF Date">
+                      </div>     
+              </div>
+             
+                
+              </div>     
+          <div class="row">
+            <div class="col-sm-6">     
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control"
+                      [(ngModel)] = "model.LCNo"
+                      id="inputdate"
+                      name="LC No"
+                      placeholder="LCNo">
+                  </div>
+            
+            </div>
+            <div class="col-sm-6">     
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control"
+                      [(ngModel)] = "model.HSCode"
+                      id="inputdate"
+                      name="HSCode"
+                      value="{{model.HSCode}}"
+                      placeholder="HS Code">
+                  </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-6">     
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control"
+                      [(ngModel)] = "model.IRCERCNo"
+                      id="inputdate"
+                      name="IRCERCNo"
+                      placeholder="IRCERC No">
+                  </div>
+            </div>
+            <div class="col-sm-6">     
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control"
+                      [(ngModel)] = "model.LCAFNo"
+                      id="inputdate"
+                      name="LCAFNo"
+                      placeholder="LCAF No">
+                  </div>    
+              </div>
+            </div>    
+              
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "model.nameOfCarrier"
+                          id="inputdate"
+                          name="nameOfCarrier"
+                          placeholder="Name Of Carrier">
+                      </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "model.nationality"
+                          id="inputdate"
+                          name="nationality"
+                          placeholder="Nationality">
+                      </div>
+                 </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "model.placeOfLoading"
+                          id="inputdate"
+                          name="placeOfLoading"
+                          placeholder="Place Of Loading">
+                      </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "model.placeOfUnloading"
+                          id="inputdate"
+                          name="placeOfUnloading"
+                          placeholder="Place Of Unloading">
+                      </div>
+                </div>
+                
+           </div>  
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "model.recevingBank"
+                          id="inputdate"
+                          name="recevingBank"
+                          placeholder="Receving Bank">
+                      </div>
+   
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                      <div class="form-group">
+                        
+                          <input type="text" class="form-control"
+                            [(ngModel)] = "model.vatRegistrationNo"
+                            id="inputdate"
+                            name="vatRegistrationNo"
+                            placeholder="VAT Registration No">
+                        </div>
+  
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control"
+                          [(ngModel)] = "model.insuranceCoverNoteNo"
+                          id="inputdate"
+                          name="insuranceCoverNoteNo"
+                          placeholder="Insurance Cover Note No">
+                      </div> 
+           
+                  </div>
+            </div>          
+           
+                 <div class="row">
+                 <div class="col-sm-6">
+                    <div class="form-group">
+                        
+                        <select class="form-control" id="select"
+                        [(ngModel)] = "model.insuranceID" type ="number" name = "name">    
+                        <option [ngValue]="undefined" disabled selected>Insurance ID</option>                          
+                        <option *ngFor="let i of insuranceAcc | async" [value]="i.clientID">
+                        {{i.clientID}}
+                    </option>
+                    </select>  
+                    </div>
+                   
+                  </div>
+                  <div class="col-sm-6">
+
+            <div class="form-group">
+                
+                <select class="form-control" id="select"
+                [(ngModel)] = "model.subSidiaryAccountID" type ="number" name = "name">    
+                    <option [ngValue]="undefined" disabled selected>Sub Sidiary AccountID</option>                          
+                    <option *ngFor="let a of subAccount | async" [value]="a.subSidiaryAccountID">
+                    {{a.subSidiaryAccountID}}
+                    </option>
+                </select>  
+            </div>
+          
+                </div>
+                 </div> 
+             
+    </div>
+    <div class="card-footer">   
+        <ng-container *ngIf="options.length">
+            <button type="button"  class="btn btn-sm btn-primary" (click)="respond()">Save</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="onCancel()">Cancel</button>
+          </ng-container>      
+    </div>
+  </div>
+  
+</div>

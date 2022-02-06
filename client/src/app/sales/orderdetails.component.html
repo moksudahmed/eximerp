@@ -1,0 +1,41 @@
+<button
+(click)="download()">download
+</button>
+  <div id="print-section">
+  // your html stuff that you want to print this is first section
+
+</div>
+<button (click)="print()">print</button>
+<div class ="panel panel-default" *ngIf=order>
+  <div class="row">  
+  <div class="form-group col-sm-2">  
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">ID</span>
+       <input type="text" class="form-control" value ={{order.customerOrderID}} aria-describedby="basic-addon1">
+      </div>
+  </div>
+    
+ <div class="form-group col-sm-2">  
+  <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Title</span>
+      <input type="text" class="form-control" value ={{order.status}} aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="form-group col-sm-4">  
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">First Name</span>
+        <input type="text" class="form-control" value ={{order.discount}} aria-describedby="basic-addon1">
+      </div>
+  </div>
+  <div class="form-group col-sm-4">  
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">First Name</span>
+        <input type="text" class="form-control" value ={{order.orderTotal}} aria-describedby="basic-addon1">
+      </div>
+  </div>
+  
+  </div>
+<a class ="btn btn-info" (click)="goBack()">Cancel</a>
+
+</div>
+

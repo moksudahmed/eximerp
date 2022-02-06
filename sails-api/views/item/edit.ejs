@@ -1,0 +1,68 @@
+<div class="">
+  <h1>New item</h1>
+
+  <div class="body">
+    <form class="" action="/item/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">barcode</label>
+          <input type="text" name="barcode" value="<%= element.barcode %>" required="true">
+        </div>
+        <div class="">
+          <label for="">description</label>
+          <input type="text" name="description" value="<%= element.description %>" required="true">
+        </div>
+        <div class="">
+          <label for="">discount</label>
+          <input type="number" name="discount" value="<%= element.discount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">images</label>
+          <input type="text" name="images" value="<%= element.images %>" required="true">
+        </div>
+        <div class="">
+          <label for="">itemType</label>
+          <input type="text" name="itemType" value="<%= element.itemType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">maxOrderQuantity</label>
+          <input type="number" name="maxOrderQuantity" value="<%= element.maxOrderQuantity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="false">
+        </div>
+        <div class="">
+          <label for="">qrCode</label>
+          <input type="text" name="qrCode" value="<%= element.qrCode %>" required="true">
+        </div>
+        <div class="">
+          <label for="">salePrice</label>
+          <input type="number" name="salePrice" value="<%= element.salePrice %>" required="true">
+        </div>
+        <div class="">
+          <label for="">unitPrice</label>
+          <input type="number" name="unitPrice" value="<%= element.unitPrice %>" required="true">
+        </div>
+        <div class="">
+          <label for="">publish</label>
+          <input type="checkbox" name="publish" value="<%= element.publish %>" required="true">
+        </div>
+        <div class="">
+          <label for="">categoryID</label>
+          <input type="number" name="categoryID" value="<%= element.categoryID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">itemID</label>
+          <input type="number" name="itemID" value="<%= element.itemID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">sku</label>
+          <input type="text" name="sku" value="<%= element.sku %>" required="true">
+        </div>
+      <button type="submit">Update item</button>
+    </form>
+    <br />
+    <a href="/item">Index</a>
+  </div>
+</div>

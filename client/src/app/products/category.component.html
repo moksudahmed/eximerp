@@ -1,0 +1,74 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <!--/.col-->
+    <div class="col-sm-6">
+   
+      <div class="card">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(accountsForm)" 
+        #accountsForm="ngForm">       
+      <div class="card-header">
+        <strong>Category</strong>
+        <small>Create</small>
+      </div>
+      <div class="card-block"> 
+    
+      <label for="inputdesription">Category Name</label>  
+      <input [(ngModel)]="category.categoryName" type="text" name="categoryName" class="form-control" id="categoryName" placeholder="Category Name">                        
+      <label for="inputdesription">Description</label>        
+      <input [(ngModel)]="category.description" type="text" name="description" class="form-control "  id="barcode" placeholder="Description">                
+      <label for="inputdesription">Level</label>
+      <textarea [(ngModel)]="category.level" type="textarea" name="level" class="form-control" id="level" placeholder="Level"></textarea>
+      <label for="inputdesription">Has Sub Category</label>
+      <input [(ngModel)]="category.hasSubCategory" type="text" name="hasSubCategory" class="form-control"id="hasSubCategory" placeholder="Has Sub Category">                
+           
+      </div>
+  
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+      </div>
+    </form>
+</div>
+</div>
+<div class="col-sm-6">
+  
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Category
+      </div>
+      <div class="card-block">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Category</th>        
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let c of categories">
+              <td>{{c.categoryName}}</td>
+                  
+              <td>               
+                  <a button type="button" class="btn btn-success btn-sm" ><i class="icon-pencil"></i></a>
+                 <a button type="button" class="btn btn-danger btn-sm" ><i class="icon-trash"></i></a>
+              </td>                
+            </tr>              
+         
+          </tbody>
+        </table>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </div>
+    </div>   
+</div>
+
+

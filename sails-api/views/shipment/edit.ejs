@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New shipment</h1>
+
+  <div class="body">
+    <form class="" action="/shipment/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">destination</label>
+          <input type="text" name="destination" value="<%= element.destination %>" required="true">
+        </div>
+        <div class="">
+          <label for="">purcheaseOrderInfo</label>
+          <input type="text" name="purcheaseOrderInfo" value="<%= element.purcheaseOrderInfo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">source</label>
+          <input type="text" name="source" value="<%= element.source %>" required="true">
+        </div>
+        <div class="">
+          <label for="">transportationMethod</label>
+          <input type="text" name="transportationMethod" value="<%= element.transportationMethod %>" required="true">
+        </div>
+        <div class="">
+          <label for="">shipmentID</label>
+          <input type="number" name="shipmentID" value="<%= element.shipmentID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">purchaseOrderID</label>
+          <input type="number" name="purchaseOrderID" value="<%= element.purchaseOrderID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">warehouseID</label>
+          <input type="number" name="warehouseID" value="<%= element.warehouseID %>" required="true">
+        </div>
+      <button type="submit">Update shipment</button>
+    </form>
+    <br />
+    <a href="/shipment">Index</a>
+  </div>
+</div>

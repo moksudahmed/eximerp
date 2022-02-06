@@ -1,0 +1,71 @@
+<h1>category</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 category
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>categoryName</th>
+			<th>description</th>
+			<th>level</th>
+			<th>hasSubCategory</th>
+			<th>categoryID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.categoryName %>
+					</td>
+					<td>
+						<%= item.description %>
+					</td>
+					<td>
+						<%= item.level %>
+					</td>
+					<td>
+						<%= item.hasSubCategory %>
+					</td>
+					<td>
+						<%= item.categoryID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/category/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/category/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/category/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/category/create">New</a>

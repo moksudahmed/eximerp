@@ -1,0 +1,56 @@
+<div class="">
+  <h1>New vwCorporateSupplier</h1>
+
+  <div class="body">
+    <form class="" action="/vwCorporateSupplier/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">supplierID</label>
+          <input type="number" name="supplierID" value="<%= element.supplierID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">departmentID</label>
+          <input type="number" name="departmentID" value="<%= element.departmentID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">subSidiaryAccountID</label>
+          <input type="number" name="subSidiaryAccountID" value="<%= element.subSidiaryAccountID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">type</label>
+          <input type="text" name="type" value="<%= element.type %>" required="true">
+        </div>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">companyName</label>
+          <input type="text" name="companyName" value="<%= element.companyName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactPersonName</label>
+          <input type="text" name="contactPersonName" value="<%= element.contactPersonName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">designation</label>
+          <input type="text" name="designation" value="<%= element.designation %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactNo</label>
+          <input type="text" name="contactNo" value="<%= element.contactNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">emailAddress</label>
+          <input type="text" name="emailAddress" value="<%= element.emailAddress %>" required="true">
+        </div>
+        <div class="">
+          <label for="">website</label>
+          <input type="text" name="website" value="<%= element.website %>" required="true">
+        </div>
+      <button type="submit">Update vwCorporateSupplier</button>
+    </form>
+    <br />
+    <a href="/vwCorporateSupplier">Index</a>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<h1>chartofaccount</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 chartofaccount
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>categoryType</th>
+			<th>accountName</th>
+			<th>desription</th>
+			<th>underCategory</th>
+			<th>natureType</th>
+			<th>chartOfAccountID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.categoryType %>
+					</td>
+					<td>
+						<%= item.accountName %>
+					</td>
+					<td>
+						<%= item.desription %>
+					</td>
+					<td>
+						<%= item.underCategory %>
+					</td>
+					<td>
+						<%= item.natureType %>
+					</td>
+					<td>
+						<%= item.chartOfAccountID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/chartofaccount/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/chartofaccount/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/chartofaccount/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/chartofaccount/create">New</a>

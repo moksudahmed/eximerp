@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New vwAccounts</h1>
+
+  <div class="body">
+    <form class="" action="/vwAccounts/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">accountName</label>
+          <input type="text" name="accountName" value="<%= element.accountName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">categoryType</label>
+          <input type="text" name="categoryType" value="<%= element.categoryType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">desription</label>
+          <input type="text" name="desription" value="<%= element.desription %>" required="true">
+        </div>
+        <div class="">
+          <label for="">underCategory</label>
+          <input type="text" name="underCategory" value="<%= element.underCategory %>" required="true">
+        </div>
+        <div class="">
+          <label for="">natureType</label>
+          <input type="text" name="natureType" value="<%= element.natureType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">balance</label>
+          <input type="number" name="balance" value="<%= element.balance %>" required="true">
+        </div>
+      <button type="submit">Update vwAccounts</button>
+    </form>
+    <br />
+    <a href="/vwAccounts">Index</a>
+  </div>
+</div>

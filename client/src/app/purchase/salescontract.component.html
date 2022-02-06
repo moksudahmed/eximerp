@@ -1,0 +1,283 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<div class="card">
+    <div class="card-header">
+      <strong>Sales Contract</strong>
+      <small>Form</small>
+    </div>
+    <div class="card-body">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(salesContractForm)" 
+        #salesContractForm="ngForm">  
+          <!--<div class="form-group">
+                <label for="name">Department ID</label>
+                <input [(ngModel)]="model.departmentID" type="number" name="departmentID" class="form-control" id="departmentID" placeholder="Department ID">                        
+            </div>-->        
+         
+         <!--  <div class="form-group">
+              <label for="inputdate">import</label>
+              <input type="text" class="form-control"
+                [(ngModel)] = "model.import"
+                id="inputdate"
+                name="import"
+                placeholder="import">
+            </div>  -->
+           <!-- <div class="row">
+                  <div class="form-group col-sm-6">     
+                             <label for="inputdate">Supplier ID</label>
+                            <div class="input-group">
+                                  <select class="form-control" id="select"
+                                  [(ngModel)] = "model.internationalID" name = "name" type="number">    
+                                  <option [ngValue]="undefined" disabled selected>Choose Supplier</option>                          
+                                  <option *ngFor="let s of supplier" [value]="s.supplierID"
+                                  [class.selected]="s === selectedSupplier"
+                                  (click)="onSelect(s)">
+                                  {{s.supplierID}}                                    
+                                  </option>
+                                  </select>
+                          
+                      </div>                          
+                </div> 
+                          <div class="col-md-6">
+                                  <div class="card text-white bg-primary text-center">
+                                    <div class="card-body">
+                                      <blockquote class="card-bodyquote">
+                                         <app-supplierdetails [s]="selectedSupplier"></app-supplierdetails> 
+                                      </blockquote>
+                                    </div>
+                                  </div>   
+                      </div> 
+            
+              </div> -->
+          
+            <div class="row">
+             <div class="form-group col-sm-6">
+               
+                      <label for="inputdate">Payment Terms</label>
+                      <select class="form-control" id="select"
+                          [(ngModel)] = "model.paymentTerms" name = "name">    
+                          <option [ngValue]="undefined" disabled selected>Choose Terms</option>                          
+                          <option *ngFor="let t of terms" [value]="t.name">
+                                  {{t.name}}
+                                  
+                              </option>
+                              </select>                    
+                 
+              </div>
+              <div class="form-group col-sm-6">
+                    <label for="inputdate">Bank Name</label>
+                    <input type="text" class="form-control"
+                     [(ngModel)] = "model.bankName"
+                     id="inputdate"
+                     name="bankName"
+                     width="500 px"
+                     placeholder="bankName">
+                      
+              </div>
+              </div>
+
+            <div class="row">
+                    <div class="form-group col-sm-4">                      
+                            <label for="inputdate">Contract No</label>
+                              <input type="text" class="form-control"
+                              [(ngModel)] = "model.contractNo"
+                              id="inputdate"
+                              name="contractNo"
+                              placeholder="contractNo">
+                    
+              </div>
+            </div>
+            
+            <div class="row">
+                  <div class="col-sm-4">                   
+                          <div class="form-group">
+                                  <label for="inputdate">Date</label>
+                                  <input type="date" class="form-control"
+                                    [(ngModel)] = "model.date"
+                                    id="inputdate"
+                                    name="Date"
+                                    placeholder="Date">
+                                </div>
+                  </div>
+                  <div class="col-sm-4">                   
+                          <div class="form-group">
+                                  <label for="inputdate">Delivery Period From</label>
+                                  <input type="date" class="form-control"
+                                    [(ngModel)] = "model.deliveryPeriodFrom"
+                                    id="inputdate"
+                                    name="deliveryPeriodFrom"
+                                    placeholder="Delivery Period From">
+                                </div>
+                  </div>
+                  <div class="col-sm-4">                   
+                          <div class="form-group">
+                                  <label for="inputdate">Delivery Period To</label>
+                                  <input type="date" class="form-control"
+                                    [(ngModel)] = "model.deliveryPeriodTo"
+                                    id="inputdate"
+                                    name="deliveryPeriodTo"
+                                    placeholder="Delivery Period To">
+                                </div>
+                  </div>
+            </div>
+            
+            
+  
+            <div class="row">
+                  <div class="col-sm-4">
+                          <div class="form-group">
+                                  <label for="inputdate">IEC No</label>
+                                  <input type="text" class="form-control"
+                                    [(ngModel)] = "model.iECNo"
+                                    id="inputdate"
+                                    name="iECNo"
+                                    placeholder="iECNo">
+                                </div> 
+                  </div>
+                  <div class="col-sm-4">
+                          <div class="form-group">
+                                  <label for="inputdate">Route</label>
+                                  <select class="form-control" id="select"
+                          [(ngModel)] = "model.route" name = "name">    
+                          <option [ngValue]="undefined" disabled selected>Choose Supplier</option>                          
+                          <option *ngFor="let r of route" [value]="r.name">
+                                  {{r.name}}
+                                  
+                              </option>
+                              </select>                                
+                                </div>  
+                  </div>
+                  <div class="col-sm-4">
+                          <div class="form-group">
+                                  <label for="inputdate">Determination Of Meserment</label>
+                                  <input type="text" class="form-control"
+                                    [(ngModel)] = "model.determinationOfMeserment"
+                                    id="inputdate"
+                                    name="determinationOfMeserment"
+                                    placeholder="determinationOfMeserment">
+                                </div> 
+                  </div>
+            </div>     
+            <div class="row">
+                  <div class="col-sm-3">
+                          <div class="form-group">
+                                  <label for="inputdate">Mode Of Transport</label>
+                                  <select class="form-control" id="select"
+                          [(ngModel)] = "model.modeOfTransport" name = "name">    
+                          <option [ngValue]="undefined" disabled selected>Choose Supplier</option>                          
+                          <option *ngFor="let t of transport" [value]="t.name">
+                                  {{t.name}}
+                                  
+                              </option>
+                              </select>
+                                  
+                                </div> 
+                  </div>
+                  <div class="col-sm-9">
+                           <div class="form-group">
+                            <label class="form-control-label">Payment Method</label>                          
+                            <div class="input-group">                               
+                              <label class="radio-inline" for="inline-radio2">Cash</label>                            
+                              <input [(ngModel)] = "model.paymentMethod" type="radio" id="inline-radio1" name="inline-radios" value="cash">                            
+                              <label class="radio-inline" for="inline-radio2">Cheque</label>
+                              <input [(ngModel)] = "model.paymentMethod" type="radio" id="inline-radio2" name="inline-radios" value="cheque">
+                              <label class="radio-inline" for="inline-radio2">Cheque & Cash</label>
+                              <input [(ngModel)] = "model.paymentMethod" type="radio" id="inline-radio2" name="inline-radios" value="cheque and cash">
+                            
+                        </div>
+                    </div>
+                  </div>
+                     
+            </div>
+            <div class="row">
+                  <div class="col-sm-6">
+                          <div class="form-group">
+                                  <label for="inputdate">Letter Credit ID</label>
+                                  <div class="input-group">
+                               
+                                  <select class="form-control" id="select"
+                                  [(ngModel)] = "model.letterCreditID" name = "name" type="number">    
+                                  <option [ngValue]="undefined" disabled selected>Choose LC</option>                          
+                                  <option *ngFor="let l of lc" [value]="l.letterCreditID">
+                                  {{l.letterCreditID}}
+                              </option>
+                              </select> 
+                                <div>
+                                        <a href="javascript:void(0);" (click)="lcconfirm()"  type="button" class="btn btn-success">+ Add LC</a>.
+                                </div>                          
+                          </div>                                                      
+                        </div>                               
+                  </div>
+                  <div class="col-sm-6" *ngIf="lcs"> 
+                        <ul class="heroes">
+                            <li >
+                              <a>
+                                <span class="badge">{{lcs.date}}</span>
+                                <span>{{lcs.LCNo}}</span>                          
+                              </a>
+                              <button class="delete" title="delete witness"
+                              (click)="deleteFieldValue(l)">x</button>
+                            </li>
+                          </ul>                                        
+                      
+                      </div>
+              </div>
+                  <div class="row">
+                  <div class="col-sm-6">    
+                          <div class="form-group">
+                                  <label for="inputdate">Witness ID</label>
+                                  <div class="input-group">
+                                             
+                                          <select class="form-control" id="select"
+                                          [(ngModel)] = "model.witnessID" name = "name" type="number">    
+                                          <option [ngValue]="undefined" disabled selected>Choose witnessID</option>                          
+                                          <option *ngFor="let w of witnesses" [value]="w.id">
+                                          {{w.id}}
+                                      </option>
+                                      </select> 
+                                      <div>
+                                              
+                                                <a href="javascript:void(0);" (click)="confirm()"  type="button" class="btn btn-success">+ Add Witness</a>.
+                                            </div>
+                                      </div>
+                               
+                                  </div>
+                                
+                  </div>
+                  <div class="col-sm-6" *ngIf="witness"> 
+                    <ul class="heroes">
+                        <li>
+                          <a>
+                            <span class="badge">{{witness.firstName}}</span>
+                            <span>{{witness.lastName}}</span>                          
+                          </a>
+                          <button class="delete" title="delete witness"
+                          (click)="deleteFieldValue(w)">x</button>
+                        </li>
+                      </ul>                                        
+                  
+                  </div>
+            </div>
+            
+           
+            
+    </form>
+   
+  </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-sm-10">
+          <button type="reset" class="btn btn-sm btn-danger" value="Back" routerLinkActive="active" [routerLink]="['/purchase/purchaseorder']"><i class="fa fa-arrow-circle-left"></i> Back</button>
+        </div>
+        <!--   <a href="javascript:void(0);" (click)="preview()"  type="button" class="btn btn-primary">Preview</a>-->
+        <div class="col-sm-2">
+            <button (click)="onFormSubmit(salesContractForm)"  type="submit" class="btn btn-sm btn-success" routerLinkActive="active" [routerLink]="['/purchase/preview']"><i class="fa fa-arrow-circle-right"></i> Continue & Preview</button>        
+        </div>
+      </div>  
+      
+  </div>
+  </div>
+  

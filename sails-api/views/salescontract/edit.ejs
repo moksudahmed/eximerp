@@ -1,0 +1,76 @@
+<div class="">
+  <h1>New salescontract</h1>
+
+  <div class="body">
+    <form class="" action="/salescontract/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">paymentTerms</label>
+          <input type="text" name="paymentTerms" value="<%= element.paymentTerms %>" required="true">
+        </div>
+        <div class="">
+          <label for="">import</label>
+          <input type="checkbox" name="import" value="<%= element.import %>" required="true">
+        </div>
+        <div class="">
+          <label for="">bankName</label>
+          <input type="text" name="bankName" value="<%= element.bankName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contractNo</label>
+          <input type="text" name="contractNo" value="<%= element.contractNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">deliveryPeriodFrom</label>
+          <input type="date" name="deliveryPeriodFrom" value="<%= element.deliveryPeriodFrom %>" required="true">
+        </div>
+        <div class="">
+          <label for="">deliveryPeriodTo</label>
+          <input type="date" name="deliveryPeriodTo" value="<%= element.deliveryPeriodTo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">iECNo</label>
+          <input type="text" name="iECNo" value="<%= element.iECNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">route</label>
+          <input type="text" name="route" value="<%= element.route %>" required="true">
+        </div>
+        <div class="">
+          <label for="">determinationOfMeserment</label>
+          <input type="text" name="determinationOfMeserment" value="<%= element.determinationOfMeserment %>" required="true">
+        </div>
+        <div class="">
+          <label for="">modeOfTransport</label>
+          <input type="text" name="modeOfTransport" value="<%= element.modeOfTransport %>" required="true">
+        </div>
+        <div class="">
+          <label for="">paymentMethod</label>
+          <input type="text" name="paymentMethod" value="<%= element.paymentMethod %>" required="true">
+        </div>
+        <div class="">
+          <label for="">salesContractID</label>
+          <input type="number" name="salesContractID" value="<%= element.salesContractID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">letterCreditID</label>
+          <input type="number" name="letterCreditID" value="<%= element.letterCreditID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">witnessID</label>
+          <input type="number" name="witnessID" value="<%= element.witnessID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">internationalID</label>
+          <input type="number" name="internationalID" value="<%= element.internationalID %>" required="true">
+        </div>
+      <button type="submit">Update salescontract</button>
+    </form>
+    <br />
+    <a href="/salescontract">Index</a>
+  </div>
+</div>

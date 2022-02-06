@@ -1,0 +1,31 @@
+<h1>Show vwALedger</h1>
+
+	<p>
+		<strong>journalID:</strong>
+		<%= element.journalID %>
+	</p>
+	<p>
+		<strong>date:</strong>
+		<%= element.date %>
+	</p>
+	<p>
+		<strong>transactionTitle:</strong>
+		<%= element.transactionTitle %>
+	</p>
+	<p>
+		<strong>accountName:</strong>
+		<%= element.accountName %>
+	</p>
+	<p>
+		<strong>debitCredit:</strong>
+		<%= element.debitCredit %>
+	</p>
+	<p>
+		<strong>amount:</strong>
+		<%= element.amount %>
+	</p>
+
+<br>
+<a href="/vwALedger/edit/<%= element.id %>">Edit</a>
+<a href="/vwALedger/create">New</a>
+<a href="/vwALedger">Back</a>

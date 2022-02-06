@@ -1,0 +1,71 @@
+<h1>shoppingcart</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 shoppingcart
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>itemId</th>
+			<th>name</th>
+			<th>quantity</th>
+			<th>shoppingCartID</th>
+			<th>clientAccountID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.itemId %>
+					</td>
+					<td>
+						<%= item.name %>
+					</td>
+					<td>
+						<%= item.quantity %>
+					</td>
+					<td>
+						<%= item.shoppingCartID %>
+					</td>
+					<td>
+						<%= item.clientAccountID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/shoppingcart/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/shoppingcart/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/shoppingcart/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/shoppingcart/create">New</a>

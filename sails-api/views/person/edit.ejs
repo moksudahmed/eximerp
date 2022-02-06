@@ -1,0 +1,48 @@
+<div class="">
+  <h1>New person</h1>
+
+  <div class="body">
+    <form class="" action="/person/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">title</label>
+          <input type="text" name="title" value="<%= element.title %>" required="true">
+        </div>
+        <div class="">
+          <label for="">firstName</label>
+          <input type="text" name="firstName" value="<%= element.firstName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">lastName</label>
+          <input type="text" name="lastName" value="<%= element.lastName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">dateOfBirth</label>
+          <input type="date" name="dateOfBirth" value="<%= element.dateOfBirth %>" required="true">
+        </div>
+        <div class="">
+          <label for="">gender</label>
+          <input type="text" name="gender" value="<%= element.gender %>" required="true">
+        </div>
+        <div class="">
+          <label for="">emailAddress</label>
+          <input type="text" name="emailAddress" value="<%= element.emailAddress %>" required="true">
+        </div>
+        <div class="">
+          <label for="">mobileNo</label>
+          <input type="text" name="mobileNo" value="<%= element.mobileNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">maritalStatus</label>
+          <input type="text" name="maritalStatus" value="<%= element.maritalStatus %>" required="true">
+        </div>
+        <div class="">
+          <label for="">personID</label>
+          <input type="number" name="personID" value="<%= element.personID %>" required="false">
+        </div>
+      <button type="submit">Update person</button>
+    </form>
+    <br />
+    <a href="/person">Index</a>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+    <div class="animated fadeIn">  
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Employee List</strong>            
+                      </div>      
+                  <div class="card-header">                  
+                    
+                  </div>
+                  <div class="card-body">
+                       <h2>Employees</h2>
+                        <p>Employee Data:</p>            
+                        <table class="table">
+                        <thead>
+                            <tr>
+                              <th>ID</th>
+                            <th>Name</th>
+                            <th>DOB</th>
+                            <th>Gender</th>
+                            <th>Designation</th>
+                            <th>Mobile No</th>
+                            <th>Email</th>
+                            <TH>Joning Date</TH>
+                            <th>Status</th>
+                            <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let e of employees">
+                              <td>{{e.id}}</td>
+                            <td>{{e.title}} {{e.firstName}} {{e.lastName}}</td>
+                            <td>{{e.dateOfBirth}}</td>
+                            <td>{{e.gender}}</td>
+                            <td>{{e.designation}}</td>
+                            <td>{{e.mobileNo}}</td>
+                            <td>{{e.emailAddress}}</td> 
+                            <td>{{e.joningDate}}</td> 
+                            <td>{{e.status}}</td>                          
+                            <td><a class ="btn btn-info" routerLink="/payrolls/show/{{e.id}}">Detailsl</a>
+                                <!--<a class ="btn btn-success" routerLink="/edit/{{person.personID}}">Edit</a>
+                                <a class ="btn btn-danger" (click)="deleteEmployee(person.personID)">Delete</a>-->
+                            </td>
+                            </tr>      
+                        </tbody>
+                        </table>
+    
+                    </div>
+                  </div>
+                </div>
+              </div> <!--/.col-->
+            </div><!--/.row-->
+            

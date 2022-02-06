@@ -1,0 +1,44 @@
+<div class="">
+  <h1>New monthly</h1>
+
+  <div class="body">
+    <form class="" action="/monthly/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">basicSalary</label>
+          <input type="number" name="basicSalary" value="<%= element.basicSalary %>" required="true">
+        </div>
+        <div class="">
+          <label for="">convince</label>
+          <input type="number" name="convince" value="<%= element.convince %>" required="true">
+        </div>
+        <div class="">
+          <label for="">festivalBonus</label>
+          <input type="number" name="festivalBonus" value="<%= element.festivalBonus %>" required="true">
+        </div>
+        <div class="">
+          <label for="">houseRent</label>
+          <input type="number" name="houseRent" value="<%= element.houseRent %>" required="true">
+        </div>
+        <div class="">
+          <label for="">medicalAllowance</label>
+          <input type="number" name="medicalAllowance" value="<%= element.medicalAllowance %>" required="true">
+        </div>
+        <div class="">
+          <label for="">otherAllowance</label>
+          <input type="number" name="otherAllowance" value="<%= element.otherAllowance %>" required="true">
+        </div>
+        <div class="">
+          <label for="">increment</label>
+          <input type="number" name="increment" value="<%= element.increment %>" required="true">
+        </div>
+        <div class="">
+          <label for="">monthlyID</label>
+          <input type="number" name="monthlyID" value="<%= element.monthlyID %>" required="false">
+        </div>
+      <button type="submit">Update monthly</button>
+    </form>
+    <br />
+    <a href="/monthly">Index</a>
+  </div>
+</div>

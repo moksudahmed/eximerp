@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New vwCustomerPaymentDue</h1>
+
+  <div class="body">
+    <form class="" action="/vwCustomerPaymentDue/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">clientAccountID</label>
+          <input type="number" name="clientAccountID" value="<%= element.clientAccountID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">due</label>
+          <input type="number" name="due" value="<%= element.due %>" required="true">
+        </div>
+      <button type="submit">Update vwCustomerPaymentDue</button>
+    </form>
+    <br />
+    <a href="/vwCustomerPaymentDue">Index</a>
+  </div>
+</div>

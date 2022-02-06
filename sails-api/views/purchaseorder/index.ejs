@@ -1,0 +1,99 @@
+<h1>purchaseorder</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 purchaseorder
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>date</th>
+			<th>discount</th>
+			<th>orderTotal</th>
+			<th>shippingDate</th>
+			<th>tex</th>
+			<th>vat</th>
+			<th>netTotal</th>
+			<th>purchaseOrderID</th>
+			<th>salesContractID</th>
+			<th>localID</th>
+			<th>purchaseRequestID</th>
+			<th>qutationID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.discount %>
+					</td>
+					<td>
+						<%= item.orderTotal %>
+					</td>
+					<td>
+						<%= item.shippingDate %>
+					</td>
+					<td>
+						<%= item.tex %>
+					</td>
+					<td>
+						<%= item.vat %>
+					</td>
+					<td>
+						<%= item.netTotal %>
+					</td>
+					<td>
+						<%= item.purchaseOrderID %>
+					</td>
+					<td>
+						<%= item.salesContractID %>
+					</td>
+					<td>
+						<%= item.localID %>
+					</td>
+					<td>
+						<%= item.purchaseRequestID %>
+					</td>
+					<td>
+						<%= item.qutationID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/purchaseorder/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/purchaseorder/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/purchaseorder/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/purchaseorder/create">New</a>

@@ -1,0 +1,111 @@
+<h1>vwIndividualCustomer</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 vwIndividualCustomer
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>clientID</th>
+			<th>date</th>
+			<th>title</th>
+			<th>firstName</th>
+			<th>lastName</th>
+			<th>dateOfBirth</th>
+			<th>gender</th>
+			<th>emailAddress</th>
+			<th>mobileNo</th>
+			<th>maritalStatus</th>
+			<th>addressLine1</th>
+			<th>addressLine2</th>
+			<th>postcode</th>
+			<th>city</th>
+			<th>country</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.clientID %>
+					</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.title %>
+					</td>
+					<td>
+						<%= item.firstName %>
+					</td>
+					<td>
+						<%= item.lastName %>
+					</td>
+					<td>
+						<%= item.dateOfBirth %>
+					</td>
+					<td>
+						<%= item.gender %>
+					</td>
+					<td>
+						<%= item.emailAddress %>
+					</td>
+					<td>
+						<%= item.mobileNo %>
+					</td>
+					<td>
+						<%= item.maritalStatus %>
+					</td>
+					<td>
+						<%= item.addressLine1 %>
+					</td>
+					<td>
+						<%= item.addressLine2 %>
+					</td>
+					<td>
+						<%= item.postcode %>
+					</td>
+					<td>
+						<%= item.city %>
+					</td>
+					<td>
+						<%= item.country %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/vwIndividualCustomer/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/vwIndividualCustomer/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/vwIndividualCustomer/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/vwIndividualCustomer/create">New</a>

@@ -1,0 +1,48 @@
+<div class="">
+  <h1>New salaryprofile</h1>
+
+  <div class="body">
+    <form class="" action="/salaryprofile/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">overtimeRate</label>
+          <input type="number" name="overtimeRate" value="<%= element.overtimeRate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">profileType</label>
+          <input type="text" name="profileType" value="<%= element.profileType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">providentFund</label>
+          <input type="number" name="providentFund" value="<%= element.providentFund %>" required="true">
+        </div>
+        <div class="">
+          <label for="">taxRate</label>
+          <input type="number" name="taxRate" value="<%= element.taxRate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">salaryProfileID</label>
+          <input type="number" name="salaryProfileID" value="<%= element.salaryProfileID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">employeeID</label>
+          <input type="number" name="employeeID" value="<%= element.employeeID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">hourlyRate</label>
+          <input type="number" name="hourlyRate" value="<%= element.hourlyRate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">commissionRate</label>
+          <input type="number" name="commissionRate" value="<%= element.commissionRate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">paymentType</label>
+          <input type="text" name="paymentType" value="<%= element.paymentType %>" required="true">
+        </div>
+      <button type="submit">Update salaryprofile</button>
+    </form>
+    <br />
+    <a href="/salaryprofile">Index</a>
+  </div>
+</div>

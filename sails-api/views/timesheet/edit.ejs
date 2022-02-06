@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New timesheet</h1>
+
+  <div class="body">
+    <form class="" action="/timesheet/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">attendanceDate</label>
+          <input type="date" name="attendanceDate" value="<%= element.attendanceDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">present</label>
+          <input type="checkbox" name="present" value="<%= element.present %>" required="true">
+        </div>
+        <div class="">
+          <label for="">timesIn</label>
+          <input type="datetime" name="timesIn" value="<%= element.timesIn %>" required="true">
+        </div>
+        <div class="">
+          <label for="">timesOut</label>
+          <input type="datetime" name="timesOut" value="<%= element.timesOut %>" required="true">
+        </div>
+        <div class="">
+          <label for="">timesheetID</label>
+          <input type="number" name="timesheetID" value="<%= element.timesheetID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">employeeID</label>
+          <input type="number" name="employeeID" value="<%= element.employeeID %>" required="true">
+        </div>
+      <button type="submit">Update timesheet</button>
+    </form>
+    <br />
+    <a href="/timesheet">Index</a>
+  </div>
+</div>

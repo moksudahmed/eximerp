@@ -1,0 +1,32 @@
+<div class="">
+  <h1>New bill</h1>
+
+  <div class="body">
+    <form class="" action="/bill/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">invoiceNo</label>
+          <input type="text" name="invoiceNo" value="<%= element.invoiceNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">amount</label>
+          <input type="number" name="amount" value="<%= element.amount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">billID</label>
+          <input type="number" name="billID" value="<%= element.billID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">customerOrderID</label>
+          <input type="number" name="customerOrderID" value="<%= element.customerOrderID %>" required="false">
+        </div>
+      <button type="submit">Update bill</button>
+    </form>
+    <br />
+    <a href="/bill">Index</a>
+  </div>
+</div>

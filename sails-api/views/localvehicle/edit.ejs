@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New localvehicle</h1>
+
+  <div class="body">
+    <form class="" action="/localvehicle/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">localVehicleID</label>
+          <input type="number" name="localVehicleID" value="<%= element.localVehicleID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">localShipmentID</label>
+          <input type="number" name="localShipmentID" value="<%= element.localShipmentID %>" required="true">
+        </div>
+      <button type="submit">Update localvehicle</button>
+    </form>
+    <br />
+    <a href="/localvehicle">Index</a>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="">
+  <h1>New increment</h1>
+
+  <div class="body">
+    <form class="" action="/increment/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">increaseAmount</label>
+          <input type="number" name="increaseAmount" value="<%= element.increaseAmount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">inseresedDate</label>
+          <input type="date" name="inseresedDate" value="<%= element.inseresedDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">incrementID</label>
+          <input type="number" name="incrementID" value="<%= element.incrementID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">monthlyID</label>
+          <input type="number" name="monthlyID" value="<%= element.monthlyID %>" required="true">
+        </div>
+      <button type="submit">Update increment</button>
+    </form>
+    <br />
+    <a href="/increment">Index</a>
+  </div>
+</div>

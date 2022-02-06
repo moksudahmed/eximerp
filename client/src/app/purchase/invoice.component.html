@@ -1,0 +1,218 @@
+<div *ngIf="isValid;then content else other_content"></div>
+       
+       <ng-template #content>
+        <div class="container">
+          <div class="row">
+        
+            <div class="col-md-12" id="htmlData" #htmlData>
+              <div class="row">
+                <p>
+                  Order ID:{{this.purchaseOrder[0].purchaseOrderID}}
+                </p>
+                <p>
+                  Order Date:{{this.purchaseOrder[0].date | date: 'dd/MM/yyyy'}}
+                </p>
+                <p>
+                  Supplier ID:{{this.purchaseOrder[0].localID}}
+                </p>
+                <p>
+                  Shipping Date:{{this.purchaseOrder[0].shippingDate | date: 'dd/MM/yyyy'}}
+                </p>
+                
+              </div>
+              
+              <table class="table table-bordered">
+                <tr class="table-primary">
+                  <th>Item ID</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Unit Price</th>
+                </tr>
+                <tr *ngFor="let cart of this.purchaseOrder[0]['details']">
+                  <th>{{cart.itemID}}</th>
+                  <td>{{cart.quantity}}</td>
+                  <td>{{cart.weight}}</td>
+                  <td>{{cart.unitPrice}}</td>
+                </tr>
+              </table>
+              <div class="row">
+                <p>
+                 Order Total: {{this.purchaseOrder[0].orderTotal}}
+                </p>
+                <p>
+                  Tax: {{this.purchaseOrder[0].tax}}
+                </p>
+                <p>
+                  VAT: {{this.purchaseOrder[0].vat}}
+                </p>
+                <p>
+                  Net Total: {{this.purchaseOrder[0].netTotal}}
+                </p>
+                
+              </div>
+              <div class="row">
+                <p>
+                  Sales Contract ID: {{this.purchaseOrder[0]['contract'][0].salesContractID}}
+                </p>
+                <p>
+                  Bank Name: {{this.purchaseOrder[0]['contract'][0].bankName}}
+                </p>
+                <p>
+                  Contract No: {{this.purchaseOrder[0]['contract'][0].contractNo}}
+                </p>
+                <p>
+                  Date: {{this.purchaseOrder[0]['contract'][0].date}}
+                </p>
+                <p>
+                  Delivery Period From: {{this.purchaseOrder[0]['contract'][0].deliveryPeriodFrom}}
+                </p>
+                <p>
+                  Delivery Period To: {{this.purchaseOrder[0]['contract'][0].deliveryPeriodTo}}
+                </p>
+                <p>
+                  Determination Of Meserment: {{this.purchaseOrder[0]['contract'][0].determinationOfMeserment}}
+                </p>
+                <p>
+                  IECNo: {{this.purchaseOrder[0]['contract'][0].iECNo}}
+                </p>
+                <p>
+                  International Supplier ID: {{this.purchaseOrder[0]['contract'][0].internationalID}}
+                </p>
+                <p>
+                  Imported: {{this.purchaseOrder[0]['contract'][0].isImported}}
+                </p>
+                <p>
+                  ModeOf Transport: {{this.purchaseOrder[0]['contract'][0].modeOfTransport}}
+                </p>
+                <p>
+                  Payment Method: {{this.purchaseOrder[0]['contract'][0].paymentMethod}}
+                </p>
+                <p>
+                  Route: {{this.purchaseOrder[0]['contract'][0].route}}
+                </p>
+                <p>
+                  Witness ID: {{this.purchaseOrder[0]['contract'][0].witnessID}}
+                </p>
+        
+              </div>
+              
+            </div>
+        <div>
+          
+        </div>
+            <div class="col-md-4 text-right">
+              <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button>
+              <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button>
+            </div>
+        
+          </div>
+        </div>
+       </ng-template>
+       <ng-template #other_content>
+        <div class="container">
+          <div class="row">
+        
+            <div class="col-md-12" id="htmlData" #htmlData>
+              <div class="row">
+                <p>
+                  Order ID:{{this.message['order']['purchaseOrderID']}}
+                </p>
+                <p>
+                  Order Date:{{this.message['order']['date']}}
+                </p>
+                <p>
+                  Supplier ID:{{this.message['order']['localID']}}
+                </p>
+                <p>
+                  Shipping Date:{{this.message['order']['shippingDate']}}
+                </p>
+                
+              </div>
+              
+              <table class="table table-bordered">
+                <tr class="table-primary">
+                  <th>Item ID</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Unit Price</th>
+                </tr>
+                <tr *ngFor="let cart of this.message['cart']">
+                  <th>{{cart.itemID}}</th>
+                  <td>{{cart.quantity}}</td>
+                  <td>{{cart.weight}}</td>
+                  <td>{{cart.unitPrice}}</td>
+                </tr>
+              </table>
+              <div class="row">
+                <p>
+                 Order Total: {{this.message['order']['orderTotal']}}
+                </p>
+                <p>
+                  Tax: {{this.message['order']['tax']}}
+                </p>
+                <p>
+                  VAT: {{this.message['order']['vat']}}
+                </p>
+                <p>
+                  Net Total: {{this.message['order']['netTotal']}}
+                </p>
+                
+              </div>
+              <div class="row">
+                <p>
+                  Sales Contract ID: {{this.message['contract']['salesContractID']}}
+                </p>
+                <p>
+                  Bank Name: {{this.message['contract']['bankName']}}
+                </p>
+                <p>
+                  Contract No: {{this.message['contract']['contractNo']}}
+                </p>
+                <p>
+                  Date: {{this.message['contract']['date']}}
+                </p>
+                <p>
+                  Delivery Period From: {{this.message['contract']['deliveryPeriodFrom']}}
+                </p>
+                <p>
+                  Delivery Period To: {{this.message['contract']['deliveryPeriodTo']}}
+                </p>
+                <p>
+                  Determination Of Meserment: {{this.message['contract']['determinationOfMeserment']}}
+                </p>
+                <p>
+                  IECNo: {{this.message['contract']['iECNo']}}
+                </p>
+                <p>
+                  International Supplier ID: {{this.message['contract']['internationalID']}}
+                </p>
+                <p>
+                  Imported: {{this.message['contract']['isImported']}}
+                </p>
+                <p>
+                  ModeOf Transport: {{this.message['contract']['modeOfTransport']}}
+                </p>
+                <p>
+                  Payment Method: {{this.message['contract']['paymentMethod']}}
+                </p>
+                <p>
+                  Route: {{this.message['contract']['route']}}
+                </p>
+                <p>
+                  Witness ID: {{this.message['contract']['witnessID']}}
+                </p>
+        
+              </div>
+              
+            </div>
+        <div>
+          
+        </div>
+            <div class="col-md-4 text-right">
+              <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button>
+              <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button>
+            </div>
+        
+          </div>
+        </div>
+       </ng-template> 

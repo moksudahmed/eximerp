@@ -1,0 +1,40 @@
+<div class="">
+	<h1>New shipment</h1>
+	<h5>By sails-inverse-model</h5>
+
+	<div class="body">
+		<form class="" action="/shipment/create" method="post">
+				<div class="">
+					<label for="">destination</label>
+					<input type="text" name="destination" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">purcheaseOrderInfo</label>
+					<input type="text" name="purcheaseOrderInfo" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">source</label>
+					<input type="text" name="source" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">transportationMethod</label>
+					<input type="text" name="transportationMethod" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">shipmentID</label>
+					<input type="number" name="shipmentID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">purchaseOrderID</label>
+					<input type="number" name="purchaseOrderID" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">warehouseID</label>
+					<input type="number" name="warehouseID" value="" required="true">
+				</div>
+			<button type="submit">Save shipment</button>
+		</form>
+		<br />
+		<a href="/shipment">Index</a>
+	</div>
+</div>

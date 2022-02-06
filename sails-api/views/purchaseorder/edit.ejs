@@ -1,0 +1,60 @@
+<div class="">
+  <h1>New purchaseorder</h1>
+
+  <div class="body">
+    <form class="" action="/purchaseorder/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">discount</label>
+          <input type="number" name="discount" value="<%= element.discount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">orderTotal</label>
+          <input type="number" name="orderTotal" value="<%= element.orderTotal %>" required="true">
+        </div>
+        <div class="">
+          <label for="">shippingDate</label>
+          <input type="date" name="shippingDate" value="<%= element.shippingDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">tex</label>
+          <input type="number" name="tex" value="<%= element.tex %>" required="true">
+        </div>
+        <div class="">
+          <label for="">vat</label>
+          <input type="number" name="vat" value="<%= element.vat %>" required="true">
+        </div>
+        <div class="">
+          <label for="">netTotal</label>
+          <input type="number" name="netTotal" value="<%= element.netTotal %>" required="true">
+        </div>
+        <div class="">
+          <label for="">purchaseOrderID</label>
+          <input type="number" name="purchaseOrderID" value="<%= element.purchaseOrderID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">salesContractID</label>
+          <input type="number" name="salesContractID" value="<%= element.salesContractID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">localID</label>
+          <input type="number" name="localID" value="<%= element.localID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">purchaseRequestID</label>
+          <input type="number" name="purchaseRequestID" value="<%= element.purchaseRequestID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">qutationID</label>
+          <input type="number" name="qutationID" value="<%= element.qutationID %>" required="true">
+        </div>
+      <button type="submit">Update purchaseorder</button>
+    </form>
+    <br />
+    <a href="/purchaseorder">Index</a>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New joinownertoorganization</h1>
+
+  <div class="body">
+    <form class="" action="/joinownertoorganization/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">ownerID</label>
+          <input type="number" name="ownerID" value="<%= element.ownerID %>" required="true">
+        </div>
+      <button type="submit">Update joinownertoorganization</button>
+    </form>
+    <br />
+    <a href="/joinownertoorganization">Index</a>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<h1>financialyear</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 financialyear
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>startDate</th>
+			<th>endDate</th>
+			<th>financialYearID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.startDate %>
+					</td>
+					<td>
+						<%= item.endDate %>
+					</td>
+					<td>
+						<%= item.financialYearID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/financialyear/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/financialyear/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/financialyear/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/financialyear/create">New</a>

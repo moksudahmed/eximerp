@@ -1,0 +1,123 @@
+<h1>lettercredit</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 lettercredit
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>date</th>
+			<th>HSCode</th>
+			<th>IRCERCNo</th>
+			<th>LCAFNo</th>
+			<th>LCAFDate</th>
+			<th>LCDate</th>
+			<th>LCNo</th>
+			<th>nameOfCarrier</th>
+			<th>nationality</th>
+			<th>placeOfLoading</th>
+			<th>placeOfUnloading</th>
+			<th>vatRegistrationNo</th>
+			<th>currency</th>
+			<th>insuranceCoverNoteNo</th>
+			<th>recevingBank</th>
+			<th>letterCreditID</th>
+			<th>insuranceID</th>
+			<th>subSidiaryAccountID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.HSCode %>
+					</td>
+					<td>
+						<%= item.IRCERCNo %>
+					</td>
+					<td>
+						<%= item.LCAFNo %>
+					</td>
+					<td>
+						<%= item.LCAFDate %>
+					</td>
+					<td>
+						<%= item.LCDate %>
+					</td>
+					<td>
+						<%= item.LCNo %>
+					</td>
+					<td>
+						<%= item.nameOfCarrier %>
+					</td>
+					<td>
+						<%= item.nationality %>
+					</td>
+					<td>
+						<%= item.placeOfLoading %>
+					</td>
+					<td>
+						<%= item.placeOfUnloading %>
+					</td>
+					<td>
+						<%= item.vatRegistrationNo %>
+					</td>
+					<td>
+						<%= item.currency %>
+					</td>
+					<td>
+						<%= item.insuranceCoverNoteNo %>
+					</td>
+					<td>
+						<%= item.recevingBank %>
+					</td>
+					<td>
+						<%= item.letterCreditID %>
+					</td>
+					<td>
+						<%= item.insuranceID %>
+					</td>
+					<td>
+						<%= item.subSidiaryAccountID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/lettercredit/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/lettercredit/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/lettercredit/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/lettercredit/create">New</a>

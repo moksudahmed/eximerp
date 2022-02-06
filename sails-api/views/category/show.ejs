@@ -1,0 +1,27 @@
+<h1>Show category</h1>
+
+	<p>
+		<strong>categoryName:</strong>
+		<%= element.categoryName %>
+	</p>
+	<p>
+		<strong>description:</strong>
+		<%= element.description %>
+	</p>
+	<p>
+		<strong>level:</strong>
+		<%= element.level %>
+	</p>
+	<p>
+		<strong>hasSubCategory:</strong>
+		<%= element.hasSubCategory %>
+	</p>
+	<p>
+		<strong>categoryID:</strong>
+		<%= element.categoryID %>
+	</p>
+
+<br>
+<a href="/category/edit/<%= element.id %>">Edit</a>
+<a href="/category/create">New</a>
+<a href="/category">Back</a>

@@ -1,0 +1,31 @@
+<h1>Show payment</h1>
+
+	<p>
+		<strong>amount:</strong>
+		<%= element.amount %>
+	</p>
+	<p>
+		<strong>paymentDate:</strong>
+		<%= element.paymentDate %>
+	</p>
+	<p>
+		<strong>paymentType:</strong>
+		<%= element.paymentType %>
+	</p>
+	<p>
+		<strong>status:</strong>
+		<%= element.status %>
+	</p>
+	<p>
+		<strong>paymentID:</strong>
+		<%= element.paymentID %>
+	</p>
+	<p>
+		<strong>clientAccountID:</strong>
+		<%= element.clientAccountID %>
+	</p>
+
+<br>
+<a href="/payment/edit/<%= element.id %>">Edit</a>
+<a href="/payment/create">New</a>
+<a href="/payment">Back</a>

@@ -1,0 +1,16 @@
+<div class="">
+  <h1>New supplyitem</h1>
+
+  <div class="body">
+    <form class="" action="/supplyitem/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">clientID</label>
+          <input type="number" name="clientID" value="<%= element.clientID %>" required="false">
+        </div>
+      <button type="submit">Update supplyitem</button>
+    </form>
+    <br />
+    <a href="/supplyitem">Index</a>
+  </div>
+</div>

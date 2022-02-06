@@ -1,0 +1,60 @@
+<div class="">
+  <h1>New vwCustomerOrder</h1>
+
+  <div class="body">
+    <form class="" action="/vwCustomerOrder/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">clientAccountID</label>
+          <input type="number" name="clientAccountID" value="<%= element.clientAccountID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">accountName</label>
+          <input type="text" name="accountName" value="<%= element.accountName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">active</label>
+          <input type="checkbox" name="active" value="<%= element.active %>" required="true">
+        </div>
+        <div class="">
+          <label for="">suspended</label>
+          <input type="checkbox" name="suspended" value="<%= element.suspended %>" required="true">
+        </div>
+        <div class="">
+          <label for="">accountCreditLimit</label>
+          <input type="number" name="accountCreditLimit" value="<%= element.accountCreditLimit %>" required="true">
+        </div>
+        <div class="">
+          <label for="">customerOrderID</label>
+          <input type="number" name="customerOrderID" value="<%= element.customerOrderID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">status</label>
+          <input type="text" name="status" value="<%= element.status %>" required="true">
+        </div>
+        <div class="">
+          <label for="">orderDate</label>
+          <input type="datetime" name="orderDate" value="<%= element.orderDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">discount</label>
+          <input type="number" name="discount" value="<%= element.discount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">orderTotal</label>
+          <input type="number" name="orderTotal" value="<%= element.orderTotal %>" required="true">
+        </div>
+        <div class="">
+          <label for="">paymentDate</label>
+          <input type="date" name="paymentDate" value="<%= element.paymentDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">amount</label>
+          <input type="number" name="amount" value="<%= element.amount %>" required="true">
+        </div>
+      <button type="submit">Update vwCustomerOrder</button>
+    </form>
+    <br />
+    <a href="/vwCustomerOrder">Index</a>
+  </div>
+</div>

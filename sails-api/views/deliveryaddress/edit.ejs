@@ -1,0 +1,48 @@
+<div class="">
+  <h1>New deliveryaddress</h1>
+
+  <div class="body">
+    <form class="" action="/deliveryaddress/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">addressLine1</label>
+          <input type="text" name="addressLine1" value="<%= element.addressLine1 %>" required="true">
+        </div>
+        <div class="">
+          <label for="">addressLine2</label>
+          <input type="text" name="addressLine2" value="<%= element.addressLine2 %>" required="true">
+        </div>
+        <div class="">
+          <label for="">city</label>
+          <input type="text" name="city" value="<%= element.city %>" required="true">
+        </div>
+        <div class="">
+          <label for="">country</label>
+          <input type="text" name="country" value="<%= element.country %>" required="true">
+        </div>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="true">
+        </div>
+        <div class="">
+          <label for="">postcode</label>
+          <input type="text" name="postcode" value="<%= element.postcode %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactNo</label>
+          <input type="text" name="contactNo" value="<%= element.contactNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">deliveryAddressID</label>
+          <input type="number" name="deliveryAddressID" value="<%= element.deliveryAddressID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">customerOrderID</label>
+          <input type="number" name="customerOrderID" value="<%= element.customerOrderID %>" required="false">
+        </div>
+      <button type="submit">Update deliveryaddress</button>
+    </form>
+    <br />
+    <a href="/deliveryaddress">Index</a>
+  </div>
+</div>

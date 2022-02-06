@@ -1,0 +1,44 @@
+<div class="">
+	<h1>New transaction</h1>
+	<h5>By sails-inverse-model</h5>
+
+	<div class="body">
+		<form class="" action="/transaction/create" method="post">
+				<div class="">
+					<label for="">date</label>
+					<input type="date" name="date" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">transactionTitle</label>
+					<input type="text" name="transactionTitle" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">transactionID</label>
+					<input type="number" name="transactionID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">branchID</label>
+					<input type="number" name="branchID" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">financialYearID</label>
+					<input type="number" name="financialYearID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">entryDateTime</label>
+					<input type="datetime" name="entryDateTime" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">userID</label>
+					<input type="number" name="userID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">paymentID</label>
+					<input type="number" name="paymentID" value="" required="true">
+				</div>
+			<button type="submit">Save transaction</button>
+		</form>
+		<br />
+		<a href="/transaction">Index</a>
+	</div>
+</div>

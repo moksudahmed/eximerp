@@ -1,0 +1,52 @@
+<div class="">
+  <h1>New employee</h1>
+
+  <div class="body">
+    <form class="" action="/employee/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">joningDate</label>
+          <input type="date" name="joningDate" value="<%= element.joningDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">leavingDate</label>
+          <input type="date" name="leavingDate" value="<%= element.leavingDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">status</label>
+          <input type="text" name="status" value="<%= element.status %>" required="true">
+        </div>
+        <div class="">
+          <label for="">designation</label>
+          <input type="text" name="designation" value="<%= element.designation %>" required="true">
+        </div>
+        <div class="">
+          <label for="">employeeID</label>
+          <input type="number" name="employeeID" value="<%= element.employeeID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">warehouseID</label>
+          <input type="number" name="warehouseID" value="<%= element.warehouseID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">departmentID</label>
+          <input type="number" name="departmentID" value="<%= element.departmentID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">branchID</label>
+          <input type="number" name="branchID" value="<%= element.branchID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">factoryID</label>
+          <input type="number" name="factoryID" value="<%= element.factoryID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="true">
+        </div>
+      <button type="submit">Update employee</button>
+    </form>
+    <br />
+    <a href="/employee">Index</a>
+  </div>
+</div>

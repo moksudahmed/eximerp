@@ -1,0 +1,64 @@
+<div class="">
+  <h1>New vwIndividualSupplier</h1>
+
+  <div class="body">
+    <form class="" action="/vwIndividualSupplier/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">supplierID</label>
+          <input type="number" name="supplierID" value="<%= element.supplierID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">departmentID</label>
+          <input type="number" name="departmentID" value="<%= element.departmentID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">subSidiaryAccountID</label>
+          <input type="number" name="subSidiaryAccountID" value="<%= element.subSidiaryAccountID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">type</label>
+          <input type="text" name="type" value="<%= element.type %>" required="true">
+        </div>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">title</label>
+          <input type="text" name="title" value="<%= element.title %>" required="true">
+        </div>
+        <div class="">
+          <label for="">firstName</label>
+          <input type="text" name="firstName" value="<%= element.firstName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">lastName</label>
+          <input type="text" name="lastName" value="<%= element.lastName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">dateOfBirth</label>
+          <input type="date" name="dateOfBirth" value="<%= element.dateOfBirth %>" required="true">
+        </div>
+        <div class="">
+          <label for="">gender</label>
+          <input type="text" name="gender" value="<%= element.gender %>" required="true">
+        </div>
+        <div class="">
+          <label for="">emailAddress</label>
+          <input type="text" name="emailAddress" value="<%= element.emailAddress %>" required="true">
+        </div>
+        <div class="">
+          <label for="">mobileNo</label>
+          <input type="text" name="mobileNo" value="<%= element.mobileNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">maritalStatus</label>
+          <input type="text" name="maritalStatus" value="<%= element.maritalStatus %>" required="true">
+        </div>
+      <button type="submit">Update vwIndividualSupplier</button>
+    </form>
+    <br />
+    <a href="/vwIndividualSupplier">Index</a>
+  </div>
+</div>

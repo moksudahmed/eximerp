@@ -1,0 +1,64 @@
+<div class="">
+  <h1>New vwCorporateCustomer</h1>
+
+  <div class="body">
+    <form class="" action="/vwCorporateCustomer/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">clientID</label>
+          <input type="number" name="clientID" value="<%= element.clientID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">companyName</label>
+          <input type="text" name="companyName" value="<%= element.companyName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactPersonName</label>
+          <input type="text" name="contactPersonName" value="<%= element.contactPersonName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">designation</label>
+          <input type="text" name="designation" value="<%= element.designation %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactNo</label>
+          <input type="text" name="contactNo" value="<%= element.contactNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">emailAddress</label>
+          <input type="text" name="emailAddress" value="<%= element.emailAddress %>" required="true">
+        </div>
+        <div class="">
+          <label for="">website</label>
+          <input type="text" name="website" value="<%= element.website %>" required="true">
+        </div>
+        <div class="">
+          <label for="">addressLine1</label>
+          <input type="text" name="addressLine1" value="<%= element.addressLine1 %>" required="true">
+        </div>
+        <div class="">
+          <label for="">addressLine2</label>
+          <input type="text" name="addressLine2" value="<%= element.addressLine2 %>" required="true">
+        </div>
+        <div class="">
+          <label for="">postcode</label>
+          <input type="text" name="postcode" value="<%= element.postcode %>" required="true">
+        </div>
+        <div class="">
+          <label for="">city</label>
+          <input type="text" name="city" value="<%= element.city %>" required="true">
+        </div>
+        <div class="">
+          <label for="">country</label>
+          <input type="text" name="country" value="<%= element.country %>" required="true">
+        </div>
+      <button type="submit">Update vwCorporateCustomer</button>
+    </form>
+    <br />
+    <a href="/vwCorporateCustomer">Index</a>
+  </div>
+</div>

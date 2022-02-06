@@ -1,0 +1,83 @@
+<h1>transaction</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 transaction
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>date</th>
+			<th>transactionTitle</th>
+			<th>transactionID</th>
+			<th>branchID</th>
+			<th>financialYearID</th>
+			<th>entryDateTime</th>
+			<th>userID</th>
+			<th>paymentID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.transactionTitle %>
+					</td>
+					<td>
+						<%= item.transactionID %>
+					</td>
+					<td>
+						<%= item.branchID %>
+					</td>
+					<td>
+						<%= item.financialYearID %>
+					</td>
+					<td>
+						<%= item.entryDateTime %>
+					</td>
+					<td>
+						<%= item.userID %>
+					</td>
+					<td>
+						<%= item.paymentID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/transaction/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/transaction/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/transaction/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/transaction/create">New</a>

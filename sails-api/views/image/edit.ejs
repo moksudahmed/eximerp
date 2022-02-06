@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New image</h1>
+
+  <div class="body">
+    <form class="" action="/image/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">photo</label>
+          <input type="" name="photo" value="<%= element.photo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">id</label>
+          <input type="number" name="id" value="<%= element.id %>" required="false">
+        </div>
+      <button type="submit">Update image</button>
+    </form>
+    <br />
+    <a href="/image">Index</a>
+  </div>
+</div>

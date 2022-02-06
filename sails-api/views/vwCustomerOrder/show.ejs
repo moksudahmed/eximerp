@@ -1,0 +1,55 @@
+<h1>Show vwCustomerOrder</h1>
+
+	<p>
+		<strong>clientAccountID:</strong>
+		<%= element.clientAccountID %>
+	</p>
+	<p>
+		<strong>accountName:</strong>
+		<%= element.accountName %>
+	</p>
+	<p>
+		<strong>active:</strong>
+		<%= element.active %>
+	</p>
+	<p>
+		<strong>suspended:</strong>
+		<%= element.suspended %>
+	</p>
+	<p>
+		<strong>accountCreditLimit:</strong>
+		<%= element.accountCreditLimit %>
+	</p>
+	<p>
+		<strong>customerOrderID:</strong>
+		<%= element.customerOrderID %>
+	</p>
+	<p>
+		<strong>status:</strong>
+		<%= element.status %>
+	</p>
+	<p>
+		<strong>orderDate:</strong>
+		<%= element.orderDate %>
+	</p>
+	<p>
+		<strong>discount:</strong>
+		<%= element.discount %>
+	</p>
+	<p>
+		<strong>orderTotal:</strong>
+		<%= element.orderTotal %>
+	</p>
+	<p>
+		<strong>paymentDate:</strong>
+		<%= element.paymentDate %>
+	</p>
+	<p>
+		<strong>amount:</strong>
+		<%= element.amount %>
+	</p>
+
+<br>
+<a href="/vwCustomerOrder/edit/<%= element.id %>">Edit</a>
+<a href="/vwCustomerOrder/create">New</a>
+<a href="/vwCustomerOrder">Back</a>

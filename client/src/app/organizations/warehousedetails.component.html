@@ -1,0 +1,24 @@
+<p>Works</p>
+<div class ="panel panel-default" *ngIf=model>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">First Name</span>
+        <input type="text" class="form-control" value ={{model.name}} aria-describedby="basic-addon1">
+      </div>
+      <br>
+  
+      <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Last Name</span>
+          <input type="text" class="form-control" value ={{model.location}} aria-describedby="basic-addon1">
+        </div>
+        <br>
+    
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Address</span>
+            <input type="text" class="form-control" value ={{model.contactNo}} aria-describedby="basic-addon1">
+          </div>
+          <br>
+      
+  <a class ="btn btn-info" (click)="goBack()">Cancel</a>
+  
+</div>
+

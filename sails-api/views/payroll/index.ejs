@@ -1,0 +1,99 @@
+<h1>payroll</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 payroll
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>approve</th>
+			<th>payDate</th>
+			<th>payFrom</th>
+			<th>payTo</th>
+			<th>prepeareDate</th>
+			<th>status</th>
+			<th>tax</th>
+			<th>totalGrossPay</th>
+			<th>totalNetPay</th>
+			<th>chartOfAccountID</th>
+			<th>payrollID</th>
+			<th>employeeID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.approve %>
+					</td>
+					<td>
+						<%= item.payDate %>
+					</td>
+					<td>
+						<%= item.payFrom %>
+					</td>
+					<td>
+						<%= item.payTo %>
+					</td>
+					<td>
+						<%= item.prepeareDate %>
+					</td>
+					<td>
+						<%= item.status %>
+					</td>
+					<td>
+						<%= item.tax %>
+					</td>
+					<td>
+						<%= item.totalGrossPay %>
+					</td>
+					<td>
+						<%= item.totalNetPay %>
+					</td>
+					<td>
+						<%= item.chartOfAccountID %>
+					</td>
+					<td>
+						<%= item.payrollID %>
+					</td>
+					<td>
+						<%= item.employeeID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/payroll/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/payroll/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/payroll/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/payroll/create">New</a>

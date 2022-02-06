@@ -1,0 +1,59 @@
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <a class="text-success" (click)="add()">
+          <i class="fa fa-plus" aria-hidden="true" style="font-size:40px"></i>
+        </a>        
+       </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Person Name</th>
+          <th class="text-center">Age</th>
+          <th class="text-center">Company Name</th>
+          <th class="text-center">Country</th>
+          <th class="text-center">Remove</th>
+        </tr>
+        <tr *ngFor="let person of personList; let id = index">
+          <td>
+            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{person.name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</span>
+          </td>
+        
+          <td>
+            <span><select #selectElem class="form-control" id="select"
+                               name = "name" type="number">     
+                                  <option>Cash</option>
+                                  <option>bank</option>
+            </select></span>
+          </td>
+          <td>
+            <span class="table-up">
+              <a class="text-sucess">
+                <i class="fa fa-long-arrow-up" style="font-size:28px;color:indigo;"></i>
+              </a>              
+            </span>
+            <span class="table-down">
+              <a class="text-sucess">
+                <i class="fa fa-long-arrow-down" style="font-size:28px;color:indigo;"></i>
+              </a>
+            </span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <a (click)="remove(id)">
+                <i class="fa fa-minus-circle" aria-hidden="true" style="font-size:40px;color:red;"></i>
+              </a>  
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+

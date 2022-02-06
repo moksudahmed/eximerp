@@ -1,0 +1,24 @@
+@media all and (min-width: 768px) {
+    tr  {
+      td {
+        vertical-align: middle !important;
+      }
+      span {
+        &:not([class]) {
+          padding: 1rem 1rem;
+        }
+      }
+    }
+  }
+@media (min-width:768px){tr[_ngcontent-serverApp-c152]   td[_ngcontent-serverApp-c152]{vertical-align:middle!important}tr[_ngcontent-serverApp-c152]   span[_ngcontent-serverApp-c152]:not([class]){padding:1rem}}
+[contenteditable] {
+    padding: 5px 2px;
+  }
+  [contenteditable]:hover{
+      background-color:#f5f5f5;
+      border: 2px solid #048eff;  
+  }
+  [contenteditable]:focus{
+      background-color:#f5f5f5;
+      border: 2px solid #048eff;   
+   }

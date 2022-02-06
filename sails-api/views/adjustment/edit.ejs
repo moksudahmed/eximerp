@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New adjustment</h1>
+
+  <div class="body">
+    <form class="" action="/adjustment/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">adjustmentType</label>
+          <input type="text" name="adjustmentType" value="<%= element.adjustmentType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">amount</label>
+          <input type="number" name="amount" value="<%= element.amount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">remarks</label>
+          <input type="text" name="remarks" value="<%= element.remarks %>" required="true">
+        </div>
+        <div class="">
+          <label for="">adjustmentHead</label>
+          <input type="text" name="adjustmentHead" value="<%= element.adjustmentHead %>" required="true">
+        </div>
+        <div class="">
+          <label for="">adjustmentID</label>
+          <input type="number" name="adjustmentID" value="<%= element.adjustmentID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">wagesID</label>
+          <input type="number" name="wagesID" value="<%= element.wagesID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">loanID</label>
+          <input type="number" name="loanID" value="<%= element.loanID %>" required="false">
+        </div>
+      <button type="submit">Update adjustment</button>
+    </form>
+    <br />
+    <a href="/adjustment">Index</a>
+  </div>
+</div>

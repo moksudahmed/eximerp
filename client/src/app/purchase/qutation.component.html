@@ -1,0 +1,138 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<div class="card">
+    <div class="card-header">
+      <strong>Qutation</strong>
+      <small>Form</small>
+    </div>
+    <div class="card-body">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(purcheaseRequestForm)" 
+        #purcheaseRequestForm="ngForm">  
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="name">Purchase Request ID</label>          
+                    <select class="form-control" id="select"
+                    [(ngModel)] = "model.purchaseRequestID" type ="number" name = "name">    
+                    <option [ngValue]="undefined" disabled selected>Choose Purchase Request ID</option>                          
+                    <option *ngFor="let p of purchaseRequest" [value]="p.purchaseRequestID">
+                    {{p.purchaseRequestID}}{{p.date}}
+                </option>
+                </select>  
+                </div>
+                 
+            </div>
+            <div class="col-sm-6">    
+                <div class="form-group">
+                    <label for="name">Supplier ID</label>          
+                    <select class="form-control" id="select"
+                    [(ngModel)] = "model.supplierID" type ="number" name = "name">    
+                    <option [ngValue]="undefined" disabled selected>Supplier ID</option>                          
+                    <option *ngFor="let s of supplier" [value]="s.supplierID">
+                    {{s.supplierID}}
+                </option>
+                </select>  
+                </div>                    
+              </div> 
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+         <div class="form-group">
+            <label for="name">Item ID</label>
+            <input [(ngModel)]="model.itemID" type="text" name="itemID" class="form-control" id="itemID" placeholder="Item ID">                        
+          </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="name">Quantity</label>
+                <input [(ngModel)]="model.quantity" type="number" name="quantity" class="form-control" id="quantity" placeholder="Quantity">                        
+            </div> 
+          </div>  
+          <div class="col-sm-3">
+              <div class="form-group">
+                  <label for="name">Weight</label>
+                  <input [(ngModel)]="model.weight" type="number" name="weight" class="form-control" id="weight" placeholder="Weight">                        
+              </div>  
+            </div>     
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="name">Price</label>
+                    <input [(ngModel)]="model.price" type="number" name="name" class="form-control" id="price" placeholder="Price">                        
+                  </div> 
+            </div>
+      </div>     
+                     
+           
+      <div class="row">
+                 
+    </div>             
+         
+    </form>
+    </div>
+    <div class="card-footer">
+        <button (click)="onFormSubmit(purcheaseRequestForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+        
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+  </div>
+  
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Ppurchease Request
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+                <th>itemID</th>                         
+                <th>quantity</th>   
+                <th>price</th>        
+                <th>approved</th>        
+                <th>supplierID</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of model">
+                    <td>{{s.itemID}}</td>                    
+                    <td>{{s.quantity}}</td> 
+                    <td>{{s.price}}</td> 
+                    <td>{{s.supplierID}}</td> 
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                      </td>    
+            
+              </tr>         
+                      
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>

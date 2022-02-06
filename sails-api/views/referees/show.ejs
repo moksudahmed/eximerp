@@ -1,0 +1,35 @@
+<h1>Show referees</h1>
+
+	<p>
+		<strong>title:</strong>
+		<%= element.title %>
+	</p>
+	<p>
+		<strong>fullName:</strong>
+		<%= element.fullName %>
+	</p>
+	<p>
+		<strong>position:</strong>
+		<%= element.position %>
+	</p>
+	<p>
+		<strong>organization:</strong>
+		<%= element.organization %>
+	</p>
+	<p>
+		<strong>relation:</strong>
+		<%= element.relation %>
+	</p>
+	<p>
+		<strong>refereesID:</strong>
+		<%= element.refereesID %>
+	</p>
+	<p>
+		<strong>personID:</strong>
+		<%= element.personID %>
+	</p>
+
+<br>
+<a href="/referees/edit/<%= element.id %>">Edit</a>
+<a href="/referees/create">New</a>
+<a href="/referees">Back</a>

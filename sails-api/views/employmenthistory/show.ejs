@@ -1,0 +1,35 @@
+<h1>Show employmenthistory</h1>
+
+	<p>
+		<strong>designation:</strong>
+		<%= element.designation %>
+	</p>
+	<p>
+		<strong>organizationName:</strong>
+		<%= element.organizationName %>
+	</p>
+	<p>
+		<strong>address:</strong>
+		<%= element.address %>
+	</p>
+	<p>
+		<strong>joiningDate:</strong>
+		<%= element.joiningDate %>
+	</p>
+	<p>
+		<strong>leavingDate:</strong>
+		<%= element.leavingDate %>
+	</p>
+	<p>
+		<strong>employmentHistoryID:</strong>
+		<%= element.employmentHistoryID %>
+	</p>
+	<p>
+		<strong>personID:</strong>
+		<%= element.personID %>
+	</p>
+
+<br>
+<a href="/employmenthistory/edit/<%= element.id %>">Edit</a>
+<a href="/employmenthistory/create">New</a>
+<a href="/employmenthistory">Back</a>

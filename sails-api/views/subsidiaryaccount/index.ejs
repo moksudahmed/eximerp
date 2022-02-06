@@ -1,0 +1,75 @@
+<h1>subsidiaryaccount</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 subsidiaryaccount
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>accountName</th>
+			<th>accountNo</th>
+			<th>address</th>
+			<th>branch</th>
+			<th>subSidiaryAccountID</th>
+			<th>chartOfAccountID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.accountName %>
+					</td>
+					<td>
+						<%= item.accountNo %>
+					</td>
+					<td>
+						<%= item.address %>
+					</td>
+					<td>
+						<%= item.branch %>
+					</td>
+					<td>
+						<%= item.subSidiaryAccountID %>
+					</td>
+					<td>
+						<%= item.chartOfAccountID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/subsidiaryaccount/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/subsidiaryaccount/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/subsidiaryaccount/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/subsidiaryaccount/create">New</a>

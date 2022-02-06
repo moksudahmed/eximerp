@@ -1,0 +1,21 @@
+
+<div class="card">
+  <div class="card-header">
+    <strong>Supplier</strong> List
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+          <h2>Individual Supplier</h2>
+      <ul class="heroes">
+          <li *ngFor="let s of suppliers">
+            <span class="badge">{{s.id}}</span> {{s.title}} {{s.firstName}} {{s.lastName}}
+          </li>
+        </ul>                 
+  </div>
+  
+    </div>
+  </div>
+  <div class="card-footer">
+      </div>
+</div>

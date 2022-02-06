@@ -1,0 +1,35 @@
+<h1>Show users</h1>
+
+	<p>
+		<strong>id:</strong>
+		<%= element.id %>
+	</p>
+	<p>
+		<strong>name:</strong>
+		<%= element.name %>
+	</p>
+	<p>
+		<strong>username:</strong>
+		<%= element.username %>
+	</p>
+	<p>
+		<strong>email:</strong>
+		<%= element.email %>
+	</p>
+	<p>
+		<strong>password:</strong>
+		<%= element.password %>
+	</p>
+	<p>
+		<strong>createdAt:</strong>
+		<%= element.createdAt %>
+	</p>
+	<p>
+		<strong>updatedAt:</strong>
+		<%= element.updatedAt %>
+	</p>
+
+<br>
+<a href="/users/edit/<%= element.id %>">Edit</a>
+<a href="/users/create">New</a>
+<a href="/users">Back</a>

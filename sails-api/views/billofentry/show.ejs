@@ -1,0 +1,43 @@
+<h1>Show billofentry</h1>
+
+	<p>
+		<strong>date:</strong>
+		<%= element.date %>
+	</p>
+	<p>
+		<strong>quantity:</strong>
+		<%= element.quantity %>
+	</p>
+	<p>
+		<strong>registrationNo:</strong>
+		<%= element.registrationNo %>
+	</p>
+	<p>
+		<strong>itemInvoiceValue:</strong>
+		<%= element.itemInvoiceValue %>
+	</p>
+	<p>
+		<strong>totalTaxAmount:</strong>
+		<%= element.totalTaxAmount %>
+	</p>
+	<p>
+		<strong>totalAccessableValue:</strong>
+		<%= element.totalAccessableValue %>
+	</p>
+	<p>
+		<strong>billOfEntryID:</strong>
+		<%= element.billOfEntryID %>
+	</p>
+	<p>
+		<strong>letterCreditID:</strong>
+		<%= element.letterCreditID %>
+	</p>
+	<p>
+		<strong>cNFAgentID:</strong>
+		<%= element.cNFAgentID %>
+	</p>
+
+<br>
+<a href="/billofentry/edit/<%= element.id %>">Edit</a>
+<a href="/billofentry/create">New</a>
+<a href="/billofentry">Back</a>

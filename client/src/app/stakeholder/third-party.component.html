@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Third Party Agents:</strong>
+      </div>
+  <div class="card-body">
+        <hr>
+         <div class="row">
+          <div class="col-md-12 mb-8">
+            <h2>Third Party Agent</h2>
+            <!-- Nav tabs -->
+                      <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                          <tr>
+                            <th>Agent ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Category</th>
+                            <th>Proprietor</th>
+                            <th>ReferenceNo</th>
+                            
+                            <th>Tin No</th>
+                            <th>Vat No</th>
+                            <th>Status</th>                       
+                          </tr>
+                        </thead>
+                        <tbody>                    
+                          <tr *ngFor="let data of agents; let i = index">
+                           <td>{{data.agent[0].thirdPartyAgendID}}</td>
+                           <td>{{data.agent[0].name}}</td>
+                           <td>{{data.contactinfo[0].addressLine1}}</td>                      
+                           <td>{{data.contactinfo[0].city}}</td>
+                           <td>{{data.contactinfo[0].country}}</td>                      
+                           <td>{{data.agent[0].category}}</td>                      
+                           <td>{{data.agent[0].proprietor}}</td>
+                           <td>{{data.agent[0].referenceNo}}</td>
+                           <td>{{data.agent[0].tin}}</td>
+                           <td>{{data.agent[0].vatNo}}</td>
+                           <td> <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i>&nbsp;</button>
+                           </td>                        
+                          </tr>        
+                        </tbody>
+                     </table>     
+                    <nav>
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                          <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">4</a></li>
+                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                      </nav>
+                    
+          </div><!--/.col-->
+        </div>
+    <hr>
+  </div>
+  <div class="card-footer">
+      </div>
+</div>

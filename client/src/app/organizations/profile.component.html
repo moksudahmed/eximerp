@@ -1,0 +1,391 @@
+<div class="card" *ngIf=model>
+  <div class="card-header">
+    <strong>Profile:</strong> {{model.organizationName}}
+      </div>
+  <div class="card-body">
+
+      <div class="row">
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Profile:</strong> {{model.organizationName}}
+            <span class="float-right">
+              <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fa fa-pencil"></i>&nbsp;</button>
+            </span>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td>Profile</td>
+                  <td>{{model.organizationName}}</td>                  
+                </tr>
+                
+                <tr>
+                  <td>Addres</td>
+                  <td>{{model.address}}</td>                  
+                </tr>
+                
+                <tr>
+                  <td>City</td>
+                  <td>{{model.city}}</td>                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div><!--/.col-->
+
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Partners:</strong> {{model.organizationName}}
+            <span class="float-right">
+              
+              <button class="btn btn-primary"
+              (click)="openModal(template)">+</button>
+
+            </span>
+           </div>
+          <div class="card-body">            
+              <ul class="heroes">
+                  <li *ngFor="let p of partner">
+                   <span class="badge">{{ p.ownerID }}</span>
+                   <span class="">{{ p.per_name }}</span>
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </div><!--/.col-->
+    </div>
+    <div class="row">
+      
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Branches:</strong>
+            <span class="float-right">
+              
+              <button type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['/organizations/branch']">
+                <i class="fa fa-plus"></i>&nbsp;</button>
+            </span>
+          </div>
+          <div class="card-body">            
+              <ul class="heroes">
+                  <li *ngFor="let b of branch"
+                    [class.selected]="b.branchID === selectedId">
+                   <span class="badge" [routerLink]="['../branchdetails/', b.branchID]">{{ b.branchID }}</span>
+                   <span class="" [routerLink]="['../branchdetails/', b.branchID]">{{ b.branchName }}</span>
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Departments:</strong>
+            <span class="float-right">
+              <button type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['/organizations/branch']">
+                <i class="fa fa-plus"></i>&nbsp;</button>
+            </span>
+          </div>
+          <div class="card-body">            
+              <ul class="heroes">
+                <li *ngFor="let d of department"
+              >
+              <span class="badge" routerLink="/organizations/depatmentdetails/{{d.departmentID}}">{{d.departmentID}}</span>                                     
+              <span class="" routerLink="/organizations/depatmentdetails/{{d.departmentID}}">{{d.departmentName}}</span>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div><!--/.col-->
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Factories:</strong>
+            <span class="float-right">
+              <button type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['/organizations/branch']">
+                <i class="fa fa-plus"></i>&nbsp;</button>
+            </span>
+          </div>
+          <div class="card-body">            
+            <ul class="heroes">
+              <li *ngFor="let f of factory">
+             <span class="badge" routerLink="/organizations/factorydetails/{{f.factoryID}}">{{f.factoryID}}</span>                                     
+             <span class="" routerLink="/organizations/factorydetails/{{f.factoryID}}">{{f.factoryName}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Warehouse:</strong>
+            <span class="float-right">
+              <button type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['/organizations/branch']">
+                <i class="fa fa-plus"></i>&nbsp;</button>
+            </span>
+          </div>
+          <div class="card-body">            
+            <ul class="heroes">
+              <li *ngFor="let w of warehouse "
+             >
+             <span class="badge" routerLink="/organizations/factorydetails/{{w.warehouseID}}">{{w.warehouseID}}</span>                                     
+              <span class="" routerLink="/organizations/factorydetails/{{w.warehouseID}}">{{w.name}}</span>
+           </li>
+            </ul>                 
+          </div>
+        </div>
+      </div><!--/.col-->
+       
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-8">
+        <!-- Nav tabs -->
+        <tabset>
+          <tab>
+            <ng-template tabHeading><i class="icon-calculator"></i> Sales</ng-template>
+            <h2>Sales Contract</h2>
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Combined All Table
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th>Username</th>
+                        <th>Date registered</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let s of contracts">
+                        <td>{{s.id}}</td>
+                        <td>{{s.bankName}}</td>
+                        <td>Member</td>
+                        <td>
+                          <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i>&nbsp;</button>
+                        </td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  <nav>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>     
+
+          </tab>
+          <tab>
+            <ng-template tabHeading><i class="icon-basket-loaded"></i> Local Purchease</ng-template>
+            <h2>Purchase Order</h2>
+            
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Combined All Table
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th>Username</th>                      
+                        <th>Username</th>
+                        <th>Date registered</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let data of orders; let i = index">
+                      
+                      <tr *ngFor="let o of data.purchaseorders; let i = index">
+                       <td>{{data.branchID}}</td>
+                       <td>{{o.purchaseOrderID}}</td>
+                       <td>{{o.orderTotal}}</td>
+                       <td>{{o.discount}}</td>
+                       <td> <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i>&nbsp;</button>
+                       </td>                        
+                      </tr>        
+                          
+                    </tbody>
+                  </table>
+                  <nav>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>                   
+          </tab>
+          <tab>
+            <ng-template tabHeading><i class="icon-pie-chart"></i> Sales Contract</ng-template>
+            <h2>Sales Order</h2>
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Combined All Table
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th>Username</th>                      
+                        <th>Username</th>
+                        <th>Date registered</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let data of sales; let i = index">
+                      
+                      <tr *ngFor="let o of data.customerorders; let i = index">
+                       <td>{{data.branchID}}</td>
+                       <td>{{o.customerOrderID}}</td>
+                       <td>{{o.orderTotal}}</td>
+                       <td>{{o.discount}}</td>
+                       <td> <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i>&nbsp;</button>
+                       </td>                        
+                      </tr>        
+                          
+                    </tbody>
+                  </table>
+                  <nav>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>    
+          </tab>
+        </tabset>
+      </div><!--/.col-->
+    </div>
+  </div>
+  <div class="card-footer">
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+
+    <!-- Modal Title -->
+    <h4 class="modal-title pull-left">Add Partner</h4>
+
+    <!-- Close Button -->
+    <button type="button" 
+            class="close pull-right" 
+            (click)="modalRef.hide()">           
+      <span aria-hidden="true">&times;</span>
+      
+    </button>
+  </div>
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+    <div class="animated fadeIn">
+    
+    
+          <div class="card">
+            <div class="card-header">
+              Add
+              <strong>Partner</strong>
+            </div>
+            <div class="card-body">
+              <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+              (ngSubmit)="onFormSubmit(clientForm)" 
+              #clientForm="ngForm">              
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="select">Select Profile</label>
+                  <div class="col-sm-9">
+                      <select [(ngModel)]="partnership.organizationID" name="organizationID" class="form-control input-lg" size="1">          
+                          <option *ngFor="let a of orgns" [value]="a.organizationID">
+                              {{a.organizationName}}
+                          </option>
+                      </select>     
+                  </div>
+                </div>
+    
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="select">Select Partner</label>
+                  <div class="col-sm-9">
+                      <select [(ngModel)]="partnership.ownerID" name="ownerID" class="form-control input-lg" size="1">          
+                          <option *ngFor="let a of owner" [value]="a.ownerID">
+                            {{a.title}} {{a.firstName}} {{a.lastName}}
+                          </option>
+                      </select>     
+                      <div class="col-md-3">
+                                  
+                    </div>
+          
+                  </div>
+                </div>
+    
+                
+            <div class="form-group row">
+              <label class="col-sm-5 form-control-label" for="text-area-input">Owner Percentage</label>
+              <div class="col-sm-9">
+                <input  [(ngModel)] = "partnership.ownerPercentage" type="text" 
+                id="ownerPercentage" name="ownerPercentage" required
+                 class="form-control form-control-lg">
+                
+              </div>
+            </div>
+            
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="input-large">Condition</label>
+                  <div class="col-sm-9">
+                    <textarea [(ngModel)] = "partnership.condition" type="text" 
+                    id="condition" name="condition"
+                     class="form-control form-control-lg"></textarea>
+                  
+                    </div>
+                </div>          
+              </form>
+            </div>
+    
+            <div class="card-footer">          
+              <button type="submit" (click)="onFormSubmit(clientForm)" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create</button>
+            </div>
+          </div>
+     
+    </div>
+    
+  </div>
+</ng-template>
+
+

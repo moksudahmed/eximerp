@@ -1,0 +1,48 @@
+<div class="">
+  <h1>New warehouse</h1>
+
+  <div class="body">
+    <form class="" action="/warehouse/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">contactNo</label>
+          <input type="text" name="contactNo" value="<%= element.contactNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">location</label>
+          <input type="text" name="location" value="<%= element.location %>" required="true">
+        </div>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="true">
+        </div>
+        <div class="">
+          <label for="">factoryID</label>
+          <input type="number" name="factoryID" value="<%= element.factoryID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">inventoryDate</label>
+          <input type="date" name="inventoryDate" value="<%= element.inventoryDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">warehouseID</label>
+          <input type="number" name="warehouseID" value="<%= element.warehouseID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">deliveryID</label>
+          <input type="number" name="deliveryID" value="<%= element.deliveryID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">createdAt</label>
+          <input type="" name="createdAt" value="<%= element.createdAt %>" required="true">
+        </div>
+        <div class="">
+          <label for="">updatedAt</label>
+          <input type="" name="updatedAt" value="<%= element.updatedAt %>" required="true">
+        </div>
+      <button type="submit">Update warehouse</button>
+    </form>
+    <br />
+    <a href="/warehouse">Index</a>
+  </div>
+</div>

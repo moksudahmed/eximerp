@@ -1,0 +1,115 @@
+<h1>salescontract</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 salescontract
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>paymentTerms</th>
+			<th>import</th>
+			<th>bankName</th>
+			<th>contractNo</th>
+			<th>date</th>
+			<th>deliveryPeriodFrom</th>
+			<th>deliveryPeriodTo</th>
+			<th>iECNo</th>
+			<th>route</th>
+			<th>determinationOfMeserment</th>
+			<th>modeOfTransport</th>
+			<th>paymentMethod</th>
+			<th>salesContractID</th>
+			<th>letterCreditID</th>
+			<th>witnessID</th>
+			<th>internationalID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.paymentTerms %>
+					</td>
+					<td>
+						<%= item.import %>
+					</td>
+					<td>
+						<%= item.bankName %>
+					</td>
+					<td>
+						<%= item.contractNo %>
+					</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.deliveryPeriodFrom %>
+					</td>
+					<td>
+						<%= item.deliveryPeriodTo %>
+					</td>
+					<td>
+						<%= item.iECNo %>
+					</td>
+					<td>
+						<%= item.route %>
+					</td>
+					<td>
+						<%= item.determinationOfMeserment %>
+					</td>
+					<td>
+						<%= item.modeOfTransport %>
+					</td>
+					<td>
+						<%= item.paymentMethod %>
+					</td>
+					<td>
+						<%= item.salesContractID %>
+					</td>
+					<td>
+						<%= item.letterCreditID %>
+					</td>
+					<td>
+						<%= item.witnessID %>
+					</td>
+					<td>
+						<%= item.internationalID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/salescontract/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/salescontract/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/salescontract/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/salescontract/create">New</a>

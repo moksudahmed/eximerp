@@ -1,0 +1,79 @@
+<h1>academichistory</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 academichistory
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>degreeName</th>
+			<th>institutionName</th>
+			<th>awardingBody</th>
+			<th>passingYear</th>
+			<th>result</th>
+			<th>academicHistoryID</th>
+			<th>personID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.degreeName %>
+					</td>
+					<td>
+						<%= item.institutionName %>
+					</td>
+					<td>
+						<%= item.awardingBody %>
+					</td>
+					<td>
+						<%= item.passingYear %>
+					</td>
+					<td>
+						<%= item.result %>
+					</td>
+					<td>
+						<%= item.academicHistoryID %>
+					</td>
+					<td>
+						<%= item.personID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/academichistory/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/academichistory/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/academichistory/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/academichistory/create">New</a>

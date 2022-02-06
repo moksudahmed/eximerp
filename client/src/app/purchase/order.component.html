@@ -1,0 +1,96 @@
+<!--<form class="form-inline">
+	<div class="form-group">
+		<input type="search"
+		       class="form-control"
+		       placeholder="Enter search string"
+		       #search>
+	</div>
+	<button type="button" class="btn btn-primary" (click)="doSearch(search.value)">Search</button>
+</form>
+
+<hr/>
+
+<div class="text-center">
+  <p class="lead" *ngIf="loading">Loading...</p>
+</div>
+
+<ul class="list-group">
+	<li class="list-group-item"
+	    *ngFor="let o of order">
+		<a target="_blank"
+		   href="{{o.purchaseOrderID}}">{{ o.purchaseOrderID }}
+		</a>
+	</li>
+</ul>-->
+
+  
+<div class="row">
+  <div class="col-md-2">
+    <label><strong>Purchase Order No</strong></label>
+  </div>  
+  <div class="col-md-8">
+    <input type="text" (keyup)="onSearch(myInput.value)" #myInput
+    class="form-control"
+    placeholder="Enter search string">
+  
+  </div>
+  <div class="col-sm-2">
+  <!--  <button (click)="onSearch(search.value)" type="submit" class="btn btn-sm btn-primary" value="Continue"><i class="fa fa-arrow-circle-right"></i> Search</button> -->
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Purchase Order
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Purchase Order ID</th>
+              <th>Date</th>
+              <th>Supplier ID</th>
+              <th>Shopping Date</th>                
+              <th>Order Total</th>
+              <th>Net Total</th>                
+              <th>Action</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let o of order">
+                  <td>{{o.purchaseOrderID}}</td>
+                  <td>{{o.date | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{o.localID}}</td> 
+                  <td>{{o.shippingDate | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{o.orderTotal}}</td>                
+                  <td>{{o.netTotal}}</td>                                   
+                  <td>  
+                    <a button type="button" class="btn btn-primary btn-sm" ngbTooltip="Tooltip on top" routerLink="/purchase/order-details/{{o.purchaseOrderID}}"><i class="icon-magnifier-add"></i></a>                                         
+                    <a button type="button" class="btn btn-info btn-sm" routerLink="/purchase/invoice/{{o.purchaseOrderID}}"><i class="icon-printer"></i></a>                                         
+                    <a button type="button" class="btn btn-danger btn-sm"><i class="icon-trash"></i></a>
+                </td>    
+        
+            </tr>         
+                    
+          </tbody>
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+ </div>

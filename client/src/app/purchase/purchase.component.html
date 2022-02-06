@@ -1,0 +1,150 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+    <div class="card">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+              <strong>Purchease</strong> Details            
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-4">
+                      
+                      <figure class="figure">
+                              <img src="assets\img\logo.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                            </figure>    
+                  
+                  </div>
+                           
+          </div>
+
+          <div class="row">
+              <div class="col-md-4">
+                  <h2>Purchease Request</h2>
+                <ul class="heroes">
+                  <li *ngFor="let m of requests">                      
+                   <span class="badge" >{{m.id}}</span>                                     
+                   <span class="" >{{m.status}}</span>
+                   <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                    <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+                  </li>
+                </ul>                 
+          </div>
+          <div class="col-md-4">
+              <h2>Qutation</h2>
+              <ul class="heroes">
+                <li *ngFor="let q of qutations">                      
+                <span class="badge" >{{q.id}}</span>                                     
+                <span class="" >{{q.approved}}</span>
+                <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                  <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+                </li>
+              </ul>                 
+          </div>
+          <div class="col-md-4">
+              <h2>Suppler</h2>
+            <ul class="heroes">
+              <li *ngFor="let s of suppliers">                      
+               <span class="badge" >{{s.id}}</span>                                     
+               <span class="" >{{s.departmentID}}</span>
+               <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+              </li>
+            </ul>                 
+      </div>
+         <!-- <div class="col-md-4">
+                  <h2>Departments</h2>
+              <ul class="heroes">
+                  <li *ngFor="let d of department"
+                 >
+                 <span class="badge" routerLink="/organizations/depatmentdetails/{{d.departmentID}}">{{d.departmentName}}</span>                                     
+                 <span class="" routerLink="/organizations/depatmentdetails/{{d.departmentID}}">{{d.departmentName}}</span>
+                  </li>
+                </ul>                 
+          </div>-->
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>LC</h2>
+                  <ul class="heroes">
+                    <li *ngFor="let l of lcs">                      
+                     <span class="badge" >{{l.id}}</span>                                     
+                     <span class="" >{{l.HSCode}}</span>
+                     <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                      <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+                    </li>
+                  </ul>                 
+            </div>
+            <div class="col-md-4">
+                <h2>Purchase Order</h2>
+              <ul class="heroes">
+                <li *ngFor="let m of orders">                      
+                 <span class="badge" >{{m.id}}</span>                                     
+                 <span class="" >{{m.orderTotal}}</span>
+                 <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+                  <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+                </li>
+              </ul>                 
+        </div>
+        <div class="col-md-4">
+          <h2>Sales Contract</h2>
+        <ul class="heroes">
+          <li *ngFor="let s of contracts">                      
+           <span class="badge" >{{s.id}}</span>                                     
+           <span class="" >{{s.bankName}}</span>
+           <!-- <span class="badge" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchID}}</span>                                     
+            <span class="" routerLink="/organizations/branchdetails/{{b.branchID}}">{{b.branchName}}</span>-->
+          </li>
+        </ul>                 
+  </div>
+            </div>
+
+           <!-- <table class="table table-bordered table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Department</th>                        
+                  <th>Purchase Request ID</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let s of model">
+                      <td>{{s.purchaseOrderID}}</td>
+                      <td>{{s.date}}</td>                     
+                      <td>{{s.discount}}</td>
+                      <td>{{s.orderTotal}}</td>                                             
+                      <td>
+                          <span class="badge badge-success">{{s.netTotal}}</span>
+                      </td>
+                      <td>
+                          <a button type="button" class="btn btn-success btn-sm" (click)="cart(s.purchaseRequestID)"><i class="icon-trash"></i></a>
+                        </td>    
+              
+                </tr>         
+                        
+              </tbody>
+            </table>
+            <nav>
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>-->
+          </div>
+        </div>
+      </div>
+     
+    </div>

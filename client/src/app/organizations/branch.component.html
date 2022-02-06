@@ -1,0 +1,79 @@
+
+<div class="card">
+        <div class="card-header">
+          <strong>Create New</strong>
+          <small>Branch</small>
+        </div>
+        <div class="card-body">
+            <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+            (ngSubmit)="onFormSubmit(branchForm)" 
+            #branchForm="ngForm">  
+                
+                  <div class="form-group row">
+                    <label class="col-sm-3 form-control-label" for="select">Select Organization</label>
+                    <div class="col-sm-6">
+                        <select [(ngModel)]="branch.organizationID" name="organizationID" class="form-control input-lg" size="1">          
+                            <option *ngFor="let a of organization" [value]="a.organizationID">
+                                {{a.organizationName}}
+                            </option>
+                        </select>     
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="text-input">Name of the Branch</label>
+                      <div class="col-md-6">
+                          <input [(ngModel)]="branch.branchName" type="text" name="branchName" class="form-control" 
+                              id="branchName" placeholder="Branch Name" required>                                              
+                            </div>
+                     
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="text-input">Address</label>
+                      <div class="col-md-6">
+                          <input [(ngModel)]="branch.branchAddress" type="textarea" name="branchAddress" class="form-control" 
+                          id="branchAddress" placeholder="Address" required>     
+                      </div>
+                     
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="text-input">City</label>
+                      <div class="col-md-6">
+                          <input [(ngModel)]="branch.city" type="text" name="city" class="form-control" 
+                              id="city" placeholder="city" required>                                              
+                            </div>
+                     
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="text-input">Country</label>
+                      <div class="col-md-6">
+                          <input [(ngModel)]="branch.country" type="text" name="country" class="form-control" 
+                              id="country" placeholder="country" required>                                              
+                            </div>
+                     
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="text-input">Contact No</label>
+                      <div class="col-md-6">
+                          <input [(ngModel)]="branch.contactNo" type="text" name="contactNo" class="form-control" 
+                              id="contactNo" placeholder="Contact No" required>                                              
+                            </div>
+                     
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="text-input">Email</label>
+                      <div class="col-md-6">
+                          <input [(ngModel)]="branch.emailAddress" type="text" name="emailAddresse" class="form-control" 
+                              id="emailAddress" placeholder="emailAddress" required>                                              
+                            </div>
+                     
+                    </div>
+                  
+        </form>
+        </div>
+        <div class="card-footer">
+            <button (click)="onFormSubmit(branchForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                  
+          <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        </div>
+      </div>

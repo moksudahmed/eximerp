@@ -1,0 +1,79 @@
+<h1>address</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 address
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>addressLine1</th>
+			<th>addressLine2</th>
+			<th>postcode</th>
+			<th>city</th>
+			<th>country</th>
+			<th>addressID</th>
+			<th>clientID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.addressLine1 %>
+					</td>
+					<td>
+						<%= item.addressLine2 %>
+					</td>
+					<td>
+						<%= item.postcode %>
+					</td>
+					<td>
+						<%= item.city %>
+					</td>
+					<td>
+						<%= item.country %>
+					</td>
+					<td>
+						<%= item.addressID %>
+					</td>
+					<td>
+						<%= item.clientID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/address/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/address/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/address/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/address/create">New</a>

@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New joinvehicletoshipment</h1>
+
+  <div class="body">
+    <form class="" action="/joinvehicletoshipment/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">shipmentID</label>
+          <input type="number" name="shipmentID" value="<%= element.shipmentID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">vehicleID</label>
+          <input type="number" name="vehicleID" value="<%= element.vehicleID %>" required="true">
+        </div>
+      <button type="submit">Update joinvehicletoshipment</button>
+    </form>
+    <br />
+    <a href="/joinvehicletoshipment">Index</a>
+  </div>
+</div>

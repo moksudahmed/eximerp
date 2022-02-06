@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New payment</h1>
+
+  <div class="body">
+    <form class="" action="/payment/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">amount</label>
+          <input type="number" name="amount" value="<%= element.amount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">paymentDate</label>
+          <input type="date" name="paymentDate" value="<%= element.paymentDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">paymentType</label>
+          <input type="text" name="paymentType" value="<%= element.paymentType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">status</label>
+          <input type="text" name="status" value="<%= element.status %>" required="true">
+        </div>
+        <div class="">
+          <label for="">paymentID</label>
+          <input type="number" name="paymentID" value="<%= element.paymentID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">clientAccountID</label>
+          <input type="number" name="clientAccountID" value="<%= element.clientAccountID %>" required="false">
+        </div>
+      <button type="submit">Update payment</button>
+    </form>
+    <br />
+    <a href="/payment">Index</a>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New orderdetails</h1>
+
+  <div class="body">
+    <form class="" action="/orderdetails/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">discount</label>
+          <input type="number" name="discount" value="<%= element.discount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">quantity</label>
+          <input type="number" name="quantity" value="<%= element.quantity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">unitPrice</label>
+          <input type="number" name="unitPrice" value="<%= element.unitPrice %>" required="true">
+        </div>
+        <div class="">
+          <label for="">total</label>
+          <input type="number" name="total" value="<%= element.total %>" required="true">
+        </div>
+        <div class="">
+          <label for="">orderDetailsID</label>
+          <input type="number" name="orderDetailsID" value="<%= element.orderDetailsID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">customerOrderID</label>
+          <input type="number" name="customerOrderID" value="<%= element.customerOrderID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">itemID</label>
+          <input type="number" name="itemID" value="<%= element.itemID %>" required="false">
+        </div>
+      <button type="submit">Update orderdetails</button>
+    </form>
+    <br />
+    <a href="/orderdetails">Index</a>
+  </div>
+</div>

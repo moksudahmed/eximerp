@@ -1,0 +1,248 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<div class="animated fadeIn">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <strong>Credit Card</strong>
+        <small>Form</small>
+      </div>
+      <div class="card-body">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(paymentForm)" 
+        #paymentForm="ngForm">
+          <div class="form-group row">
+            <label class="col-md-3 form-control-label">Payment Type</label>
+            <div class="col-md-9">
+              <label class="radio-inline" for="inline-radio1">
+                <input type="radio" [(ngModel)] = "payment.paymentType" id="inline-radio1" name="inline-radios" value="cash"> Cash
+              </label>
+              <label class="radio-inline" for="inline-radio2">
+                <input type="radio" [(ngModel)] = "payment.paymentType" id="inline-radio2" name="inline-radios" value="credit"> Credit
+              </label>
+              <label class="radio-inline" for="inline-radio3">
+                <input type="radio"  [(ngModel)] = "payment.paymentType" id="inline-radio3" name="inline-radios" value="cash&credit"> Cash & Credit
+              </label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="inputdate">Date</label>
+              <input type="date" class="form-control"
+                [(ngModel)] = "payment.paymentDate"
+                id="inputdate"
+                name="date"
+                placeholder="date">
+            </div> 
+          </div>
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="inputparticulars">Particulars</label>
+              <input #particulars type="text" class="form-control"
+              [(ngModel)] = "transactions.transactionTitle" 
+              id="transactionTitle" 
+              name="transactionTitle"
+              placeholder="particular">
+            </div> 
+          </div>
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">Order Ref NO</label>
+              <div class="input-group">
+                  <select class="form-control" id="select" (change)="filterChanged($event.target.value)">    
+                  <option [ngValue]="undefined" disabled selected>Select Order No</option>                          
+                  <option *ngFor="let _order of order" [value]="_order.purchaseOrderID">
+                  {{_order.purchaseOrderID}}                                    
+                  </option>
+                  </select>
+                 </div>  
+            </div>     
+          </div>
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="inputparticulars">Supplier ID</label>
+              <input [(ngModel)]="payment.clientAccountID" type="text" class="form-control"
+              id="clientAccountID" 
+              name="clientAccountID" value= {{selectedID}}
+              placeholder=" ">
+            </div> 
+          </div>
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="name">To</label>          
+              <select class="form-control" id="select" (change)="filterChanged2($event.target.value)"
+              [(ngModel)] = "payment.localID" type ="number" name = "supplierID">    
+              <option [ngValue]="undefined" disabled selected>Choose Local ID</option>                          
+              <option *ngFor="let i of local" [value]="i.supplierID">
+              {{i.supplierID}}
+          </option>
+          </select>  
+          </div>   
+          </div> 
+          
+          <div class="col-sm-6">
+            <div class="form-group">
+              
+              <div *ngIf="show; else elseBlock">
+                <p>Details: {{inidividualSupplier[0].per_name}}{{inidividualSupplier[0].addressLine1}}, {{inidividualSupplier[0].postcode}}, {{inidividualSupplier[0].city}}, {{inidividualSupplier[0].country}}</p>
+              </div>
+              <ng-template #elseBlock>
+                <p>Details: {{supplier[0].companyName}}{{supplier[0].addressLine1}}{{supplier[0].addressLine2}}{{supplier[0].city}}{{supplier[0].country}}{{supplier[0].contactNo}}</ng-template>
+
+            </div>  
+          </div>
+        
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="inputparticulars">Balance</label>
+              <p>{{due}}/-</p>
+              </div>     
+          </div>
+        </div><!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="inputparticulars">Amount</label>
+              <input type="number" class="form-control"         
+              id="inputparticular" 
+              name="amount"
+              [(ngModel)] = "payment.amount" 
+              placeholder="amount">
+            </div>     
+          </div>
+        </div><!--/.row-->
+      </form>
+      </div>
+      <div class="card-footer">        
+        <button (click)="onFormSubmit(paymentForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>        
+        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+      </div>
+    </div>
+  </div><!--/.col-->
+</div><!--/.row-->
+</div>
+
+<!--
+<div class="animated fadeIn">
+
+  <div class="card">
+    <div class="card-header">
+      <strong>Payment</strong>
+      <small>Form</small>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(paymentForm)" 
+        #paymentForm="ngForm">  
+        
+            <div class="form-group" >
+              <label class="col-md-6 form-control-label">Payment Type</label>
+                 <select class="form-control" id="select"    
+                  [(ngModel)] = "payment.paymentType" name ="paymentType">    
+                      <option [ngValue]="undefined" disabled selected>Choose Type</option>                          
+                      <option *ngFor="let t of type" [value]="t.value">
+                              {{t.name}}                              
+                      </option>
+                 </select>    
+                
+                  <input #cash type="radio" [(ngModel)]="selectedNature" name="nature" value="cash"
+                  [checked]="nature==cash"
+                  >Cash <br>
+                  <input #cheque type="radio" [(ngModel)]="selectedNature" name="nature" value="cheque"
+                  [checked]="nature==cheque">Cheque
+                  <h3 *ngIf="cash.checked">Big heading</h3>-->
+                <!--
+            </div>  
+            <div class="form-group">
+              <label for="inputdate">Date</label>
+              <input type="date" class="form-control"
+                [(ngModel)] = "payment.paymentDate"
+                id="inputdate"
+                name="date"
+                placeholder="date">
+            </div> 
+            <div class="form-group">
+              <label for="inputtitle">Title</label>
+              <input type="text" class="form-control"
+                [(ngModel)] = "transactions.transactionTitle"
+                id="inputtitle"
+                name="text"
+                placeholder="title">
+            </div>  
+            <div class="form-group">
+              <label for="inputparticulars">Particulars</label>
+              <input #particulars type="text" class="form-control"
+              [(ngModel)] = "transactions.particular" 
+              id="inputparticular" 
+              name="particular"
+              placeholder="particular">
+            </div>
+         
+            <div class="form-group">
+              <label for="name">Supplier ID</label>
+              <div class="input-group">
+                  <select class="form-control" id="select"                  
+                  [(ngModel)] = "payment.clientAccountID" name ="supplierID">                    
+                  <option [ngValue]="undefined" disabled selected>Choose Contract</option>                          
+                  <option *ngFor="let s of supplier | async" [value]="s.supplierID">
+                  {{s.supplierID}}                                    
+                  </option>
+                  </select>
+                 </div>  
+          </div>    
+          <div class="form-group">
+            <label for="name">Chart of Account</label>
+            <div class="input-group">
+                <select class="form-control" id="select"
+                >    
+                <option [ngValue]="undefined" disabled selected>Choose Contract</option>                          
+                <option *ngFor="let a of accounts | async" [value]="a.chartOfAccountID">
+                {{a.accountName}}                                    
+                </option>
+                </select>
+               </div>  
+        </div>   
+    
+        <div class="form-group">
+          <label for="inputparticulars">Amount</label>
+          <input type="number" class="form-control"         
+          id="inputparticular" 
+          name="amount"
+          [(ngModel)] = "payment.amount" 
+          placeholder="amount">
+        </div> 
+            
+    </form>
+    </div>
+    </div>
+    
+        <div class="card-footer">        
+            <button (click)="onFormSubmit(paymentForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>        
+            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+     </div>
+    </div>
+    </div>
+  
+  </div>-->
+    
+      
+  
+  

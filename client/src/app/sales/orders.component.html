@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-lg-4">
+    <div class="input-group">
+      <label for="name">From</label>
+                      
+      <input #date type="date" id="input1-group2" name="input1-group2" class="form-control">                                        
+    </div>
+   </div>  
+   <div class="col-lg-4">
+    <div class="input-group">
+      <label for="name">To</label>
+                      
+      <input #date type="date" id="input1-group2" name="input1-group2" class="form-control">                                        
+    </div>
+   </div>   
+  <div class="col-lg-4">
+    <div class="input-group">
+      <a button type="button" class="btn btn-primary btn-sm" (click)="report()">Generate Report</a>
+      <a button type="button" class="btn btn-success btn-sm" (click)="report()">Print Report <i class="icon-printer"></i></a>  
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Order List
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Order No</th>
+              <th>Date</th>                
+              <th>Status</th>     
+              <th>Discount</th>        
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>           
+              <tr *ngFor="let b of orders">
+                  <td>{{b.customerOrderID}}</td>
+                  <td>{{b.orderDate | date: 'dd/MM/yyyy'}}</td> 
+                  <td>
+                  <span class="badge badge-success">{{b.status}}</span>  
+                 </td>                
+                  <td>{{b.discount}}</td> 
+                  <td>{{b.orderTotal}}</td> 
+                  <td>                                                                 
+                      <a button type="button" class="btn btn-sucess btn-sm" routerLink="/sales/orderdetails/{{b.customerOrderID}}"><i class="icon-magnifier-add"></i></a>                                         
+                      <a button type="button" class="btn btn-info btn-sm" routerLinkActive="active" routerLink="/sales/invoice/{{b.customerOrderID}}"><i class="icon-printer"></i></a>                                         
+                      <a button type="button" class="btn btn-danger btn-sm" (click)="deleteOrder()"><i class="icon-trash"></i></a>
+                  </td>    
+          
+            </tr>         
+                    
+          </tbody>
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>

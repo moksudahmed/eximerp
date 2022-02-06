@@ -1,0 +1,76 @@
+        <div class="container">
+          <div class="row">
+        
+            <div class="col-md-12" id="htmlData" #htmlData>
+              <div class="row">
+                <p>
+                  Order ID:{{this.order[0].customerOrderID}}
+                </p>
+                <p>
+                  Order Date:{{this.order[0].orderDate | date: 'dd/MM/yyyy'}}
+                </p>
+                <p>
+                  Client ID:{{this.order[0].clientAccountID}}
+                </p>
+                <p>
+                  Status:{{this.order[0].status}}
+                </p>
+                
+              </div>
+              
+              <table class="table table-bordered">
+                <tr class="table-primary">
+                  <th>Item ID</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Unit Price</th>
+                </tr>
+                <tr *ngFor="let cart of this.order[0]['details']">
+                  <th>{{cart.itemID}}</th>
+                  <td>{{cart.quantity}}</td>
+                  <td>{{cart.weight}}</td>
+                  <td>{{cart.unitPrice}}</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>Order Total</td>
+                  <td>{{this.order[0].orderTotal}}</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>Discount</td>
+                  <td>{{this.order[0].discount}}</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>Tax</td>
+                  <td>0.00</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>Vat</td>
+                  <td>0.00</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>Net Pay</td>
+                  <td>{{this.order[0].netPay}}</td>
+                </tr>
+              </table>
+             
+              
+            </div>
+     
+            <div class="col-md-4 text-right">
+              <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button>
+              <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button>
+            </div>
+        
+          </div>
+        </div>
+       

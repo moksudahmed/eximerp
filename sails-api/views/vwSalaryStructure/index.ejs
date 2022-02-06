@@ -1,0 +1,99 @@
+<h1>vwSalaryStructure</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 vwSalaryStructure
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>per_name</th>
+			<th>designation</th>
+			<th>status</th>
+			<th>overtimeRate</th>
+			<th>profileType</th>
+			<th>providentFund</th>
+			<th>taxRate</th>
+			<th>hourlyRate</th>
+			<th>commissionRate</th>
+			<th>paymentType</th>
+			<th>salaryProfileID</th>
+			<th>employeeID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.per_name %>
+					</td>
+					<td>
+						<%= item.designation %>
+					</td>
+					<td>
+						<%= item.status %>
+					</td>
+					<td>
+						<%= item.overtimeRate %>
+					</td>
+					<td>
+						<%= item.profileType %>
+					</td>
+					<td>
+						<%= item.providentFund %>
+					</td>
+					<td>
+						<%= item.taxRate %>
+					</td>
+					<td>
+						<%= item.hourlyRate %>
+					</td>
+					<td>
+						<%= item.commissionRate %>
+					</td>
+					<td>
+						<%= item.paymentType %>
+					</td>
+					<td>
+						<%= item.salaryProfileID %>
+					</td>
+					<td>
+						<%= item.employeeID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/vwSalaryStructure/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/vwSalaryStructure/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/vwSalaryStructure/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/vwSalaryStructure/create">New</a>

@@ -1,0 +1,84 @@
+<div class="">
+  <h1>New lettercredit</h1>
+
+  <div class="body">
+    <form class="" action="/lettercredit/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">HSCode</label>
+          <input type="text" name="HSCode" value="<%= element.HSCode %>" required="true">
+        </div>
+        <div class="">
+          <label for="">IRCERCNo</label>
+          <input type="text" name="IRCERCNo" value="<%= element.IRCERCNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">LCAFNo</label>
+          <input type="text" name="LCAFNo" value="<%= element.LCAFNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">LCAFDate</label>
+          <input type="date" name="LCAFDate" value="<%= element.LCAFDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">LCDate</label>
+          <input type="date" name="LCDate" value="<%= element.LCDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">LCNo</label>
+          <input type="text" name="LCNo" value="<%= element.LCNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">nameOfCarrier</label>
+          <input type="text" name="nameOfCarrier" value="<%= element.nameOfCarrier %>" required="true">
+        </div>
+        <div class="">
+          <label for="">nationality</label>
+          <input type="text" name="nationality" value="<%= element.nationality %>" required="true">
+        </div>
+        <div class="">
+          <label for="">placeOfLoading</label>
+          <input type="text" name="placeOfLoading" value="<%= element.placeOfLoading %>" required="true">
+        </div>
+        <div class="">
+          <label for="">placeOfUnloading</label>
+          <input type="text" name="placeOfUnloading" value="<%= element.placeOfUnloading %>" required="true">
+        </div>
+        <div class="">
+          <label for="">vatRegistrationNo</label>
+          <input type="text" name="vatRegistrationNo" value="<%= element.vatRegistrationNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">currency</label>
+          <input type="text" name="currency" value="<%= element.currency %>" required="true">
+        </div>
+        <div class="">
+          <label for="">insuranceCoverNoteNo</label>
+          <input type="text" name="insuranceCoverNoteNo" value="<%= element.insuranceCoverNoteNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">recevingBank</label>
+          <input type="text" name="recevingBank" value="<%= element.recevingBank %>" required="true">
+        </div>
+        <div class="">
+          <label for="">letterCreditID</label>
+          <input type="number" name="letterCreditID" value="<%= element.letterCreditID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">insuranceID</label>
+          <input type="number" name="insuranceID" value="<%= element.insuranceID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">subSidiaryAccountID</label>
+          <input type="number" name="subSidiaryAccountID" value="<%= element.subSidiaryAccountID %>" required="true">
+        </div>
+      <button type="submit">Update lettercredit</button>
+    </form>
+    <br />
+    <a href="/lettercredit">Index</a>
+  </div>
+</div>

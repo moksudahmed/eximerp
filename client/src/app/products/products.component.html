@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Product</strong> List
+      </div>
+  <div class="card-body">
+        <hr>
+         <div class="row">
+          <div class="col-md-12 mb-8">
+            <h2>Products</h2>
+            <!-- Nav tabs -->
+                      <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Unitprice</th>
+                            <th>Category</th>
+                            <th>Status</th>                       
+                          </tr>
+                        </thead>
+                        <tbody>                    
+                          <tr *ngFor="let p of items">
+                           <td>{{p.name}}</td>
+                           <td>{{p.description}}</td>
+                           <td>{{p.unitPrice}}</td>
+                           <td>{{p.categoryID.categoryName}}</td>                      
+                           <td> <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i>&nbsp;</button>
+                           </td>                        
+                          </tr>        
+                        </tbody>
+                     </table>     
+                    <nav>
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                          <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">4</a></li>
+                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                      </nav>
+                    
+          </div><!--/.col-->
+        </div>
+    <hr>
+  </div>
+  <div class="card-footer">
+      </div>
+</div>

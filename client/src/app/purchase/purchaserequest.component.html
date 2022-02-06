@@ -1,0 +1,156 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+      <strong>Purchase Request</strong>
+      <small>Form</small>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(purcheaseRequestForm)" 
+        #purcheaseRequestForm="ngForm">  
+          <!--<div class="form-group">
+                <label for="name">Department ID</label>
+                <input [(ngModel)]="model.departmentID" type="number" name="departmentID" class="form-control" id="departmentID" placeholder="Department ID">                        
+            </div>-->
+            <div class="form-group">
+              <label for="inputdate">Date</label>
+              <input type="date" class="form-control"
+                [(ngModel)] = "model.date"
+                id="inputdate"
+                name="date"
+                placeholder="date">
+            </div>        
+            <div class="form-group">
+              <label for="inputdate">Department</label>
+            <select (change)="onChange($event.target.value)" class="form-control input-lg" size="1">          
+                <option *ngFor="let department of departments" [value]="department.departmentID">
+                  {{department.departmentName}}
+              </option>
+              </select>  
+            </div>   
+            
+    </form>
+    </div>
+      
+    </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Editable table -->
+        <div class="card">
+          <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Purchase Cart</h3>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <label for="inputdate">Select Product</label>
+                <ng-select [items]="items"
+                  bindLabel="name"
+                  bindValue="itemID"
+                  [(ngModel)]="selectedPersonId">
+                </ng-select>
+              </div>
+              <div class="col-sm-2">
+                  <label for="name">Quantity</label>
+              <div class="input-group">                  
+                <input #qty type="text" name="qty" class="form-control mb-2 mr-sm-2 mb-sm-0" (keydown)="onKeydown($event)" class="form-control" id="qty" value= "1">                
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label for="name">Weight</label>
+              <div class="input-group">                  
+                <input #weight type="text" name="weight" class="form-control mb-2 mr-sm-2 mb-sm-0" (keydown)="onKeydown($event)" class="form-control" id="weight" value= "0.00">                
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label for="name">Unit Price</label>
+              <div class="input-group">                  
+                <input #unitPrice type="text" name="unitPrice" class="form-control mb-2 mr-sm-2 mb-sm-0" (keydown)="onKeydown($event)" class="form-control" id="unitPrice" value= "0.00">                
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label for="name"></label>
+              <div class="input-group">                  
+                <a class="text-success" (click)="add(qty.value, weight.value, unitPrice.value)">
+                  <i class="fa fa-plus" aria-hidden="true" style="font-size:40px"></i>
+                </a> 
+              </div>
+            </div>
+            <!-- <div class="col-sm-2">        
+                <span class="table-add float-right mb-3 mr-2">
+                  <a class="text-success" (click)="add()">
+                    <i class="fa fa-plus" aria-hidden="true" style="font-size:40px"></i>
+                  </a>        
+                </span>
+              </div>-->
+            </div>
+            <br>
+            <div id="table" class="table-editable">
+              
+              
+              <table class="table table-bordered table-responsive-md table-striped text-center">
+                <tr>
+                  <th class="text-center">Item ID</th>
+                  <th class="text-center">Item Name</th>
+                  <th class="text-center">Quantity</th>
+                  <th class="text-center">Weight</th>
+                  <th class="text-center">Unit Price</th>
+                  <th class="text-center">Sort</th>
+                  <th class="text-center">Remove</th>
+                </tr>
+                <tr *ngFor="let person of productList; let id = index">
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'itemID', $event)" (blur)="updateList(id, 'itemID', $event)">{{person.itemID}}</span>
+                  </td>
+                  <td>
+                    <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{person.name}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'quantity', $event)" (blur)="updateList(id, 'quantity', $event)">{{person.quantity}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'weight', $event)" (blur)="updateList(id, 'weight', $event)">{{person.weight}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'unitPrice', $event)" (blur)="updateList(id, 'unitPrice', $event)">{{person.unitPrice}}</span>
+                  </td>
+                  <td>
+                    <span class="table-up">
+                      <a class="text-sucess">
+                        <i class="fa fa-long-arrow-up" style="font-size:28px;color:indigo;"></i>
+                      </a>              
+                    </span>
+                    <span class="table-down">
+                      <a class="text-sucess">
+                        <i class="fa fa-long-arrow-down" style="font-size:28px;color:indigo;"></i>
+                      </a>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="table-remove">
+                      <a (click)="remove(id)">
+                        <i class="fa fa-minus-circle" aria-hidden="true" style="font-size:40px;color:red;"></i>
+                      </a>  
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    <div class="card-footer">        
+      <button (click)="onFormSubmit(purcheaseRequestForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>        
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+  </div>
+    
+  </div>
+  

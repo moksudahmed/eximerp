@@ -1,0 +1,44 @@
+<div class="">
+	<h1>New leave</h1>
+	<h5>By sails-inverse-model</h5>
+
+	<div class="body">
+		<form class="" action="/leave/create" method="post">
+				<div class="">
+					<label for="">leaveDate</label>
+					<input type="date" name="leaveDate" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">leaveFrom</label>
+					<input type="date" name="leaveFrom" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">leaveTo</label>
+					<input type="date" name="leaveTo" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">leaveType</label>
+					<input type="text" name="leaveType" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">remarks</label>
+					<input type="text" name="remarks" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">totalDays</label>
+					<input type="number" name="totalDays" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">leaveID</label>
+					<input type="number" name="leaveID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">employeeID</label>
+					<input type="number" name="employeeID" value="" required="true">
+				</div>
+			<button type="submit">Save leave</button>
+		</form>
+		<br />
+		<a href="/leave">Index</a>
+	</div>
+</div>

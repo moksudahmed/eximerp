@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New address</h1>
+
+  <div class="body">
+    <form class="" action="/address/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">addressLine1</label>
+          <input type="text" name="addressLine1" value="<%= element.addressLine1 %>" required="true">
+        </div>
+        <div class="">
+          <label for="">addressLine2</label>
+          <input type="text" name="addressLine2" value="<%= element.addressLine2 %>" required="true">
+        </div>
+        <div class="">
+          <label for="">postcode</label>
+          <input type="text" name="postcode" value="<%= element.postcode %>" required="true">
+        </div>
+        <div class="">
+          <label for="">city</label>
+          <input type="text" name="city" value="<%= element.city %>" required="true">
+        </div>
+        <div class="">
+          <label for="">country</label>
+          <input type="text" name="country" value="<%= element.country %>" required="true">
+        </div>
+        <div class="">
+          <label for="">addressID</label>
+          <input type="number" name="addressID" value="<%= element.addressID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">clientID</label>
+          <input type="number" name="clientID" value="<%= element.clientID %>" required="false">
+        </div>
+      <button type="submit">Update address</button>
+    </form>
+    <br />
+    <a href="/address">Index</a>
+  </div>
+</div>

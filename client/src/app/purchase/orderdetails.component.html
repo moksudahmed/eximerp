@@ -1,0 +1,117 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Purchase Order</h2></strong>
+      </div>
+      <div class="card-body"><h4>
+         <label for="inputdate">Order Date : {{this.purchaseOrder[0].date | date: 'dd/MM/yyyy'}}</label> <br />
+         <label for="inputdate">Shipping Date : {{this.purchaseOrder[0].shippingDate | date: 'dd/MM/yyyy'}}</label> <br />
+         <label for="inputdate">Supplier ID : {{this.purchaseOrder[0].localID}}</label> <br />
+         <label for="inputdate">Purchase Request ID : {{this.purchaseOrder[0].purchaseRequestID}}</label> <br />
+        </h4>
+       
+      </div>
+      <div class="card-footer">   
+        <div class="row">
+          
+         </div>   
+       <!-- <button (click)="onFormSubmit(purcheaseRequestForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button> -->     
+      </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Order Details</h2></strong>
+      </div>
+      <div class="card-body">        
+        <div class="row"><h4>
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <th>Item ID</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Weight</th>
+           </thead>
+            <tbody>
+              <tr *ngFor="let data of this.purchaseOrder[0].details; let i = index"> 
+                <td>
+                  {{data.itemID}}
+                </td>
+                <td>
+                  {{data.quantity}}
+                </td>
+                <td>
+                  {{data.unitPrice}}
+                </td>
+                <td>
+                  {{data.weight}}
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </h4>
+        </div>
+          <div class="row">
+          <h4>
+          <label for="inputdate">Order Total : {{this.purchaseOrder[0].orderTotal}}</label> <br />
+          <label for="inputdate">TAX : {{this.purchaseOrder[0].tax}}</label> <br />
+          <label for="inputdate">Vat : {{this.purchaseOrder[0].vat}}</label> <br />
+          <label for="inputdate">Net Total : {{this.purchaseOrder[0].netTotal}}</label> <br />
+        </h4>
+        </div>
+      </div>
+   </div>
+  </div>
+  </div>
+   <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Sales Contract</h2></strong>
+      </div>
+      <div class="card-body">
+        <h4>
+         <label for="inputdate">Payment Terms : {{this.purchaseOrder[0].contract[0].paymentTerms}}</label> <br/>
+         <label for="inputdate">Bank Name : {{this.purchaseOrder[0].contract[0].bankName}}</label><br/>
+         <label for="inputdate">Imported : {{this.purchaseOrder[0].contract[0].isImported}}</label><br/>
+         <label for="inputdate">Contract No : {{this.purchaseOrder[0].contract[0].contractNo}}</label><br/>
+         <label for="inputdate">Date : {{this.purchaseOrder[0].contract[0].date | date: 'dd/MM/yyyy'}}</label><br/>
+         <label for="inputdate">Delivery Period From : {{this.purchaseOrder[0].contract[0].deliveryPeriodFrom | date: 'dd/MM/yyyy'}}</label><br/>
+         <label for="inputdate">Delivery Period To : {{this.purchaseOrder[0].contract[0].deliveryPeriodTo | date: 'dd/MM/yyyy'}}</label><br/>
+         <label for="inputdate">IECNo : {{this.purchaseOrder[0].contract[0].iECNo}}</label><br/>
+         <label for="inputdate">Route : {{this.purchaseOrder[0].contract[0].route}}</label><br/>
+         <label for="inputdate">Determination Of Meserment : {{this.purchaseOrder[0].contract[0].determinationOfMeserment}}</label><br/>
+         <label for="inputdate">Mode Of Transport : {{this.purchaseOrder[0].contract[0].modeOfTransport}}</label><br/>
+         <label for="inputdate">Payment Method : {{this.purchaseOrder[0].contract[0].paymentMethod}}</label><br/>
+         <label for="inputdate">Witness ID : {{this.purchaseOrder[0].contract[0].witnessID}}</label><br/>
+        </h4>
+        </div>
+       
+      <div class="card-footer">   
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="reset" class="btn btn-sm btn-danger" value="Back" routerLinkActive="active" [routerLink]="['/purchase/order']"><i class="fa fa-arrow-circle-left"></i> Back</button>
+         </div>
+         <div class="col-sm-8">
+            <button value="Complete" (click)="onFormSubmit()" type="submit" class="btn btn-sm btn-primary" ><i class="fa fa-save"></i> Save Order</button>        
+        
+          <button (click) ="printPdf()" value="Complete" type="submit" class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Print Order</button>        
+          <button value="Complete" type="submit" class="btn btn-sm btn-warning"  routerLinkActive="active" routerLink="/purchase/invoice"><i class="fa fa-envelope"></i> Email Order</button>        
+       </div>
+       
+        <div class="col-sm-2">
+          <button value="Complete" type="submit" class="btn btn-sm btn-success" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="fa fa-times-circle"></i> Finish</button>        
+        </div>
+         </div>   
+       <!-- <button (click)="onFormSubmit(purcheaseRequestForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button> -->     
+      </div>
+    </div>
+   </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="">
+	<h1>New overtime</h1>
+	<h5>By sails-inverse-model</h5>
+
+	<div class="body">
+		<form class="" action="/overtime/create" method="post">
+				<div class="">
+					<label for="">overTimeDate</label>
+					<input type="date" name="overTimeDate" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">fromTime</label>
+					<input type="datetime" name="fromTime" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">totalHour</label>
+					<input type="number" name="totalHour" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">toTime</label>
+					<input type="datetime" name="toTime" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">overtimeID</label>
+					<input type="number" name="overtimeID" value="" required="false">
+				</div>
+				<div class="">
+					<label for="">employeeID</label>
+					<input type="number" name="employeeID" value="" required="true">
+				</div>
+			<button type="submit">Save overtime</button>
+		</form>
+		<br />
+		<a href="/overtime">Index</a>
+	</div>
+</div>

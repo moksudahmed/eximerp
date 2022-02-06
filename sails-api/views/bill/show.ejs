@@ -1,0 +1,27 @@
+<h1>Show bill</h1>
+
+	<p>
+		<strong>date:</strong>
+		<%= element.date %>
+	</p>
+	<p>
+		<strong>invoiceNo:</strong>
+		<%= element.invoiceNo %>
+	</p>
+	<p>
+		<strong>amount:</strong>
+		<%= element.amount %>
+	</p>
+	<p>
+		<strong>billID:</strong>
+		<%= element.billID %>
+	</p>
+	<p>
+		<strong>customerOrderID:</strong>
+		<%= element.customerOrderID %>
+	</p>
+
+<br>
+<a href="/bill/edit/<%= element.id %>">Edit</a>
+<a href="/bill/create">New</a>
+<a href="/bill">Back</a>

@@ -1,0 +1,28 @@
+<div class="">
+  <h1>New purchaserequest</h1>
+
+  <div class="body">
+    <form class="" action="/purchaserequest/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">purchaseRequestID</label>
+          <input type="number" name="purchaseRequestID" value="<%= element.purchaseRequestID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">departmentID</label>
+          <input type="number" name="departmentID" value="<%= element.departmentID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">status</label>
+          <input type="text" name="status" value="<%= element.status %>" required="true">
+        </div>
+      <button type="submit">Update purchaserequest</button>
+    </form>
+    <br />
+    <a href="/purchaserequest">Index</a>
+  </div>
+</div>

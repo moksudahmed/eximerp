@@ -1,0 +1,27 @@
+<h1>Show supplier</h1>
+
+	<p>
+		<strong>supplierID:</strong>
+		<%= element.supplierID %>
+	</p>
+	<p>
+		<strong>departmentID:</strong>
+		<%= element.departmentID %>
+	</p>
+	<p>
+		<strong>subSidiaryAccountID:</strong>
+		<%= element.subSidiaryAccountID %>
+	</p>
+	<p>
+		<strong>type:</strong>
+		<%= element.type %>
+	</p>
+	<p>
+		<strong>category:</strong>
+		<%= element.category %>
+	</p>
+
+<br>
+<a href="/supplier/edit/<%= element.id %>">Edit</a>
+<a href="/supplier/create">New</a>
+<a href="/supplier">Back</a>

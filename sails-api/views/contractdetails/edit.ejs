@@ -1,0 +1,32 @@
+<div class="">
+  <h1>New contractdetails</h1>
+
+  <div class="body">
+    <form class="" action="/contractdetails/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">itemInfo</label>
+          <input type="text" name="itemInfo" value="<%= element.itemInfo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">quantity</label>
+          <input type="number" name="quantity" value="<%= element.quantity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">itemPrice</label>
+          <input type="number" name="itemPrice" value="<%= element.itemPrice %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contractDetailsID</label>
+          <input type="number" name="contractDetailsID" value="<%= element.contractDetailsID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">salesContractID</label>
+          <input type="number" name="salesContractID" value="<%= element.salesContractID %>" required="true">
+        </div>
+      <button type="submit">Update contractdetails</button>
+    </form>
+    <br />
+    <a href="/contractdetails">Index</a>
+  </div>
+</div>

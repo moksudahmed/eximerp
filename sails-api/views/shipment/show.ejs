@@ -1,0 +1,35 @@
+<h1>Show shipment</h1>
+
+	<p>
+		<strong>destination:</strong>
+		<%= element.destination %>
+	</p>
+	<p>
+		<strong>purcheaseOrderInfo:</strong>
+		<%= element.purcheaseOrderInfo %>
+	</p>
+	<p>
+		<strong>source:</strong>
+		<%= element.source %>
+	</p>
+	<p>
+		<strong>transportationMethod:</strong>
+		<%= element.transportationMethod %>
+	</p>
+	<p>
+		<strong>shipmentID:</strong>
+		<%= element.shipmentID %>
+	</p>
+	<p>
+		<strong>purchaseOrderID:</strong>
+		<%= element.purchaseOrderID %>
+	</p>
+	<p>
+		<strong>warehouseID:</strong>
+		<%= element.warehouseID %>
+	</p>
+
+<br>
+<a href="/shipment/edit/<%= element.id %>">Edit</a>
+<a href="/shipment/create">New</a>
+<a href="/shipment">Back</a>

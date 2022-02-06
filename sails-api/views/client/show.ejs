@@ -1,0 +1,27 @@
+<h1>Show client</h1>
+
+	<p>
+		<strong>clientType:</strong>
+		<%= element.clientType %>
+	</p>
+	<p>
+		<strong>date:</strong>
+		<%= element.date %>
+	</p>
+	<p>
+		<strong>clientID:</strong>
+		<%= element.clientID %>
+	</p>
+	<p>
+		<strong>organizationID:</strong>
+		<%= element.organizationID %>
+	</p>
+	<p>
+		<strong>subSidiaryAccountID:</strong>
+		<%= element.subSidiaryAccountID %>
+	</p>
+
+<br>
+<a href="/client/edit/<%= element.id %>">Edit</a>
+<a href="/client/create">New</a>
+<a href="/client">Back</a>

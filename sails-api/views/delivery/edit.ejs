@@ -1,0 +1,20 @@
+<div class="">
+  <h1>New delivery</h1>
+
+  <div class="body">
+    <form class="" action="/delivery/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">deliveryID</label>
+          <input type="number" name="deliveryID" value="<%= element.deliveryID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">customerOrderID</label>
+          <input type="number" name="customerOrderID" value="<%= element.customerOrderID %>" required="false">
+        </div>
+      <button type="submit">Update delivery</button>
+    </form>
+    <br />
+    <a href="/delivery">Index</a>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<h1>Show leave</h1>
+
+	<p>
+		<strong>leaveDate:</strong>
+		<%= element.leaveDate %>
+	</p>
+	<p>
+		<strong>leaveFrom:</strong>
+		<%= element.leaveFrom %>
+	</p>
+	<p>
+		<strong>leaveTo:</strong>
+		<%= element.leaveTo %>
+	</p>
+	<p>
+		<strong>leaveType:</strong>
+		<%= element.leaveType %>
+	</p>
+	<p>
+		<strong>remarks:</strong>
+		<%= element.remarks %>
+	</p>
+	<p>
+		<strong>totalDays:</strong>
+		<%= element.totalDays %>
+	</p>
+	<p>
+		<strong>leaveID:</strong>
+		<%= element.leaveID %>
+	</p>
+	<p>
+		<strong>employeeID:</strong>
+		<%= element.employeeID %>
+	</p>
+
+<br>
+<a href="/leave/edit/<%= element.id %>">Edit</a>
+<a href="/leave/create">New</a>
+<a href="/leave">Back</a>

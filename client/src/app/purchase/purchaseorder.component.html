@@ -1,0 +1,287 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <strong><h2>Purchase Order</h2></strong>
+        <small>Local</small>
+      </div>
+      <div class="card-body">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(purcheaseRequestForm)" 
+        #purcheaseRequestForm="ngForm">
+        <div>
+          <p>Date: {{today | date:'shortDate'}}</p>
+        </div>  
+        <div class="row">
+          <!--<div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Purchease Order Date</label>
+              <input [(ngModel)]="model.date" type="date" name="date" 
+              class="form-control" id="date" value="{{today | date:'shortDate'}}">                        
+            </div>  
+          </div>-->
+         
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Business Profile</label>
+              <select [(ngModel)]="model.organizationID" name="organizationID" class="form-control input-lg" size="1"
+                #branchSelect (change)='onOptionsSelected(branchSelect.value)'>          
+                    <option *ngFor="let a of _organization" [value]="a.organizationID">
+                        {{a.organizationName}}
+                    </option>
+                </select>
+            </div>  
+          </div> 
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Location</label>
+              <select [(ngModel)]="model.branchID" name="branchID" class="form-control input-lg" size="1">          
+                <option *ngFor="let a of branch" [value]="a.branchID">
+                    {{a.branchName}}
+                </option>
+            </select>
+            </div>  
+          </div>  
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="name">To</label>          
+              <select class="form-control" id="select" (change)="filterChanged($event.target.value)"
+              [(ngModel)] = "model.localID" type ="number" name = "supplierID">    
+              <option [ngValue]="undefined" disabled selected>Choose Local ID</option>                          
+              <option *ngFor="let i of local" [value]="i.supplierID">
+              {{i.supplierID}}
+          </option>
+          </select>  
+          </div>   
+          </div> 
+        </div>
+          <div class="row">
+          
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Supplier Name</label>
+                <input [(ngModel)]="name" type="text" name="name" class="form-control" id="name" value= {{inidividualSupplier[0].per_name}}>                        
+              </div>  
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Mailling Address</label>
+                <textarea>{{inidividualSupplier[0].addressLine1}}, {{inidividualSupplier[0].postcode}}, {{inidividualSupplier[0].city}}, {{inidividualSupplier[0].country}}</textarea>
+              </div>  
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Mobile No</label>
+                <input [(ngModel)]="mobile" type="text" name="mobile" class="form-control" id="mobile" value= {{inidividualSupplier[0].mobileNo1}}>                        
+              </div>  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Shipping Date</label>
+                <input [(ngModel)]="model.shippingDate" type="date" name="shippingDate" class="form-control" id="shippingDate" placeholder="Shipping Date">                        
+              </div>    
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Shipping Address</label>
+                <textarea [(ngModel)]="addressLine1">{{inidividualSupplier[0].addressLine1}}, {{inidividualSupplier[0].postcode}}, {{inidividualSupplier[0].city}}, {{inidividualSupplier[0].country}}</textarea>
+              </div>  
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="name">Ship By</label>
+                <input [(ngModel)]="model.shippingDate" type="text" name="shippingDate" class="form-control" id="shippingDate" placeholder="Ship by">                                 
+              </div>  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="name">Purchase Request ID</label>          
+                <select class="form-control" id="select" (change)="getRequestCart($event.target.value)"
+                [(ngModel)] = "model.purchaseRequestID" type ="number" name = "name">    
+                <option [ngValue]="undefined" disabled selected>Choose Purchase Request ID</option>                          
+                <option *ngFor="let p of purchaseRequeast" [value]="p.purchaseRequestID">
+                {{p.purchaseRequestID}}  {{p.date}}
+                 </option>
+                </select>  
+             </div>  
+            
+            </div>
+          
+          </div>
+          <div class="row">
+            
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <strong>Purchease Request Cart</strong>
+                  <small></small>
+                </div>
+                <div class="card-body">
+              <div id="table" class="table-editable">
+              
+              
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                  <tr>
+                    <th class="text-center">Item ID</th>
+                    <th class="text-center">Item Name</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Weight</th>
+                    <th class="text-center">Unit Price</th>
+                    <th class="text-center">Sort</th>
+                    <th class="text-center">Remove</th>
+                  </tr>
+                  <tr *ngFor="let s of cart; let i = index">
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'itemID', $event)" (blur)="updateList(id, 'itemID', $event)">{{s.itemID}}</span>
+                    </td>
+                    <td>
+                      <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{s.name}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'quantity', $event)" (blur)="updateList(id, 'quantity', $event)">{{s.quantity}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'weight', $event)" (blur)="updateList(id, 'weight', $event)">{{s.weight}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'unitPrice', $event)" (blur)="updateList(id, 'unitPrice', $event)">{{s.unitPrice}}</span>
+                    </td>
+                    <td>
+                      <span class="table-up">
+                        <a class="text-sucess">
+                          <i class="fa fa-long-arrow-up" style="font-size:28px;color:indigo;"></i>
+                        </a>              
+                      </span>
+                      <span class="table-down">
+                        <a class="text-sucess">
+                          <i class="fa fa-long-arrow-down" style="font-size:28px;color:indigo;"></i>
+                        </a>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="table-remove">
+                        <a (click)="remove(id)">
+                          <i class="fa fa-minus-circle" aria-hidden="true" style="font-size:40px;color:red;"></i>
+                        </a>  
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+                </div>
+              </div>
+            </div>
+            
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label for="name">Message to vendor</label>
+                </div>
+                </div>  
+              <div class="row">
+                <div class="col-sm-6">
+                <textarea></textarea>
+                </div>
+              </div>  
+           
+            </div>
+            <div class="col-sm-6">
+             <!-- <div class="row">
+               <div class="col-sm-2">
+               </div>
+               <div class="col-sm-4">
+                   <div class="form-group">
+                       <input [(ngModel)]="model.discount" type="number" name="discount" class="form-control" id="discount" placeholder="Discount">                        
+                   </div>          
+               </div>
+              </div>-->
+              <div class="row">
+                <div class="col-sm-2">
+                </div>
+               <div class="col-sm-4">
+                <div class="form-group">
+                  <input [(ngModel)]="orderTotal" type="number" name="orderTotal" 
+                  class="form-control" id="orderTotal" value= {{orderTotal}}
+                  style="font-size: 1.0rem">                        
+                </div>          
+               </div>
+              </div>
+              <div class="row">
+               <div class="col-sm-2">
+               </div>
+               <div class="col-sm-4">
+                   <div class="form-group">
+                    <input #discount type="number" class="form-control" 
+                    placeholder="0" (input)="onChangeTax($event.target.value)" 
+                    maxlength="3" placeholder="Tax %" style="font-size: 1.0rem">
+                  </div>          
+               </div>
+              </div>
+              <div class="row">
+               <div class="col-sm-2">
+               </div>
+               <div class="col-sm-4">
+                   <div class="form-group">
+                    <input #discount type="number" class="form-control" 
+                    placeholder="0" (input)="onChangeVat($event.target.value)" 
+                    maxlength="3" placeholder="VAT %"
+                    style="font-size: 1.0rem">
+                   </div>          
+               </div>
+              </div>
+              <div class="row">
+               <div class="col-sm-2">
+                
+               </div>
+               <div class="col-sm-4">
+                   <div class="form-group">                                    
+                    <input [(ngModel)]="netTotal" type="number" 
+                    name="netTotal" class="form-control" id="netTotal" 
+                    disabled placeholder="Net Total" value={{netTotal}}
+                    style="font-size: 1.0rem">
+                   </div>          
+               </div>
+              </div>
+            
+           </div>
+         </div>
+       
+        </form>   
+    
+        
+      </div>
+      
+      <div class="card-footer">   
+        <div class="row">
+          <div class="col-sm-10">
+            <button type="reset" class="btn btn-sm btn-danger" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="fa fa-ban"></i> Cancel</button>
+         </div>
+         <div class="col-sm-2">
+            <button (click)="onFormSubmit(purcheaseRequestForm)" type="submit" class="btn btn-sm btn-primary" value="Continue" (click)="submit()" routerLinkActive="active" [routerLink]="['/purchase/salescontract']"><i class="fa fa-arrow-circle-right"></i> Continue</button>        
+        </div>
+         </div>   
+       <!-- <button (click)="onFormSubmit(purcheaseRequestForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button> -->     
+      </div>
+      </div>
+  </div>
+  
+</div>  
+</div>

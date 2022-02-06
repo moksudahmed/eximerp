@@ -1,0 +1,75 @@
+<h1>foreignshipment</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 foreignshipment
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>placeOfLoading</th>
+			<th>placeOfUnloading</th>
+			<th>customsName</th>
+			<th>route</th>
+			<th>foreignShipmentID</th>
+			<th>billOfEntryID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.placeOfLoading %>
+					</td>
+					<td>
+						<%= item.placeOfUnloading %>
+					</td>
+					<td>
+						<%= item.customsName %>
+					</td>
+					<td>
+						<%= item.route %>
+					</td>
+					<td>
+						<%= item.foreignShipmentID %>
+					</td>
+					<td>
+						<%= item.billOfEntryID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/foreignshipment/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/foreignshipment/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/foreignshipment/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/foreignshipment/create">New</a>

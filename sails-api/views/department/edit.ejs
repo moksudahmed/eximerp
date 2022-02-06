@@ -1,0 +1,48 @@
+<div class="">
+  <h1>New department</h1>
+
+  <div class="body">
+    <form class="" action="/department/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">contactNo</label>
+          <input type="text" name="contactNo" value="<%= element.contactNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">departmentName</label>
+          <input type="text" name="departmentName" value="<%= element.departmentName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">location</label>
+          <input type="text" name="location" value="<%= element.location %>" required="true">
+        </div>
+        <div class="">
+          <label for="">emailAddress</label>
+          <input type="text" name="emailAddress" value="<%= element.emailAddress %>" required="true">
+        </div>
+        <div class="">
+          <label for="">branchID</label>
+          <input type="number" name="branchID" value="<%= element.branchID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">departmentID</label>
+          <input type="number" name="departmentID" value="<%= element.departmentID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">createdAt</label>
+          <input type="" name="createdAt" value="<%= element.createdAt %>" required="true">
+        </div>
+        <div class="">
+          <label for="">updatedAt</label>
+          <input type="" name="updatedAt" value="<%= element.updatedAt %>" required="true">
+        </div>
+      <button type="submit">Update department</button>
+    </form>
+    <br />
+    <a href="/department">Index</a>
+  </div>
+</div>

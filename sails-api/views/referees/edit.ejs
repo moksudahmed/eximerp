@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New referees</h1>
+
+  <div class="body">
+    <form class="" action="/referees/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">title</label>
+          <input type="text" name="title" value="<%= element.title %>" required="true">
+        </div>
+        <div class="">
+          <label for="">fullName</label>
+          <input type="text" name="fullName" value="<%= element.fullName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">position</label>
+          <input type="text" name="position" value="<%= element.position %>" required="true">
+        </div>
+        <div class="">
+          <label for="">organization</label>
+          <input type="text" name="organization" value="<%= element.organization %>" required="true">
+        </div>
+        <div class="">
+          <label for="">relation</label>
+          <input type="text" name="relation" value="<%= element.relation %>" required="true">
+        </div>
+        <div class="">
+          <label for="">refereesID</label>
+          <input type="number" name="refereesID" value="<%= element.refereesID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">personID</label>
+          <input type="number" name="personID" value="<%= element.personID %>" required="true">
+        </div>
+      <button type="submit">Update referees</button>
+    </form>
+    <br />
+    <a href="/referees">Index</a>
+  </div>
+</div>

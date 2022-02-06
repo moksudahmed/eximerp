@@ -1,0 +1,31 @@
+<h1>Show customers</h1>
+
+	<p>
+		<strong>id:</strong>
+		<%= element.id %>
+	</p>
+	<p>
+		<strong>firstname:</strong>
+		<%= element.firstname %>
+	</p>
+	<p>
+		<strong>lastname:</strong>
+		<%= element.lastname %>
+	</p>
+	<p>
+		<strong>age:</strong>
+		<%= element.age %>
+	</p>
+	<p>
+		<strong>createdAt:</strong>
+		<%= element.createdAt %>
+	</p>
+	<p>
+		<strong>updatedAt:</strong>
+		<%= element.updatedAt %>
+	</p>
+
+<br>
+<a href="/customers/edit/<%= element.id %>">Edit</a>
+<a href="/customers/create">New</a>
+<a href="/customers">Back</a>

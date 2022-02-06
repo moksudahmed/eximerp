@@ -1,0 +1,23 @@
+<h1>Show foreignvehicle</h1>
+
+	<p>
+		<strong>nationality:</strong>
+		<%= element.nationality %>
+	</p>
+	<p>
+		<strong>passportNo:</strong>
+		<%= element.passportNo %>
+	</p>
+	<p>
+		<strong>foreignVehicleID:</strong>
+		<%= element.foreignVehicleID %>
+	</p>
+	<p>
+		<strong>foreignShipmentID:</strong>
+		<%= element.foreignShipmentID %>
+	</p>
+
+<br>
+<a href="/foreignvehicle/edit/<%= element.id %>">Edit</a>
+<a href="/foreignvehicle/create">New</a>
+<a href="/foreignvehicle">Back</a>

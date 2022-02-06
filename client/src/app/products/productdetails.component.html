@@ -1,0 +1,23 @@
+<div *ngIf="p">
+    
+      <h2>{{ p.name | uppercase }} Details</h2>
+      <div><span>id: </span>{{p.itemID}}</div>
+      <div>
+        <label>name:
+          <input [(ngModel)]="p.name" placeholder="name"/>
+        </label>
+      </div>
+      <div><span>Category: </span>{{p.categoryID}}</div>
+      <div><span>Description: </span>{{p.description}}</div>
+      <div><span>Discount: </span>{{p.discount}}</div>
+      <div><span>Unit Price: </span>{{p.unitPrice}}</div>
+      <div><span>Sale Price: </span>{{p.salePrice}}</div>
+      <div><span>Sale Price: </span>{{p.salePrice}}</div>
+      <div>
+        <label>Stock Level:
+            <input  *ngFor="let d of stockLevel" [(ngModel)]="d.calculate_stock_lebel" placeholder="Stock"/>       
+        </label>
+      </div>
+
+  </div>
+              

@@ -1,0 +1,54 @@
+<div class="alert-box">
+        <div class="modal-header">
+            <h4 class="modal-title">Pay Now</h4>
+            <button type="button" class="close" aria-label="Close" (click)="bsModalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+                
+           <!-- <table>
+                <thead>
+                <tr>
+                    <th><button type="button" class="btn btn btn-lg btn-danger btn-block">0</button></th>
+                    <th><button type="button" class="btn btn btn-lg btn-danger btn-block">1</button></th>
+                    <th><button type="button" class="btn btn btn-lg btn-danger btn-block">2</button></th>
+                    <th><button type="button" class="btn btn btn-lg btn-danger btn-block">3</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><button type="button" class="btn btn btn-lg btn-danger btn-block">4</button></td>
+                    <td><button type="button" class="btn btn btn-lg btn-danger btn-block">5</button></td>
+                    <td><button type="button" class="btn btn btn-lg btn-danger btn-block">6</button></td>
+                    <td><button type="button" class="btn btn btn-lg btn-danger btn-block">7</button></td>
+                </tr>
+                <tr>
+                        <td><button type="button" class="btn btn btn-lg btn-danger btn-block">8</button></td>
+                        <td><button type="button" class="btn btn btn-lg btn-danger btn-block">9</button></td>   
+                        <td><button (click)="calculateChange(amount.value)" type="button" class="btn btn btn-lg btn-danger btn-block">Change</button></td>
+                 </tr>
+            </tbody>
+            </table> -->
+            <div class="row">
+                    <div class="col-md-6">
+                <button type="button" class="btn btn-success btn-lg btn-block">{{orderTotal}}</button>
+            </div> 
+            </div> 
+            <div class="row">
+                    <div class="col-md-6">
+                   Pay: <input #amount type="text" autofocus (keyup)="calculateChange(amount.value)" id="input1-group2" name="input1-group2" class="form-control-lg" placeholder="0000">
+             </div> </div> 
+             <div class="row">
+                    <div class="col-md-6">
+                 Change:
+                <input type="text" disable value="{{change}}" id="input1-group2" name="input1-group2" class="form-control-lg" placeholder="0000">                    
+            </div>
+            </div> 
+            
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="onConfirm(amount.value)" >Pay</button>           
+        </div>
+    </div>

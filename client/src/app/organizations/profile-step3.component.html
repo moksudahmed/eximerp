@@ -1,0 +1,260 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<div class="row">
+  <div class="col-sm-6">
+<div class="card">
+  <div class="card-header">
+    <strong>Partnership</strong>
+    <small>Form</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onFormSubmit(clientForm)" 
+      #clientForm="ngForm">  
+          
+             
+      <div class="form-group row">
+          <label class="col-md-3 form-control-label">Partner Type</label>
+          <div class="col-md-3">
+            <label class="radio-inline" for="inline-radio1">
+                <input type="radio" name="options" [value]="true" #perosnal (click)="onChange(true)">Individual                           
+            </label>
+            <label class="company" for="company">
+                <input type="radio" name="options" [value]="false" #company (click)="onChange(false)">Corporate
+            </label>
+          </div>
+          <label class="col-md-3 form-control-label" for="select">Client Type</label>
+          <div class="col-md-3">
+              <select class="form-control"  id="clientType"
+                       required
+                      [(ngModel)]="client.clientType" name="clientType">
+                <option *ngFor="let c of clientType" [value]="c">{{c}}</option>
+              </select>            
+          </div>
+        </div>
+          
+                      <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="text-area-input">Address Line1</label>
+                        <div class="col-md-9">
+                            <input [(ngModel)] = "address.addressLine1" type="textarea" 
+                            name="addressLine1" class="form-control" 
+                            id="addressLine1" placeholder="AddressLine 1" required>                                              
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="text-area-input">Address Line2</label>
+                        <div class="col-md-9">
+                            <input  [(ngModel)] = "address.addressLine2" type="textarea" 
+                            name="addressLine2" class="form-control" 
+                            id="addressLine2" placeholder="AddressLine 2" required>                                              
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="text-area-input">City</label>
+                        <div class="col-md-3">
+                            <input   [(ngModel)] = "address.postcode" type="textarea" 
+                            name="postcode" class="form-control" 
+                            id="postcode" placeholder="postcode" required>                                              
+                        </div>
+                        <div class="col-md-3">
+                            <input   [(ngModel)] = "address.city" type="textarea" 
+                            name="city" class="form-control" 
+                            id="city" placeholder="city" required>                                              
+                        </div>
+                        <div class="col-md-3">
+                            <input   [(ngModel)] = "address.country" type="textarea" 
+                            name="country" class="form-control" 
+                            id="country" placeholder="country" required>                                              
+                        </div>
+                      </div>
+                      
+            <div *ngIf="profileType; else other_content">       
+               <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="text-area-input">Title</label>
+                       <div class="col-md-3">
+                        <input [(ngModel)]="person.title" type="text" name="title" class="form-control" 
+                         id="title" placeholder="title" required>                                              
+                        </div>
+                        
+                         <div class="col-md-3">
+                          <input [(ngModel)]="person.firstName" type="text" name="firstName" class="form-control" 
+                           id="firstName" placeholder="firstName" required>                                              
+                          </div>
+                          
+                           <div class="col-md-3">
+                            <input [(ngModel)]="person.lastName" type="text" name="lastName" class="form-control" 
+                             id="lastName" placeholder="lastName" required>                                              
+                            </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label class="col-md-3 form-control-label" 
+                      for="text-area-input">Date Of Birth</label>
+                       <div class="col-md-3">
+                        <input [(ngModel)]="person.dateOfBirth" type="date" name="dateOfBirth" class="form-control" 
+                         id="dateOfBirth" placeholder="dateOfBirth" required>                                              
+                        </div>
+                      <!--  <label class="col-md-3 form-control-label" 
+                        for="text-area-input">gender</label>-->
+                         <div class="col-md-3">
+                            <select name="gender" [(ngModel)]="person.gender" class="form-control" id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>                
+                              </select>                                              
+                          </div>
+                          <div class="col-md-3">
+                                <input [(ngModel)]="person.maritalStatus" type="text" name="maritalStatus" class="form-control" 
+                                 id="maritalStatus" placeholder="maritalStatus">                                              
+                                </div>
+                  </div>
+
+               
+                  <div class="form-group row">
+                      <label class="col-md-3 form-control-label" 
+                      for="text-area-input">mobileNo</label>
+                       <div class="col-md-4">
+                        <input [(ngModel)]="address.mobileNo1" type="text" name="mobileNo1" class="form-control" 
+                         id="mobileNo1" placeholder="mobileNo1" required>                                              
+                        </div>
+                        <div class="col-md-4">
+                          <input [(ngModel)]="address.mobileNo2" type="text" name="mobileNo2" class="form-control" 
+                           id="mobileNo2" placeholder="mobileNo2" required>                                              
+                          </div>
+                        
+                        
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5">
+                      <input [(ngModel)]="address.emailAddress" type="text" name="emailAddress" class="form-control" 
+                       id="emailAddress" placeholder="emailAddress" required>                                              
+                      </div>
+                  </div>
+              
+            </div>
+            <ng-template #other_content>                            
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label" 
+                    for="text-area-input">companyName</label>
+                     <div class="col-md-9">
+                      <input [(ngModel)]="company.companyName" type="text" 
+                      name="companyName" class="form-control" 
+                       id="companyName" placeholder="companyName">                                              
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label" 
+                    for="text-area-input">contactPersonName</label>
+                     <div class="col-md-9">
+                      <input [(ngModel)]="company.contactPersonName" type="text" 
+                      name="contactPersonName" class="form-control" 
+                       id="contactPersonName" placeholder="contactPersonName">                                              
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label" 
+                    for="text-area-input">designation</label>
+                     <div class="col-md-9">
+                      <input [(ngModel)]="company.designation" type="text" 
+                      name="designation" class="form-control" 
+                       id="designation" placeholder="designation">                                              
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label" 
+                    for="text-area-input">contactNo</label>
+                     <div class="col-md-9">
+                      <input [(ngModel)]="company.contactNo" type="text" 
+                      name="contactNo" class="form-control" 
+                       id="contactNo" placeholder="contactNo">                                              
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label" 
+                    for="text-area-input">emailAddress</label>
+                     <div class="col-md-9">
+                      <input [(ngModel)]="company.emailAddress" type="text" 
+                      name="emailAddress" class="form-control" 
+                       id="emailAddress" placeholder="emailAddress">                                              
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label" 
+                    for="text-area-input">website</label>
+                     <div class="col-md-9">
+                      <input [(ngModel)]="company.website" type="text" 
+                      name="website" class="form-control" 
+                       id="website" placeholder="website">                                              
+                      </div>
+                </div>
+               
+            </ng-template>
+          <div class="row">
+              <div class="form-group col-sm-6">
+                <label for="company">Designation</label>
+                <input type="text" 
+                class="form-control" id="designation" required
+                [(ngModel)] = "owner.designation" 
+                placeholder="Enter designation" name="designation">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="company">IRCLicenseNo</label>
+                <input type="text" 
+                class="form-control" id="IRCLicenseNo" required
+                [(ngModel)] = "owner.IRCLicenseNo" 
+                placeholder="Enter IRCLicenseNo" name="IRCLicenseNo">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="company">TradeLicenseNo</label>
+                <input type="text" 
+                class="form-control" id="TradeLicenseNo" required
+                [(ngModel)] = "owner.TradeLicenseNo" 
+                placeholder="Enter TradeLicenseNo" name="TradeLicenseNo">
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="company">LicenseExpireDate</label>
+                <input type="date" 
+                class="form-control" id="LicenseExpireDate" required
+                [(ngModel)] = "owner.LicenseExpireDate" 
+                placeholder="Enter LicenseExpireDate" name="LicenseExpireDate">
+              </div>
+            </div>
+  </form>
+    <div class="row">
+      <ul class="heroes">
+        <li *ngFor="let p of persons">
+         <span class="badge">{{ p.firstName }}</span>
+         <span class="">{{ p.lastName }}</span>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+  <div class="card-footer">
+      <button (click)="onFormSubmit(clientForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    <button type="submit"   routerLinkActive="active" [routerLink]="['/organizations/profile-step2']"  class="btn btn-primary">
+      <i class="fa fa-dot-circle-o"></i>Back</button>          
+  
+       <button type="button" class="btn btn-sm btn-danger" (click)="newModel(); profileForm.reset()">
+      <i class="fa fa-ban"></i>New Profile</button>  
+    <button type="submit"   routerLinkActive="active" [routerLink]="['/organizations/profile-step4']"  class="btn btn-primary">
+        <i class="fa fa-dot-circle-o"></i>Next</button>          
+   
+  </div>
+</div>
+  
+</div>
+</div>
+
+

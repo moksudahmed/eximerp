@@ -1,0 +1,35 @@
+<h1>Show company</h1>
+
+	<p>
+		<strong>companyName:</strong>
+		<%= element.companyName %>
+	</p>
+	<p>
+		<strong>contactPersonName:</strong>
+		<%= element.contactPersonName %>
+	</p>
+	<p>
+		<strong>designation:</strong>
+		<%= element.designation %>
+	</p>
+	<p>
+		<strong>contactNo:</strong>
+		<%= element.contactNo %>
+	</p>
+	<p>
+		<strong>emailAddress:</strong>
+		<%= element.emailAddress %>
+	</p>
+	<p>
+		<strong>website:</strong>
+		<%= element.website %>
+	</p>
+	<p>
+		<strong>companyID:</strong>
+		<%= element.companyID %>
+	</p>
+
+<br>
+<a href="/company/edit/<%= element.id %>">Edit</a>
+<a href="/company/create">New</a>
+<a href="/company">Back</a>

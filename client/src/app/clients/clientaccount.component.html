@@ -1,0 +1,26 @@
+
+<div class="card">
+  <div class="card-header">
+    <strong>Client</strong> List
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+          <h2>Client Account</h2>
+      <ul class="heroes">
+          <li *ngFor="let c of accounts"
+          [class.selected]="c === selectedCustomer"
+          (click)="onSelect(c)">
+            <span class="badge">{{c.id}}</span> {{c.accountName}}
+          </li>
+        </ul>                 
+  </div>
+  <div class="col-md-8">     
+    <app-clientdetails [c]="selectedCustomer"></app-clientdetails> 
+    </div>
+  
+    </div>
+  </div>
+  <div class="card-footer">
+      </div>
+</div>

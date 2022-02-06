@@ -1,0 +1,197 @@
+<div class="animated fadeIn">  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+          <div class="card-header">
+              <strong>Generate Payroll</strong>            
+            </div>       
+        <div class="card-body">
+            <form novalidate  enctype="multipart/form-data" class="form-horizontal "          
+            #payrollForm="ngForm">   
+                   <div class="row">                    
+                     <!-- <div class="form-group col-sm-4">
+                          <label for="inputdate">Approve</label>
+                          <input type="date" class="form-control"
+                            [(ngModel)] = "payroll.approve"
+                            id="inputapprove"
+                            name="approve"
+                            placeholder="approve">
+                        </div>-->
+                        <div class="form-group col-sm-2">
+                          <label for="inputdate">Pay Date</label>
+                          <input type="date" class="form-control"
+                            [(ngModel)] = "payroll.payDate"
+                            id="inputpayDate"
+                            name="payDate"
+                            placeholder="payDate">
+                        </div>
+                         
+                        <div class="form-group col-sm-2">
+                          <label for="inputdate">From</label>
+                          <input type="date" class="form-control"
+                            [(ngModel)] = "payroll.payFrom"
+                            id="inputpayFrom"
+                            name="payFrom"
+                            placeholder="payFrom">
+                        </div>
+                        <div class="form-group col-sm-2">
+                          <label for="inputdate">To</label>
+                          <input type="date" class="form-control"
+                            [(ngModel)] = "payroll.payTo"
+                            id="inputpayTo"
+                            name="payTo"
+                            placeholder="payTo">
+                        </div>
+                      <!--  <div class="form-group col-sm-4">
+                          <label for="inputdate">prepeareDate</label>
+                          <input type="date" class="form-control"
+                            [(ngModel)] = "payroll.prepeareDate"
+                            id="inputprepeareDate"
+                            name="prepeareDate"
+                            placeholder="prepeareDate">
+                        </div>-->
+                        <div class="form-group col-sm-4">
+                          <label for="inputdate">status</label>
+                          <input type="text" class="form-control"
+                            [(ngModel)] = "payroll.status"
+                            id="inputstatus"
+                            name="status"
+                            placeholder="status">
+                        </div>
+                        <div class="form-group col-sm-4">
+                          <label for="inputdate">tax</label>
+                          <input type="number" class="form-control"
+                            [(ngModel)] = "payroll.tax"
+                            id="inputtax"
+                            name="tax"
+                            placeholder="tax">
+                        </div>
+                        <div class="form-group col-sm-4">
+                          <label for="inputdate">totalGrossPay</label>
+                          <input type="number" class="form-control"
+                            [(ngModel)] = "payroll.totalGrossPay"
+                            id="inputtotalGrossPay"
+                            name="totalGrossPay"
+                            placeholder="totalGrossPay">
+                        </div>
+                        <div class="form-group col-sm-4">
+                          <label for="inputdate">totalNetPay</label>
+                          <input type="number" class="form-control"
+                            [(ngModel)] = "payroll.totalNetPay"
+                            id="inputtotalNetPay"
+                            name="totalNetPay"
+                            placeholder="totalNetPay">
+                        </div>
+                   </div>
+                   <i class="fa fa-edit">Salary Profile</i>            
+                   <div class="form-group row">
+                       <label class="col-sm-3 form-control-label">Salary Type</label>                      
+                       <ul id="payment">
+                          <li *ngFor="let option of options">
+                              <input type="radio" name="price" (click)="switchPrimar(option.id)" 
+                              [checked]="option.id == selectedOption.id" 
+                                value= {{option.id}}>{{option.name}}
+                          </li>
+                      </ul>                             
+                   </div> 
+                   <div class="row">
+                      <ng-template [ngIf]="selectedOption.name == 'Hourly'" #elseBlock>
+                          <ng2-smart-table [settings]="hsettings" [source]="hdata"
+                          (deleteConfirm)="modifyHourlyData($event)"
+                          (createConfirm)="addHourlyData($event)"
+                          ></ng2-smart-table>                          
+                      </ng-template>
+                      <!--<ng-template [ngIf]="selectedOption.name == 'Hourly'" #primaryBlock> 
+                          <ng-template [ngIf]="selectedOption.name == 'Hourly'" #elseBlock>
+                              <ng2-smart-table [settings]="settings" [source]="data"
+                              (deleteConfirm)="modifyData($event)"
+                              (createConfirm)="addData($event)"
+                              ></ng2-smart-table>                          
+                          </ng-template>
+                          <div class="row">
+                             
+                                <div class="col-lg-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                      <i class="fa fa-align-justify"></i> Hourly Salary
+                                    </div>
+                                    <div class="card-body">
+                                      <table class="table table-bordered table-striped table-sm">
+                                        <thead>
+                                          <tr>
+                                            <th>Name</th>
+                                            <th>Designation</th>                                  
+                                            <th>Status</th>
+                                            <th>Overtime Rate</th>
+                                            <th>Profile Type</th>
+                                            <th>Provident Fund</th>
+                                            <th>Tax Rate</th>
+                                            <th>Hourly Rate</th>
+                                            <th>Commission Rate</th>
+                                            <th>Payment Type</th>
+                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let s of salaryProfile">
+                                               
+                                                <td>{{s.per_name}}</td> 
+                                                <td>{{s.designation}}</td> 
+                                                <td>
+                                                  <span class="badge badge-success">{{s.status}}</span>
+                                                </td> 
+                                                <td>{{s.overtimeRate}}</td> 
+                                                <td>{{s.profileType}}</td> 
+                                                <td>{{s.providentFund}}</td> 
+                                                <td>{{s.taxRate}}</td> 
+                                                <td>{{s.hourlyRate}}</td> 
+                                                <td>{{s.commissionRate}}</td> 
+                                                <td>{{s.paymentType}}</td>                                   
+                                                  
+                                        
+                                          </tr>         
+                                                  
+                                        </tbody>
+                                      </table>
+                                      <nav>
+                                        <ul class="pagination">
+                                          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                          <li class="page-item active">
+                                            <a class="page-link" href="#">1</a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        </ul>
+                                      </nav>
+                                    </div>
+                                  </div>
+                                </div>
+                                /.col
+                             
+                            </div>
+                      </ng-template>-->
+                      <ng-template [ngIf]="selectedOption.name == 'Commissioned'" #elseBlock>
+                          <ng2-smart-table [settings]="csettings" [source]="cdata"
+                          (deleteConfirm)="modifyCommissionData($event)"
+                          (createConfirm)="addCommissionData($event)"
+                          ></ng2-smart-table>                          
+                      </ng-template>
+                      <ng-template [ngIf]="selectedOption.name == 'Monthly'" #elseBlock>
+                          <ng2-smart-table [settings]="settings" [source]="data"
+                          (deleteConfirm)="modifyData($event)"
+                          (createConfirm)="addData($event)"
+                          ></ng2-smart-table>                          
+                      </ng-template>
+                    </div>
+              <button (click)="onFormSubmit(payrollForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>            
+              <button class="btn btn-secondary" type="button">Cancel</button>
+           
+          </form>
+          </div>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+  

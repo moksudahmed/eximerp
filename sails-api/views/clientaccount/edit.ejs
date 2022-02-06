@@ -1,0 +1,52 @@
+<div class="">
+  <h1>New clientaccount</h1>
+
+  <div class="body">
+    <form class="" action="/clientaccount/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">accountName</label>
+          <input type="text" name="accountName" value="<%= element.accountName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">accountNo</label>
+          <input type="text" name="accountNo" value="<%= element.accountNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">joiningDate</label>
+          <input type="date" name="joiningDate" value="<%= element.joiningDate %>" required="true">
+        </div>
+        <div class="">
+          <label for="">active</label>
+          <input type="checkbox" name="active" value="<%= element.active %>" required="true">
+        </div>
+        <div class="">
+          <label for="">suspended</label>
+          <input type="checkbox" name="suspended" value="<%= element.suspended %>" required="true">
+        </div>
+        <div class="">
+          <label for="">accountCreditLimit</label>
+          <input type="number" name="accountCreditLimit" value="<%= element.accountCreditLimit %>" required="true">
+        </div>
+        <div class="">
+          <label for="">remarks</label>
+          <input type="text" name="remarks" value="<%= element.remarks %>" required="true">
+        </div>
+        <div class="">
+          <label for="">clientAccountID</label>
+          <input type="number" name="clientAccountID" value="<%= element.clientAccountID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">clientID</label>
+          <input type="number" name="clientID" value="<%= element.clientID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="true">
+        </div>
+      <button type="submit">Update clientaccount</button>
+    </form>
+    <br />
+    <a href="/clientaccount">Index</a>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="">
+	<h1>New category</h1>
+	<h5>By sails-inverse-model</h5>
+
+	<div class="body">
+		<form class="" action="/category/create" method="post">
+				<div class="">
+					<label for="">categoryName</label>
+					<input type="text" name="categoryName" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">description</label>
+					<input type="text" name="description" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">level</label>
+					<input type="number" name="level" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">hasSubCategory</label>
+					<input type="checkbox" name="hasSubCategory" value="" required="true">
+				</div>
+				<div class="">
+					<label for="">categoryID</label>
+					<input type="number" name="categoryID" value="" required="false">
+				</div>
+			<button type="submit">Save category</button>
+		</form>
+		<br />
+		<a href="/category">Index</a>
+	</div>
+</div>

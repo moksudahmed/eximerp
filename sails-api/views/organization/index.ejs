@@ -1,0 +1,91 @@
+<h1>organization</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 organization
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>organizationName</th>
+			<th>address</th>
+			<th>city</th>
+			<th>contactNo</th>
+			<th>emailAddress</th>
+			<th>logo</th>
+			<th>organizationID</th>
+			<th>country</th>
+			<th>createdAt</th>
+			<th>updatedAt</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.organizationName %>
+					</td>
+					<td>
+						<%= item.address %>
+					</td>
+					<td>
+						<%= item.city %>
+					</td>
+					<td>
+						<%= item.contactNo %>
+					</td>
+					<td>
+						<%= item.emailAddress %>
+					</td>
+					<td>
+						<%= item.logo %>
+					</td>
+					<td>
+						<%= item.organizationID %>
+					</td>
+					<td>
+						<%= item.country %>
+					</td>
+					<td>
+						<%= item.createdAt %>
+					</td>
+					<td>
+						<%= item.updatedAt %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/organization/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/organization/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/organization/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/organization/create">New</a>

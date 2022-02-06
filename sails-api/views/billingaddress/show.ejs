@@ -1,0 +1,43 @@
+<h1>Show billingaddress</h1>
+
+	<p>
+		<strong>addressLine1:</strong>
+		<%= element.addressLine1 %>
+	</p>
+	<p>
+		<strong>addressLine2:</strong>
+		<%= element.addressLine2 %>
+	</p>
+	<p>
+		<strong>city:</strong>
+		<%= element.city %>
+	</p>
+	<p>
+		<strong>country:</strong>
+		<%= element.country %>
+	</p>
+	<p>
+		<strong>name:</strong>
+		<%= element.name %>
+	</p>
+	<p>
+		<strong>postcode:</strong>
+		<%= element.postcode %>
+	</p>
+	<p>
+		<strong>contactNo:</strong>
+		<%= element.contactNo %>
+	</p>
+	<p>
+		<strong>billingAddressID:</strong>
+		<%= element.billingAddressID %>
+	</p>
+	<p>
+		<strong>customerOrderID:</strong>
+		<%= element.customerOrderID %>
+	</p>
+
+<br>
+<a href="/billingaddress/edit/<%= element.id %>">Edit</a>
+<a href="/billingaddress/create">New</a>
+<a href="/billingaddress">Back</a>

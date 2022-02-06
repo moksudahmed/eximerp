@@ -1,0 +1,85 @@
+<div *ngIf="c">
+
+  <h2>{{ c.accountName | uppercase }} Details</h2>
+  <div class="form-group row">
+      <label class="col-md-3 form-control-label" for="text-input">Id:</label>
+      <div class="col-md-9">
+        <input [(ngModel)]="c.clientAccountID" type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+       
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-3 form-control-label" for="text-input">Name:</label>
+        <div class="col-md-9">
+          <input [(ngModel)]="c.accountName" type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+
+        </div>
+      </div>
+      <div class="form-group row">
+          <label class="col-md-3 form-control-label" for="text-input">Active:</label>
+          <div class="col-md-9">
+            <input [(ngModel)]="c.active" type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+   
+          </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 form-control-label" for="text-input">Creadit Limit:</label>
+            <div class="col-md-9">
+              <input [(ngModel)]="c.accountCreditLimit" type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+         
+            </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-md-3 form-control-label" for="text-input">Dues:</label>
+              <div class="col-md-9">
+                <input #dueAmount *ngFor="let d of due" [(ngModel)]="d.due" type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+           
+              </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Payment Amount:</label>
+                <div class="col-md-9">
+                    <input  #amount name="amount" type="text" id="text-input" name="text-input" class="form-control" placeholder="Amount">
+                        
+                </div>
+              </div> 
+              <div class="form-group row">
+               <button (click)="shareData(amount.value)" type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i>Bill Pay</button>
+              </div>     
+              <div class="row">
+                  <table class="table table-bordered table-striped table-sm">
+                      <thead>
+                        <tr>
+                          <th>Order No</th>
+                          <th>Date</th>                
+                          <th>Status</th>     
+                          <th>Discount</th>        
+                          <th>Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>           
+                          <tr *ngFor="let b of order">
+                              <td>{{b.customerOrderID}}</td>
+                              <td>{{b.receiveDate}}</td> 
+                              <td>
+                              <span class="badge badge-success">{{b.status}}</span>  
+                             </td>                
+                              <td>{{b.discount}}</td> 
+                              <td>{{b.orderTotal}}</td>                                                
+                        </tr>         
+                         <tr>
+                             <td></td><td></td><td></td><td>Order Total</td> <td>{{calculateTotal(b)}}</td>   
+                        </tr>       
+                      </tbody>
+                    </table>
+                  </div>
+  <app-paymentdetails name="amount" (shareDataToParent) = shareDataToParent($event)></app-paymentdetails>
+</div>
+
+
+ 
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

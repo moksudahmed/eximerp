@@ -1,0 +1,75 @@
+<h1>vehicle</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 vehicle
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>type</th>
+			<th>name</th>
+			<th>loadingCapacity</th>
+			<th>vehicleNo</th>
+			<th>driverName</th>
+			<th>vehicleID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.type %>
+					</td>
+					<td>
+						<%= item.name %>
+					</td>
+					<td>
+						<%= item.loadingCapacity %>
+					</td>
+					<td>
+						<%= item.vehicleNo %>
+					</td>
+					<td>
+						<%= item.driverName %>
+					</td>
+					<td>
+						<%= item.vehicleID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/vehicle/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/vehicle/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/vehicle/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/vehicle/create">New</a>

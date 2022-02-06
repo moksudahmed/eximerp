@@ -1,0 +1,111 @@
+<div class="animated fadeIn">
+  <div class="row">
+      <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <strong>Business</strong>
+          <small>Setup</small>
+        </div>
+        <div class="card-body">
+
+          <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.value)">
+          <div class="form-group">
+            <label for="company">Business Name</label>
+            <input type="text" 
+            class="form-control" id="organizationName" required
+            [(ngModel)] = "model.organizationName" 
+            placeholder="Enter business name" name="organizationName">
+          </div>
+
+          <div class="form-group">
+            <label for="street">Address</label>
+            <input type="text" 
+            class="form-control" id="street" required
+            [(ngModel)] = "model.address"  
+            placeholder="Enter street name" name="address">
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-8">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city" required
+              [(ngModel)] = "model.city" name="city" 
+              placeholder="Enter your city">
+            </div>
+            <div class="form-group col-sm-4">
+              <label for="postal-code">Postal Code</label>
+              <input type="text" class="form-control"
+              [(ngModel)] = "model.postalcode" name = "postalcode"
+              id="postal-code" placeholder="Postal Code">
+            </div>
+          </div><!--/.row-->
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control"
+            [(ngModel)] = "model.country" name="country"
+            id="country" placeholder="Country name">
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-8">
+              <label for="city">Email Address</label>
+              <input type="email" id="email-input" 
+              name="email-input" class="form-control"
+              [(ngModel)] = "model.emailAddress" name="emailAddress" 
+              placeholder="Enter Email">
+            </div>
+            <div class="form-group col-sm-4">
+              <label for="contactno">Contact No</label>
+              <input type="text" class="form-control"
+              [(ngModel)] = "model.contactNo"  name="contactNo"
+              id="contactno" placeholder="Contact No">
+            </div>
+          </div><!--/.row-->
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <div class="form-group">
+                <label for="vat">VAT</label>
+                <input type="text" class="form-control"
+                [(ngModel)] = "model.vat"  name="vat" 
+                id="vat" placeholder="PL1234567890">
+              </div>
+            </div>
+            <div class="form-group col-sm-4">
+              <div class="form-group">
+                <label for="vat">TIN</label>
+                <input type="text" class="form-control" id="tinNo" 
+                [(ngModel)] = "model.tinNo"  name="tinNo"
+                placeholder="PL1234567890">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vat">Licence No</label>
+            <input type="text" class="form-control" id="licenceNo" 
+            [(ngModel)] = "model.licenceNo"  name="licenceNo"
+            placeholder="PL1234567890">
+          </div>
+          <div class="form-group">
+            <label for="startedAt">Started At</label>
+            <input type="date" class="form-control"
+              [(ngModel)] = "model.startedAt" required
+              id="startedAt"
+              name="startedAt"
+              placeholder="date">
+          </div>
+        <!--  <div class="form-group row">
+            <label class="col-md-3 form-control-label" for="file-input">Business Logo</label>
+            <div class="col-md-9">
+              <input type="file" id="file-input" name="file-input">
+            </div>
+          </div>-->
+        </form>  
+        </div>
+        <div class="card-footer">
+          <button type="submit"  (click)="onSubmit(profileForm)"  class="btn btn-success" [disabled]="!profileForm.form.valid">
+            <i class="fa fa-dot-circle-o"></i>Submit</button>
+          <button type="button" class="btn btn-sm btn-danger" (click)="newModel(); profileForm.reset()">
+            <i class="fa fa-ban"></i>New Profile</button>          
+        </div>
+       </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+</div>

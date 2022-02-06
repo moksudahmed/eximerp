@@ -1,0 +1,32 @@
+<div class="">
+  <h1>New client</h1>
+
+  <div class="body">
+    <form class="" action="/client/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">clientType</label>
+          <input type="text" name="clientType" value="<%= element.clientType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">clientID</label>
+          <input type="number" name="clientID" value="<%= element.clientID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">organizationID</label>
+          <input type="number" name="organizationID" value="<%= element.organizationID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">subSidiaryAccountID</label>
+          <input type="number" name="subSidiaryAccountID" value="<%= element.subSidiaryAccountID %>" required="true">
+        </div>
+      <button type="submit">Update client</button>
+    </form>
+    <br />
+    <a href="/client">Index</a>
+  </div>
+</div>

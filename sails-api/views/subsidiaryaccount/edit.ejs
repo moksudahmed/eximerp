@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New subsidiaryaccount</h1>
+
+  <div class="body">
+    <form class="" action="/subsidiaryaccount/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">accountName</label>
+          <input type="text" name="accountName" value="<%= element.accountName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">accountNo</label>
+          <input type="text" name="accountNo" value="<%= element.accountNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">address</label>
+          <input type="text" name="address" value="<%= element.address %>" required="true">
+        </div>
+        <div class="">
+          <label for="">branch</label>
+          <input type="text" name="branch" value="<%= element.branch %>" required="true">
+        </div>
+        <div class="">
+          <label for="">subSidiaryAccountID</label>
+          <input type="number" name="subSidiaryAccountID" value="<%= element.subSidiaryAccountID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">chartOfAccountID</label>
+          <input type="number" name="chartOfAccountID" value="<%= element.chartOfAccountID %>" required="false">
+        </div>
+      <button type="submit">Update subsidiaryaccount</button>
+    </form>
+    <br />
+    <a href="/subsidiaryaccount">Index</a>
+  </div>
+</div>

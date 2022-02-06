@@ -1,0 +1,28 @@
+<div class="">
+  <h1>New properties</h1>
+
+  <div class="body">
+    <form class="" action="/properties/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="true">
+        </div>
+        <div class="">
+          <label for="">value</label>
+          <input type="text" name="value" value="<%= element.value %>" required="true">
+        </div>
+        <div class="">
+          <label for="">propertiesID</label>
+          <input type="number" name="propertiesID" value="<%= element.propertiesID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">itemID</label>
+          <input type="number" name="itemID" value="<%= element.itemID %>" required="false">
+        </div>
+      <button type="submit">Update properties</button>
+    </form>
+    <br />
+    <a href="/properties">Index</a>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<h1>shipment</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 shipment
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>destination</th>
+			<th>purcheaseOrderInfo</th>
+			<th>source</th>
+			<th>transportationMethod</th>
+			<th>shipmentID</th>
+			<th>purchaseOrderID</th>
+			<th>warehouseID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.destination %>
+					</td>
+					<td>
+						<%= item.purcheaseOrderInfo %>
+					</td>
+					<td>
+						<%= item.source %>
+					</td>
+					<td>
+						<%= item.transportationMethod %>
+					</td>
+					<td>
+						<%= item.shipmentID %>
+					</td>
+					<td>
+						<%= item.purchaseOrderID %>
+					</td>
+					<td>
+						<%= item.warehouseID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/shipment/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/shipment/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/shipment/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/shipment/create">New</a>

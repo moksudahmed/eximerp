@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New customers</h1>
+
+  <div class="body">
+    <form class="" action="/customers/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">id</label>
+          <input type="number" name="id" value="<%= element.id %>" required="false">
+        </div>
+        <div class="">
+          <label for="">firstname</label>
+          <input type="text" name="firstname" value="<%= element.firstname %>" required="true">
+        </div>
+        <div class="">
+          <label for="">lastname</label>
+          <input type="text" name="lastname" value="<%= element.lastname %>" required="true">
+        </div>
+        <div class="">
+          <label for="">age</label>
+          <input type="number" name="age" value="<%= element.age %>" required="true">
+        </div>
+        <div class="">
+          <label for="">createdAt</label>
+          <input type="datetime" name="createdAt" value="<%= element.createdAt %>" required="false">
+        </div>
+        <div class="">
+          <label for="">updatedAt</label>
+          <input type="datetime" name="updatedAt" value="<%= element.updatedAt %>" required="false">
+        </div>
+      <button type="submit">Update customers</button>
+    </form>
+    <br />
+    <a href="/customers">Index</a>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<h1>properties</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 properties
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>name</th>
+			<th>value</th>
+			<th>propertiesID</th>
+			<th>itemID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.name %>
+					</td>
+					<td>
+						<%= item.value %>
+					</td>
+					<td>
+						<%= item.propertiesID %>
+					</td>
+					<td>
+						<%= item.itemID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/properties/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/properties/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/properties/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/properties/create">New</a>

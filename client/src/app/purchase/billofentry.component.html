@@ -1,0 +1,79 @@
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+
+<div class="card">
+    <div class="card-header">
+      <strong>Bill of Entry</strong>
+      <small>Form</small>
+    </div>
+    <div class="card-body">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+        (ngSubmit)="onFormSubmit(billOfEntryForm)" 
+        #billOfEntryForm="ngForm">  
+         <div class="form-group">
+            <label for="name">Date</label>
+            <input [(ngModel)]="model.date" type="date" name="date" class="form-control" id="date" placeholder="Date">                        
+          </div>
+                 
+            <div class="form-group">
+                <label for="name">quantity</label>
+                <input [(ngModel)]="model.quantity" type="number" name="quantity" class="form-control" id="quantity" placeholder="Discount">                        
+            </div>          
+            <div class="form-group">
+                <label for="name">registrationNo</label>
+                <input [(ngModel)]="model.registrationNo" type="text" name="registrationNo" class="form-control" id="registrationNo" placeholder="registrationNo">                        
+            </div>  
+            <div class="form-group">
+                <label for="name">itemInvoiceValue</label>
+                <input [(ngModel)]="model.itemInvoiceValue" type="number" name="itemInvoiceValue" class="form-control" id="itemInvoiceValue" placeholder="itemInvoiceValue">                        
+              </div>  
+            <div class="form-group">
+                <label for="name">totalTaxAmount</label>
+                <input [(ngModel)]="model.totalTaxAmount" type="number" name="totalTaxAmount" class="form-control" id="totalTaxAmount" placeholder="totalTaxAmount">                        
+            </div> 
+            <div class="form-group">
+                <label for="name">totalAccessableValue</label>
+                <input [(ngModel)]="model.totalAccessableValue" type="number" name="totalAccessableValue" class="form-control" id="totalAccessableValue" placeholder="totalAccessableValue">                        
+            </div>  
+            <div class="form-group">
+              <label for="name">letterCreditID</label>
+              <input [(ngModel)]="model.letterCreditID" type="number" name="letterCreditID" class="form-control" id="letterCreditID" placeholder="letterCreditID">                        
+          </div>  
+     
+          <div class="form-group">
+              <label for="name">cNFAgentID</label>
+              <input [(ngModel)]="model.cNFAgentID" type="number" name="cNFAgentID" class="form-control" id="cNFAgentID" placeholder="cNFAgentID">                        
+          </div>                
+       <!--        
+          <div class="form-group">
+            <label for="name">Local Supplier</label>          
+            <select class="form-control" id="select" (change)="filterChanged($event.target.value)"
+            [(ngModel)] = "model.localID" type ="number" name = "localID">    
+            <option [ngValue]="undefined" disabled selected>Choose Local ID</option>                          
+            <option *ngFor="let i of local" [value]="i.localID">
+            {{i.localID}}
+        </option>
+        </select>  
+        </div> -->
+        
+   
+    </form>
+   
+    </div>
+    <div class="card-footer">
+        <button (click)="onFormSubmit(billOfEntryForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+        
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+  </div>
+  
+  

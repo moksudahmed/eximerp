@@ -1,0 +1,36 @@
+<div class="">
+  <h1>New vehicle</h1>
+
+  <div class="body">
+    <form class="" action="/vehicle/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">type</label>
+          <input type="text" name="type" value="<%= element.type %>" required="true">
+        </div>
+        <div class="">
+          <label for="">name</label>
+          <input type="text" name="name" value="<%= element.name %>" required="true">
+        </div>
+        <div class="">
+          <label for="">loadingCapacity</label>
+          <input type="text" name="loadingCapacity" value="<%= element.loadingCapacity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">vehicleNo</label>
+          <input type="text" name="vehicleNo" value="<%= element.vehicleNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">driverName</label>
+          <input type="text" name="driverName" value="<%= element.driverName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">vehicleID</label>
+          <input type="number" name="vehicleID" value="<%= element.vehicleID %>" required="false">
+        </div>
+      <button type="submit">Update vehicle</button>
+    </form>
+    <br />
+    <a href="/vehicle">Index</a>
+  </div>
+</div>

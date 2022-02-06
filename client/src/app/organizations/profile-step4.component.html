@@ -1,0 +1,548 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Profile:</strong>
+      </div>
+  <div class="card-body">
+
+      <div class="row">
+      
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Partners:</strong>
+            <span class="float-right">
+              
+              <button class="btn btn-primary"
+              (click)="openModal(template)">+</button>
+
+            </span>
+           </div>
+          <div class="card-body">            
+              <ul class="heroes">
+                  <li *ngFor="let p of partnerships">
+                   <span class="badge">{{ p.ownerID }}</span>
+                   <span class="">{{ p.ownerPercentage }}</span>
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Branches:</strong>
+            <span class="float-right">
+              
+              <button class="btn btn-primary"
+              (click)="openModal(btemplate)">+</button>
+
+            </span>
+            
+          </div>
+          <div class="card-body">            
+            <ul class="heroes">
+                <li *ngFor="let b of branches">
+                 <span class="badge">{{ b.branchName }}</span>
+                 <span class="">{{ b.branchAddress }}</span>
+                </li>
+              </ul>
+        </div>
+        <!--  <div class="card-body">            
+              <ul class="heroes">
+                  <li *ngFor="let b of branch"
+                    [class.selected]="b.branchID === selectedId">
+                   <span class="badge" [routerLink]="['../branchdetails/', b.branchID]">{{ b.branchID }}</span>
+                   <span class="" [routerLink]="['../branchdetails/', b.branchID]">{{ b.branchName }}</span>
+                  </li>
+                </ul>
+          </div>-->
+        </div>
+     </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Departments:</strong>
+            <span class="float-right">
+              
+              <button class="btn btn-primary"
+              (click)="openModal(dtemplate)">+</button>
+
+            </span>
+           
+          </div>
+          <div class="card-body">            
+              <ul class="heroes">
+                <li *ngFor="let d of departments"
+              >
+              <span class="badge">{{d.departmentName}}</span>                                     
+              <span class="">{{d.location}}</span>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div><!--/.col-->
+      
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Warehouse:</strong>
+            <span class="float-right">
+              
+              <button class="btn btn-primary"
+              (click)="openModal(wtemplate)">+</button>
+
+            </span>
+        
+          </div>
+          <div class="card-body">            
+            <ul class="heroes">
+              <li *ngFor="let w of warehouses"
+            >
+            <span class="badge">{{w.name}}</span>                                     
+            <span class="">{{w.location}}</span>
+              </li>
+            </ul>
+        </div>
+          
+        </div>
+      </div><!--/.col-->
+    </div>
+   <!-- <div class="row">
+      
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Factories:</strong>
+            <span class="float-right">
+              
+              <button class="btn btn-primary"
+              (click)="openModal(ftemplate)">+</button>
+
+            </span>
+           
+          </div>
+          <div class="card-body">            
+            <ul class="heroes">
+              <li *ngFor="let f of factories"
+            >
+            <span class="badge">{{f.factoryName}}</span>                                     
+            <span class="">{{f.factoryAddress}}</span>
+              </li>
+            </ul>
+        </div>
+         
+        </div>
+      </div>
+       
+    </div>-->
+  
+  </div>
+  <div class="card-footer">
+    <button type="submit"   routerLinkActive="active" [routerLink]="['/organizations/profile-step2']"  class="btn btn-primary">
+      <i class="fa fa-dot-circle-o"></i>Back</button>          
+  
+       <button type="button" class="btn btn-sm btn-danger" (click)="newModel(); profileForm.reset()">
+      <i class="fa fa-ban"></i>New Profile</button>  
+    <button type="submit"   routerLinkActive="active" [routerLink]="['/organizations/preview']"  class="btn btn-primary">
+        <i class="fa fa-dot-circle-o"></i>Next</button>          
+          
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+
+    <!-- Modal Title -->
+    <h4 class="modal-title pull-left">Add Partner</h4>
+
+    <!-- Close Button -->
+    <button type="button" 
+            class="close pull-right" 
+            (click)="modalRef.hide()">           
+      <span aria-hidden="true">&times;</span>
+      
+    </button>
+  </div>
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+    <div class="animated fadeIn">
+    
+    
+          <div class="card">
+            <div class="card-header">
+              Add
+              <strong>Partner</strong>
+            </div>
+            <div class="card-body">
+              <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+              (ngSubmit)="onFormSubmit(clientForm)" 
+              #clientForm="ngForm">              
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="select">Select Profile</label>
+                  <div class="col-sm-9">
+                      <select [(ngModel)]="partnership.organizationID" name="organizationID" class="form-control input-lg" size="1">          
+                          <option *ngFor="let a of orgns" [value]="a.organizationID">
+                              {{a.organizationName}}
+                          </option>
+                      </select>     
+                  </div>
+                </div>
+    
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="select">Select Partner</label>
+                  <div class="col-sm-9">
+                      <select [(ngModel)]="partnership.ownerID" name="ownerID" class="form-control input-lg" size="1">          
+                          <option *ngFor="let a of owner" [value]="a.ownerID">
+                            {{a.title}} {{a.firstName}} {{a.lastName}}
+                          </option>
+                      </select>     
+                      <div class="col-md-3">
+                                  
+                    </div>
+          
+                  </div>
+                </div>
+    
+                
+            <div class="form-group row">
+              <label class="col-sm-5 form-control-label" for="text-area-input">Owner Percentage</label>
+              <div class="col-sm-9">
+                <input  [(ngModel)] = "partnership.ownerPercentage" type="text" 
+                id="ownerPercentage" name="ownerPercentage" required
+                 class="form-control form-control-lg">
+                
+              </div>
+            </div>
+            
+                <div class="form-group row">
+                  <label class="col-sm-5 form-control-label" for="input-large">Condition</label>
+                  <div class="col-sm-9">
+                    <textarea [(ngModel)] = "partnership.condition" type="text" 
+                    id="condition" name="condition"
+                     class="form-control form-control-lg"></textarea>
+                  
+                    </div>
+                </div>          
+              </form>
+            </div>
+    
+            <div class="card-footer">          
+              <button type="submit" (click)="onFormSubmit(clientForm)" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create</button>
+            </div>
+          </div>
+     
+    </div>
+    
+  </div>
+</ng-template>
+
+<ng-template #btemplate>
+  <div class="modal-header">
+
+    <!-- Modal Title -->
+    <h4 class="modal-title pull-left">Add Branch</h4>
+
+    <!-- Close Button -->
+    <button type="button" 
+            class="close pull-right" 
+            (click)="modalRef.hide()">           
+      <span aria-hidden="true">&times;</span>
+      
+    </button>
+  </div>
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+    
+<div class="card">
+  <div class="card-header">
+    <strong>Create New</strong>
+    <small>Branch</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onBranchFormSubmit(branchForm)" 
+      #branchForm="ngForm">  
+          
+          <!--  <div class="form-group row">
+              <label class="col-sm-3 form-control-label" for="select">Select Organization</label>
+              <div class="col-sm-6">
+                  <select [(ngModel)]="branch.organizationID" name="organizationID" class="form-control input-lg" size="1">          
+                      <option *ngFor="let a of organization" [value]="a.organizationID">
+                          {{a.organizationName}}
+                      </option>
+                  </select>     
+              </div>
+            </div>-->
+
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Name of the Branch</label>
+                <div class="col-md-6">
+                    <input [(ngModel)]="branch.branchName" type="text" name="branchName" class="form-control" 
+                        id="branchName" placeholder="Branch Name" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Address</label>
+                <div class="col-md-6">
+                    <input [(ngModel)]="branch.branchAddress" type="textarea" name="branchAddress" class="form-control" 
+                    id="branchAddress" placeholder="Address" required>     
+                </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">City</label>
+                <div class="col-md-6">
+                    <input [(ngModel)]="branch.city" type="text" name="city" class="form-control" 
+                        id="city" placeholder="city" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Country</label>
+                <div class="col-md-6">
+                    <input [(ngModel)]="branch.country" type="text" name="country" class="form-control" 
+                        id="country" placeholder="country" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Contact No</label>
+                <div class="col-md-6">
+                    <input [(ngModel)]="branch.contactNo" type="text" name="contactNo" class="form-control" 
+                        id="contactNo" placeholder="Contact No" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Email</label>
+                <div class="col-md-6">
+                    <input [(ngModel)]="branch.emailAddress" type="text" name="emailAddresse" class="form-control" 
+                        id="emailAddress" placeholder="emailAddress" required>                                              
+                      </div>
+               
+              </div>
+            
+  </form>
+  
+  </div>
+  <div class="card-footer">
+      <button (click)="onBranchFormSubmit(branchForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>
+    
+  </div>
+</ng-template>
+
+
+<ng-template #dtemplate>
+      
+<div class="card">
+  <div class="card-header">
+    <strong>New</strong>
+    <small>Department</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onDepartmentFormSubmit(departmentForm)" 
+      #departmentForm="ngForm">  
+          
+             <!-- <div class="form-group row">
+                <label class="col-sm-3 form-control-label" for="select">Select Organization</label>
+                <div class="col-sm-6">
+                    <select [(ngModel)]="model.organizationID" name="organizationID" class="form-control input-lg" size="1"
+                    #branchSelect (change)='onOptionsSelected(branchSelect.value)'>          
+                        <option *ngFor="let a of _organization" [value]="a.organizationID">
+                            {{a.organizationName}}
+                        </option>
+                    </select>     
+                </div>
+              </div>-->
+
+            <!-- <div class="form-group row">
+                <label class="col-sm-3 form-control-label" for="select">Select Branch</label>
+                <div class="col-sm-6">
+                    <select [(ngModel)]="model.branchID" name="branchID" class="form-control input-lg" size="1">          
+                        <option *ngFor="let a of branches" [value]="a.branchName">
+                            {{a.branchName}}
+                        </option>
+                    </select>     
+                </div>
+              </div>--> 
+  
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Name of the Department</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="department.departmentName" type="text" name="departmentName" class="form-control" 
+                        id="departmentName" placeholder="Department Name" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Address</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="department.location" type="textarea" name="address" class="form-control" 
+                    id="address" placeholder="Address" required>     
+                </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Contact No</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="department.contactNo" type="text" name="contactNo" class="form-control" 
+                        id="contactNo" placeholder="contactNoe" required>                                              
+                      </div>
+               
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Email Address</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="department.emailAddress" type="text" name="emailAddress" class="form-control" 
+                        id="emailAddress" placeholder="emailAddress" required>                                              
+                      </div>
+               
+              </div>
+              
+              
+  </form>
+  </div>
+  <div class="card-footer">
+      <button (click)="onDepartmentFormSubmit(departmentForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>
+</ng-template>
+<ng-template #ftemplate>
+    
+<div class="card">
+  <div class="card-header">
+    <strong>New</strong>
+    <small>Factory</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onFactoryFormSubmit(factoryForm)" 
+      #factoryForm="ngForm">  
+          
+            
+        
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Factory Name</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.factoryName" type="text" name="factoryName" class="form-control" 
+                        id="factoryName" placeholder="Factory Name" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Address</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.factoryAddress" type="textarea" name="factoryAddress" class="form-control" 
+                    id="factoryAddress" placeholder="Factory Address" required>     
+                </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Contact No</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.contactNo" type="text" name="contactNo" class="form-control" 
+                        id="contactNo" placeholder="contactNoe" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Email</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="factory.emailAddress" type="text" name="emailAddresse" class="form-control" 
+                        id="emailAddress" placeholder="emailAddress" required>                                              
+                      </div>
+              </div>
+             
+            
+            
+  </form>
+  </div>
+  <div class="card-footer">
+      <button (click)="onFactoryFormSubmit(factoryForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>
+</ng-template>
+<ng-template #wtemplate>
+    
+<div class="card">
+  <div class="card-header">
+    <strong>New</strong>
+    <small>Warehouse</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onWarehouseFormSubmit(warehouseForm)" 
+      #warehouseForm="ngForm">  
+          
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">name</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="warehouse.name" type="text" name="name" class="form-control" 
+                        id="name" placeholder="name" required>                                              
+                </div>               
+           </div>
+           <div class="form-group row">
+            <label class="col-sm-3 form-control-label" for="select">Select Branch</label>
+            <div class="col-sm-6">
+                <select [(ngModel)]="warehouse.branchID" name="branchID" class="form-control input-lg" size="1">          
+                    <option *ngFor="let a of branches" [value]="a.branchID">
+                        {{a.branchName}}
+                    </option>
+                </select>     
+            </div>
+          </div>
+        <!--   <div class="form-group row">
+            <label class="col-sm-3 form-control-label" for="select">Select Factory</label>
+            <div class="col-sm-6">
+                <select [(ngModel)]="model.factoryID" name="factoryID" class="form-control input-lg" size="1">          
+                    <option *ngFor="let a of factory" [value]="a.factoryID">
+                        {{a.factoryName}}
+                    </option>
+                </select>     
+            </div>
+          </div>-->
+
+
+           <div class="form-group row">
+            <label class="col-md-3 form-control-label" for="text-input">contactNo</label>
+            <div class="col-sm-6">
+                <input [(ngModel)]="warehouse.contactNo" type="text" name="contactNo" class="form-control" 
+                    id="contactNo" placeholder="contactNo" required>                                              
+            </div>               
+         </div>
+
+           
+           <div class="form-group row">
+            <label class="col-md-3 form-control-label" for="text-input">location</label>
+            <div class="col-sm-6">
+                <input [(ngModel)]="warehouse.location" type="text" name="location" class="form-control" 
+                    id="location" placeholder="location" required>                                              
+            </div>               
+          </div>
+
+
+            
+  </form>
+  </div>
+  <div class="card-footer">
+      <button (click)="onWarehouseFormSubmit(warehouseForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>
+</ng-template>

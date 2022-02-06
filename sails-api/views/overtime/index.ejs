@@ -1,0 +1,75 @@
+<h1>overtime</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 overtime
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>overTimeDate</th>
+			<th>fromTime</th>
+			<th>totalHour</th>
+			<th>toTime</th>
+			<th>overtimeID</th>
+			<th>employeeID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.overTimeDate %>
+					</td>
+					<td>
+						<%= item.fromTime %>
+					</td>
+					<td>
+						<%= item.totalHour %>
+					</td>
+					<td>
+						<%= item.toTime %>
+					</td>
+					<td>
+						<%= item.overtimeID %>
+					</td>
+					<td>
+						<%= item.employeeID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/overtime/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/overtime/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/overtime/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/overtime/create">New</a>

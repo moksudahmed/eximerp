@@ -1,0 +1,23 @@
+<h1>Show stocklevel</h1>
+
+	<p>
+		<strong>stockTrackingDate:</strong>
+		<%= element.stockTrackingDate %>
+	</p>
+	<p>
+		<strong>quantityInStock:</strong>
+		<%= element.quantityInStock %>
+	</p>
+	<p>
+		<strong>stockLevelID:</strong>
+		<%= element.stockLevelID %>
+	</p>
+	<p>
+		<strong>itemID:</strong>
+		<%= element.itemID %>
+	</p>
+
+<br>
+<a href="/stocklevel/edit/<%= element.id %>">Edit</a>
+<a href="/stocklevel/create">New</a>
+<a href="/stocklevel">Back</a>

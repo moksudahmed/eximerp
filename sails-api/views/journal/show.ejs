@@ -1,0 +1,39 @@
+<h1>Show journal</h1>
+
+	<p>
+		<strong>amount:</strong>
+		<%= element.amount %>
+	</p>
+	<p>
+		<strong>debitCredit:</strong>
+		<%= element.debitCredit %>
+	</p>
+	<p>
+		<strong>invoiceNo:</strong>
+		<%= element.invoiceNo %>
+	</p>
+	<p>
+		<strong>journalID:</strong>
+		<%= element.journalID %>
+	</p>
+	<p>
+		<strong>chartOfAccountID:</strong>
+		<%= element.chartOfAccountID %>
+	</p>
+	<p>
+		<strong>subSidiaryAccountID:</strong>
+		<%= element.subSidiaryAccountID %>
+	</p>
+	<p>
+		<strong>transactionID:</strong>
+		<%= element.transactionID %>
+	</p>
+	<p>
+		<strong>particulars:</strong>
+		<%= element.particulars %>
+	</p>
+
+<br>
+<a href="/journal/edit/<%= element.id %>">Edit</a>
+<a href="/journal/create">New</a>
+<a href="/journal">Back</a>

@@ -1,0 +1,52 @@
+<div class="">
+  <h1>New vwAJournal</h1>
+
+  <div class="body">
+    <form class="" action="/vwAJournal/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">branchID</label>
+          <input type="number" name="branchID" value="<%= element.branchID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">transactionID</label>
+          <input type="number" name="transactionID" value="<%= element.transactionID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">transactionTitle</label>
+          <input type="text" name="transactionTitle" value="<%= element.transactionTitle %>" required="true">
+        </div>
+        <div class="">
+          <label for="">categoryType</label>
+          <input type="text" name="categoryType" value="<%= element.categoryType %>" required="true">
+        </div>
+        <div class="">
+          <label for="">accountName</label>
+          <input type="text" name="accountName" value="<%= element.accountName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">journalID</label>
+          <input type="number" name="journalID" value="<%= element.journalID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">financialYearID</label>
+          <input type="number" name="financialYearID" value="<%= element.financialYearID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">debitCredit</label>
+          <input type="text" name="debitCredit" value="<%= element.debitCredit %>" required="true">
+        </div>
+        <div class="">
+          <label for="">amount</label>
+          <input type="number" name="amount" value="<%= element.amount %>" required="true">
+        </div>
+      <button type="submit">Update vwAJournal</button>
+    </form>
+    <br />
+    <a href="/vwAJournal">Index</a>
+  </div>
+</div>

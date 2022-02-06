@@ -1,0 +1,457 @@
+<div class="animated fadeIn">  
+  <div class="row">
+      <div class="col-lg-12">
+    <div class="card">            
+            <div id="print-section">                    
+              
+    <div class="card-body">
+        <form novalidate  enctype="multipart/form-data" class="form-horizontal "          
+        #orderForm="ngForm">   
+        
+          <div class="form-group row">
+              <div class="col-md-6">                  
+                <div class="input-group">                                          
+            
+              </div>
+            </div>
+            <div class="col-md-6">                  
+              
+            </div>
+          </div>  
+          <div class="card">
+          <!--  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3>-->
+            <div class="card-body">
+              <div class="row">
+
+                    <div class="form-group row">            
+                      <div class="col-md-2">
+                          <label for="name">Barcode</label>
+                          <div class="input-group">
+                            <input #barcode type="text" name="barcode" class="form-control mb-2 mr-sm-2 mb-sm-0" (keydown)="onKeydown($event)" class="form-control" id="qty" placeholder="Barcode">                
+                          </div>
+                      </div>
+                  <div class="col-md-4">    
+                          <label for="name">Product Name</label>
+                    <div class="input-group">
+                       
+                    <select #selectElem class="form-control" name="sel" id="sel" [(ngModel)]="sel" (change)="onChange(sel)">
+                              <option [ngValue]="undefined" >Product...</option>
+                              <option *ngFor="let p of products" [ngValue]="p.itemID">{{p.name}}</option>
+                          </select>
+                      
+                        <!--</div>-->
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                          <label for="name">Quantity</label>
+                      <div class="input-group">                  
+                        <input #qty type="text" name="qty" class="form-control mb-2 mr-sm-2 mb-sm-0" (keydown)="onKeydown($event)" class="form-control" id="qty" value= "1">                
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                          <label for="name">Unit Price</label>
+                      <div class="input-group">                   
+                        <input #price type="text" name="price" class="form-control mb-2 mr-sm-2 mb-sm-0" (keydown)="onKeydown($event)" 
+                        class="form-control" id="price" placeholder="Unit Price" value={{this.selectedItemPrice}}>                
+                      </div>
+                  </div>
+                <!--  <div class="col-md-2">
+                          <label for="name">Customer Code</label>
+                          <div class="input-group">                  
+                            <input #cid type="text" id="input1-group2" name="input1-group2" class="form-control" placeholder="Guest">                                        
+                            <span class="input-group-btn">
+                                  <button type="button" class="btn btn-primary"  (click)="searchCustomer(cid.value)"><i class="fa fa-search"></i></button>
+                                </span>
+                          </div>
+                  </div>-->
+                <!--     <div class="input-group">                   
+                          <input #cid type="text" id="input1-group2" name="input1-group2" class="form-control" placeholder="Guest">                  
+                        </div>    
+                    </div>-->
+                    <div class="col-md-1">
+                      <label for="name"></label>
+                      <div class="input-group">                  
+                                                               
+                        <button type="button" class="btn btn-success" (click)="addProduct(selectElem.value, qty.value,price.value )">
+                          <i class="fa fa-plus" aria-hidden="true" style="font-size:28px"></i>&nbsp;</button>                      
+                       
+                      </div>
+                    </div>
+             
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10"> 
+              <div id="table" class="table-editable">
+              
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                  <tr>
+                    <th class="text-center">Sl#</th>                    
+                 <!--   <th class="text-center">ID</th>-->
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Unit Price</th>
+                    <th class="text-center">Discount %</th>
+                    <th class="text-center">Total</th>
+                   <!-- <th class="text-center">Sort</th>-->
+                    <th class="text-center">Remove</th>
+                  </tr>
+                  <tr *ngFor="let _cart of cart; let id = index">
+                    <td>
+                      <span (keyup)="changeValue(id, 'id', $event)" (blur)="updateList(id, 'id', $event)" contenteditable="false">{{_cart.id}}</span>
+                    </td>
+                  <!--  <td>
+                      <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'itemID', $event)" contenteditable="false">{{_cart.itemID}}</span>
+                    </td>
+                   --> 
+                    <td>
+                      <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="false">{{_cart.name}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'quantity', $event)" (blur)="updateList(id, 'quantity', $event)">{{_cart.quantity}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="false" (keyup)="changeValue(id, 'unitPrice', $event)" (blur)="updateList(id, 'unitPrice', $event)">{{_cart.unitPrice}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="true" (keyup)="changeValue(id, 'discount', $event)" (blur)="updateList(id, 'discount', $event)">{{_cart.discount}}</span>
+                    </td>
+                    <td>
+                      <span contenteditable="false" (keyup)="changeValue(id, 'total', $event)" (blur)="updateList(id, 'total', $event)">{{_cart.total}}</span>
+                    </td>
+                    <!--<td>
+                      <span class="table-up">
+                        <a class="text-sucess">
+                          <i class="fa fa-long-arrow-up" style="font-size:28px;color:indigo;"></i>
+                        </a>              
+                      </span>
+                      <span class="table-down">
+                        <a class="text-sucess">
+                          <i class="fa fa-long-arrow-down" style="font-size:28px;color:indigo;"></i>
+                        </a>
+                      </span>
+                    </td>-->
+                    <td>
+                      <span class="table-remove">
+                        <a (click)="remove(id)">
+                          <i class="fa fa-minus-circle" aria-hidden="true" style="font-size:40px;color:red;"></i>
+                        </a>  
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+                
+              </div>
+              </div>
+              <div class="col-md-2"> 
+               <!-- <button type="button"  class="btn btn btn-sm btn-danger btn-block">5%</button>
+                <button type="button" class="btn btn btn-sm btn-danger btn-block">10%</button>     
+                <button type="button" class="btn btn btn-sm btn-danger btn-block">20%</button>
+               
+                <button type="button" class="btn btn btn-sm btn-danger btn-block">50%</button>
+                <button type="button" class="btn btn btn-sm btn-danger btn-block">Discount</button>-->
+                <button (click)="print()" type="button" class="btn btn btn-sm btn-primary btn-block">Print</button>
+                <button (click)="confirmOrder(orderForm)" type="button" class="btn btn btn-sm btn-primary btn-block">Cancel</button>
+               
+            </div>
+            </div>
+            </div>
+          </div>    
+  </form>
+
+  <!--<div class="form-group row">            
+      <div class="col-md-4">
+          <div class="row">     -->       
+               <!-- <div class="col-md-6">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Credit</button>
+                </div>             
+                  <div class="col-md-6">
+                      <button (click)="openModalWithComponent()" type="button" class="btn btn-danger btn-lg btn-block">Return</button>
+                  </div>   -->                     
+    <!--      </div>         
+      </div>
+      <div class="col-md-2">
+          <div class="row">-->
+          
+        <!--  <button (click)="confirmOrder(orderForm)" type="button" class="btn btn-success btn-lg btn-block">Pay</button>-->
+   <!--     <button (click)="confirmOrder(orderForm)" type="button" class="btn btn-success btn-lg btn-block">Cash</button>-->
+    <!--    </div>
+      </div>
+      
+      <div class="col-md-4">
+          <div class="input-group">
+              <table style="font-size:24px">
+                  <tbody>
+                    <tr>
+                        <td></td><td>Sub Total</td><td>:</td><td > {{orderTotal}} Tk.</td>
+                        
+                      </tr>
+                      <tr>
+                        <td></td><td>Discount  </td><td>:</td>
+                        <td><input #discount type="text" class="form-control" 
+                           placeholder="0" (input)="onChangeDiscount($event.target.value)" 
+                           style="width:100px;" maxlength="6">
+                      </td>-->
+                      <!--  <td style="font-size:24px">
+                          <span contenteditable="true" (keyup)="changeValue('discount', $event)" (blur)="updateList('discount', $event)">: {{discount}} Tk.</span>
+                        </td>-->
+                    <!--  </tr>
+                      <tr>
+                        <td></td><td>Net Pay</td><td>:</td><td> {{netPay}} Tk.</td>
+                      </tr>
+                      <tr>
+                          <td></td><td>Cash</td><td>:</td><td> 
+                            
+                        <input #cash type="text" name="cash" style="width:150px;" maxlength="10"
+                        id="cash" placeholder="0"  (input)="onChangeCash($event.target.value)">Tk.</td>
+                        </tr>                        
+                        <tr>
+                          <td></td><td>Credit</td><td>:</td><td> {{credit}} Tk.</td>
+                        </tr>   
+                          
+                    </tbody>       
+              </table>                                     
+        </div>
+      </div>
+  </div>-->
+ 
+ <div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2"><strong>Total:</strong></div>  
+  <div class="col-md-2">    
+    <input #discount type="text" class="form-control" value="{{orderTotal}}"
+                           placeholder="0" (input)="onChangeDiscount($event.target.value)" 
+                           maxlength="6" disabled>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2"><strong>Discount:</strong></div>  
+  <div class="col-md-2">
+    <input #discount type="text" class="form-control" 
+                           placeholder="0" (input)="onChangeDiscount($event.target.value)" 
+                           maxlength="6">
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2"><strong>Net Pay:</strong></div>  
+  <div class="col-md-2">
+    <input #discount type="text" class="form-control" value="{{netPay}}"
+    placeholder="0" (input)="onChangeDiscount($event.target.value)" 
+    maxlength="6" disabled>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2"><strong>Cash:</strong></div>  
+  <div class="col-md-2">
+    <input  #cash type="text" class="form-control" name="cash" id="cash"
+    placeholder="0" (input)="onChangeCash($event.target.value)" 
+    maxlength="10">
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2"><strong>Return:</strong></div>  
+  <div class="col-md-2">
+    <input  #return type="text" class="form-control" name="return" id="return"
+    placeholder="0" value="{{credit}}" disabled
+    maxlength="10">
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2"><strong>Payment:</strong></div>  
+  <div class="col-md-2">
+    <select #selectPayment class="form-control" name="payment" id="payment" 
+          (change)="onChangePayment(selectPayment.value)">
+          <option [ngValue]="undefined" >Payment Type</option>
+          <option *ngFor="let p of paymentType" [ngValue]="p">{{p}}</option>
+        </select>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+  <div class="form-group row">
+      <div class="col-md-4">
+        <label for="name">Customer Name</label>       
+          <ng-select [items]="customer" 
+            bindLabel="accountName" 
+            bindValue="clientID" 
+            [(ngModel)]="selectedPersonId"
+            (click)="searchCustomer()"
+            (change)="searchCustomer()">
+          </ng-select>
+          
+       <!-- <input #cname type="text" id="input1-group2" name="input1-group2" class="form-control" placeholder="Guest">                                        
+        <span class="input-group-btn">
+              <button type="button" class="btn btn-primary"  (click)="searchCustomer(cid.value)"><i class="fa fa-search"></i></button>
+            </span>-->
+      
+     </div> 
+     <div class="col-md-4">
+      <label for="name">Address</label>
+      
+      <div class="input-group">                  
+        <input #address [(ngModel)]="billingAddress.addressLine1"  type="text" id="address"
+               name="address" class="form-control" value= {{this.contact.addressLine1}}>                                        
+      </div>
+     </div>   
+     <div class="col-md-4">
+      <label for="name">Mobile No</label>
+      <div class="input-group">                  
+        <input #mobileNp [(ngModel)]="billingAddress.contactNo" type="text" id="mobile" 
+              name="mobile" class="form-control"  value={{this.contact.mobileNo1}}>                                        
+      </div>
+     </div>            
+  </div>
+  
+  <div class="form-group row">            
+    <div class="col-md-4">
+        <div class="row">            
+              <div class="col-md-6">
+                  <button (click)="addCustomer()" type="button" class="btn btn-primary btn-lg btn-block">Add Customer</button>
+              </div>             
+                <div class="col-md-6">
+                    <button (click)="openModalWithComponent()" type="button" class="btn btn-danger btn-lg btn-block">Return</button>
+                </div>                        
+        </div>         
+    </div>
+    <div class="col-md-2">
+        <div class="row">
+        
+       <button (click)="confirmOrder(orderForm)" type="button" class="btn btn-success btn-lg btn-block">Pay</button>
+    <!--    <button class="btn btn-primary" type="button" class="btn btn-primary btn-lg btn-block"
+        (click)="openModal(ptemplate)">Pay</button>-->
+
+ <!--     <button (click)="confirmOrder(orderForm)" type="button" class="btn btn-success btn-lg btn-block">Cash</button>-->
+      </div>
+    </div>
+    <div class="col-md-3">
+      <button (click)="openPDF()" type="button" class="btn btn-success btn-lg btn-block"  routerLinkActive="active" routerLink="/sales/invoice/{{placedOrderID}}">Print Invoice</button>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary" type="button" class="btn btn-primary btn-lg btn-block"
+              (click)="openModal(dtemplate)">Delivery Address</button>
+
+    </div>
+    </div>
+  </div></div>
+  
+  </div>
+</div>
+</div>
+
+</div>
+<ng-template #dtemplate>
+    
+<div class="card">
+  <div class="card-header">
+    <strong>Delivery</strong>
+    <small>Information</small>
+  </div>
+  <div class="card-body">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      (ngSubmit)="onDeliveryFormSubmit(deliveryForm)" 
+      #deliveryForm="ngForm">  
+            <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Name</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="daliveryAddress.name" type="text" name="name" class="form-control" 
+                        id="name" placeholder="Name" required>                                              
+                      </div>
+               
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Address Line1</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="daliveryAddress.addressLine1" type="text" name="addressLine1" class="form-control" 
+                        id="addressLine1" placeholder="Address Line1" required>                                              
+                      </div> 
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Address Line2</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="daliveryAddress.addressLine2" type="text" name="addressLine2" class="form-control" 
+                        id="addressLine1" placeholder="Address Line2" required>                                              
+                      </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">City</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="daliveryAddress.city" type="text" name="city" class="form-control" 
+                        id="city" placeholder="City" required>                                              
+                      </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Postcode</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="daliveryAddress.postcode" type="text" name="postcode" class="form-control" 
+                        id="postcode" placeholder="Postcode" required>                                              
+                      </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Mobile No</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="daliveryAddress.mobileNo" type="text" name="mobileNo" class="form-control" 
+                        id="mobileNo" placeholder="Mobile No" required>                                              
+                      </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="text-input">Vehicle No</label>
+                <div class="col-sm-6">
+                    <input [(ngModel)]="daliveryAddress.vehicleNo" type="text" name="vehicleNo" class="form-control" 
+                        id="vehicleNo" placeholder="Vehicle No" required>                                              
+                      </div>
+              </div>
+            
+  </form>
+  </div>
+  <div class="card-footer">
+    <button (click)="onDeliveryFormSubmit(deliveryForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+          
+  <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+</div>
+</div>
+</ng-template>
+<ng-template #ptemplate>
+  <div class="card">
+    <div class="card-header">
+      <strong>Payment</strong>
+      <small>Information</small>
+    </div>
+    <div class="card-body">
+      <div class="form-group row">
+        <label class="col-md-3 form-control-label" for="text-input">Amount</label>
+        <div class="col-sm-6">
+            <input [(ngModel)]="daliveryAddress.addressLine1" type="number" name="addressLine1" class="form-control" 
+                id="addressLine1" placeholder="0.00" required>                                              
+              </div> 
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 form-control-label" for="text-input">Payment Type</label>
+        <div class="col-sm-6">
+          <select #selectPaymentType class="form-control" name="sel" id="sel" [(ngModel)]="sel" (change)="onChangePaymentType(sel)">
+            <option [ngValue]="undefined" >Payment Type</option>
+            <option *ngFor="let p of paymentType" [ngValue]="p">{{p}}</option>
+        </select>
+    
+        </div> 
+      </div>
+    </div> 
+    <div class="card-footer">
+      <button (click)="onDeliveryFormSubmit(deliveryForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div> 
+</ng-template>
+    

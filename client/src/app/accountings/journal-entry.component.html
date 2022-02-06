@@ -1,0 +1,163 @@
+
+<div class="animated fadeIn">
+  
+  <div class="card">
+      <form novalidate  enctype="multipart/form-data" class="form-horizontal "
+      #transactionForm="ngForm">       
+    <div class="card-header">
+      <strong>Fournal</strong>
+      <small>Entry</small>
+    </div>
+    <div class="card-block">
+      <div class="row">
+           
+      <div class="col-sm-4">  
+        <div class="form-group">
+          <!--<label for="inputdate">date</label>
+          <input type="date" class="form-control"
+            [(ngModel)] = "transactions.transactionDate"
+            id="inputdate"
+            name="transactionDate"
+            placeholder="date">-->
+            <p style="text-align:left;"><strong>{{tranDate | date:'fullDate'}}</strong></p>
+           
+        </div>
+      </div>
+    </div> 
+      <div class="row">
+        <div class="col-sm-6"> 
+            <div class="form-group">
+                <label for="inputtransactionTitle">Transaction Title</label>
+                <input type="text" class="form-control"
+                [(ngModel)] = "transactions.transactionTitle" 
+                id="inputtransactionTitle" 
+                name="transactionTitle"
+             >
+              </div> 
+
+          </div>
+        <div class="col-sm-6">                    
+           <div class="form-group">
+                <label for="inputdate">Ref.</label>
+                <input #particulars type="text" class="form-control"
+                id="inputparticular" 
+                name="particular"
+               >
+              </div>
+        </div>
+        
+    </div>
+   
+      <div class="row">
+                    
+          <div class="col-sm-6"> 
+                <div class="form-group">
+                  <label for="inputdate">Account</label> 
+                  <div class="input-group">  
+                      <select #selectElemnt class="form-control" id="select"
+                         name = "name" type="number" (change)="selectChangeHandler($event.target.value)">     
+                            <option *ngFor="let a of account" [value]="a.chartOfAccountID">
+                                {{a.accountName}}
+                            </option>
+                        </select>
+                          
+                      </div>
+                      
+                                                                         
+             </div> 
+             
+          </div>
+          <div class="col-sm-2">  
+            <div class="form-group">
+             <label for="inputdate">Nature</label> 
+             <div class="input-group">    
+               <select #natureElemnt name="selectedQuantity" id="aantal" class="form-control">
+                 <option *ngFor="let option of payment" [value]="option" >{{option}}</option>
+             </select>
+           </div>
+        
+            </div>
+        </div>
+         <!-- <div class="col-sm-2"> 
+            <div class="form-group">
+              <label for="inputdate"></label><br>
+            </div>
+            <p><strong>No.{{selectedAccount}}</strong></p> 
+          </div>-->
+          
+      </div>
+     
+    
+     
+
+                    <div class="form-group row">            
+                     
+                  <div class="col-md-4">
+                      <label for="name">Amount</label>
+                      <div class="input-group">                   
+                        <input #amount type="text" name="amount" class="form-control mb-2 mr-sm-2 mb-sm-0" 
+                        class="form-control" id="amount">                
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="name"></label>
+                    <div class="input-group">                  
+                                                             
+                      <button type="button" class="btn btn-success" (click)="addLadger(selectElemnt.value,natureElemnt.value, amount.value)">
+                        <i class="fa fa-plus" aria-hidden="true" style="font-size:28px"></i>&nbsp;</button>                      
+                     
+                    </div>
+                   <!-- <label for="name">Cash</label>
+                    <div class="input-group">                   
+                      <input #cashAmount type="text" name="cashAmount" class="form-control mb-2 mr-sm-2 mb-sm-0" 
+                      class="form-control" id="cashAmount">                
+                    </div>-->
+                  </div>
+                   <div class="col-md-4">
+                    
+                    </div>
+             
+             
+              </div> 
+    </div>
+
+    <div class="card-block">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Account</th>
+             <!-- <th>Account</th>-->
+              <th>Debit/Credit</th>                
+              <th>Amount</th>    
+              <th></th>    
+            </tr>
+          </thead>
+          <tbody>
+              
+            <tr *ngFor="let _journal of journals">
+             <!-- <td>{{_journal.chartOfAccountID}}</td>-->
+              <td>{{getAccountName(_journal.chartOfAccountID)}}</td>
+              <td>{{_journal.debitCredit}}</td> 
+              <td>{{_journal.amount}}</td>  
+              <td>               
+                <a button type="button" class="btn btn-info btn-sm" routerLink="/edit/{{_journal.chartOfAccountID}}"><i class="icon-pencil"></i></a>
+                <a button type="button" class="btn btn-danger btn-sm" (click)="removeJournal(_journal.chartOfAccountID)"><i class="icon-trash"></i></a>
+              </td>                               
+            </tr>
+         <!--   <tr>
+              <td></td><td></td>Balance:{{calculateBalance()}}<td></td><td></td>                        
+            </tr>-->              
+         
+          </tbody>
+        </table>
+       
+      </div>
+     
+    <div class="card-footer">
+      <button (click)="onTransactionFormSubmit(transactionForm)"  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+  </form>
+  </div>
+<!--/.row-->
+</div>

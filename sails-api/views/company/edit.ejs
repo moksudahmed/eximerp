@@ -1,0 +1,40 @@
+<div class="">
+  <h1>New company</h1>
+
+  <div class="body">
+    <form class="" action="/company/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">companyName</label>
+          <input type="text" name="companyName" value="<%= element.companyName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactPersonName</label>
+          <input type="text" name="contactPersonName" value="<%= element.contactPersonName %>" required="true">
+        </div>
+        <div class="">
+          <label for="">designation</label>
+          <input type="text" name="designation" value="<%= element.designation %>" required="true">
+        </div>
+        <div class="">
+          <label for="">contactNo</label>
+          <input type="text" name="contactNo" value="<%= element.contactNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">emailAddress</label>
+          <input type="text" name="emailAddress" value="<%= element.emailAddress %>" required="true">
+        </div>
+        <div class="">
+          <label for="">website</label>
+          <input type="text" name="website" value="<%= element.website %>" required="true">
+        </div>
+        <div class="">
+          <label for="">companyID</label>
+          <input type="number" name="companyID" value="<%= element.companyID %>" required="false">
+        </div>
+      <button type="submit">Update company</button>
+    </form>
+    <br />
+    <a href="/company">Index</a>
+  </div>
+</div>

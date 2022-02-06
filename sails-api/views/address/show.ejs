@@ -1,0 +1,35 @@
+<h1>Show address</h1>
+
+	<p>
+		<strong>addressLine1:</strong>
+		<%= element.addressLine1 %>
+	</p>
+	<p>
+		<strong>addressLine2:</strong>
+		<%= element.addressLine2 %>
+	</p>
+	<p>
+		<strong>postcode:</strong>
+		<%= element.postcode %>
+	</p>
+	<p>
+		<strong>city:</strong>
+		<%= element.city %>
+	</p>
+	<p>
+		<strong>country:</strong>
+		<%= element.country %>
+	</p>
+	<p>
+		<strong>addressID:</strong>
+		<%= element.addressID %>
+	</p>
+	<p>
+		<strong>clientID:</strong>
+		<%= element.clientID %>
+	</p>
+
+<br>
+<a href="/address/edit/<%= element.id %>">Edit</a>
+<a href="/address/create">New</a>
+<a href="/address">Back</a>

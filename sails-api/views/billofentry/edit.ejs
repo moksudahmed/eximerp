@@ -1,0 +1,48 @@
+<div class="">
+  <h1>New billofentry</h1>
+
+  <div class="body">
+    <form class="" action="/billofentry/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">date</label>
+          <input type="date" name="date" value="<%= element.date %>" required="true">
+        </div>
+        <div class="">
+          <label for="">quantity</label>
+          <input type="number" name="quantity" value="<%= element.quantity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">registrationNo</label>
+          <input type="text" name="registrationNo" value="<%= element.registrationNo %>" required="true">
+        </div>
+        <div class="">
+          <label for="">itemInvoiceValue</label>
+          <input type="number" name="itemInvoiceValue" value="<%= element.itemInvoiceValue %>" required="true">
+        </div>
+        <div class="">
+          <label for="">totalTaxAmount</label>
+          <input type="number" name="totalTaxAmount" value="<%= element.totalTaxAmount %>" required="true">
+        </div>
+        <div class="">
+          <label for="">totalAccessableValue</label>
+          <input type="number" name="totalAccessableValue" value="<%= element.totalAccessableValue %>" required="true">
+        </div>
+        <div class="">
+          <label for="">billOfEntryID</label>
+          <input type="number" name="billOfEntryID" value="<%= element.billOfEntryID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">letterCreditID</label>
+          <input type="number" name="letterCreditID" value="<%= element.letterCreditID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">cNFAgentID</label>
+          <input type="number" name="cNFAgentID" value="<%= element.cNFAgentID %>" required="true">
+        </div>
+      <button type="submit">Update billofentry</button>
+    </form>
+    <br />
+    <a href="/billofentry">Index</a>
+  </div>
+</div>

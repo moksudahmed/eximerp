@@ -1,0 +1,55 @@
+<h1>Show purchaseorder</h1>
+
+	<p>
+		<strong>date:</strong>
+		<%= element.date %>
+	</p>
+	<p>
+		<strong>discount:</strong>
+		<%= element.discount %>
+	</p>
+	<p>
+		<strong>orderTotal:</strong>
+		<%= element.orderTotal %>
+	</p>
+	<p>
+		<strong>shippingDate:</strong>
+		<%= element.shippingDate %>
+	</p>
+	<p>
+		<strong>tex:</strong>
+		<%= element.tex %>
+	</p>
+	<p>
+		<strong>vat:</strong>
+		<%= element.vat %>
+	</p>
+	<p>
+		<strong>netTotal:</strong>
+		<%= element.netTotal %>
+	</p>
+	<p>
+		<strong>purchaseOrderID:</strong>
+		<%= element.purchaseOrderID %>
+	</p>
+	<p>
+		<strong>salesContractID:</strong>
+		<%= element.salesContractID %>
+	</p>
+	<p>
+		<strong>localID:</strong>
+		<%= element.localID %>
+	</p>
+	<p>
+		<strong>purchaseRequestID:</strong>
+		<%= element.purchaseRequestID %>
+	</p>
+	<p>
+		<strong>qutationID:</strong>
+		<%= element.qutationID %>
+	</p>
+
+<br>
+<a href="/purchaseorder/edit/<%= element.id %>">Edit</a>
+<a href="/purchaseorder/create">New</a>
+<a href="/purchaseorder">Back</a>

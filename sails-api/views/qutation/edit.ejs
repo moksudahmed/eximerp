@@ -1,0 +1,44 @@
+<div class="">
+  <h1>New qutation</h1>
+
+  <div class="body">
+    <form class="" action="/qutation/update" method="post">
+      <input name="id" value="<%= element.id %>" hidden="true" required>
+        <div class="">
+          <label for="">itemID</label>
+          <input type="number" name="itemID" value="<%= element.itemID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">quantity</label>
+          <input type="number" name="quantity" value="<%= element.quantity %>" required="true">
+        </div>
+        <div class="">
+          <label for="">price</label>
+          <input type="number" name="price" value="<%= element.price %>" required="true">
+        </div>
+        <div class="">
+          <label for="">approved</label>
+          <input type="checkbox" name="approved" value="<%= element.approved %>" required="true">
+        </div>
+        <div class="">
+          <label for="">qutationID</label>
+          <input type="number" name="qutationID" value="<%= element.qutationID %>" required="false">
+        </div>
+        <div class="">
+          <label for="">purchaseRequestID</label>
+          <input type="number" name="purchaseRequestID" value="<%= element.purchaseRequestID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">supplierID</label>
+          <input type="number" name="supplierID" value="<%= element.supplierID %>" required="true">
+        </div>
+        <div class="">
+          <label for="">purchaseRequestCartID</label>
+          <input type="number" name="purchaseRequestCartID" value="<%= element.purchaseRequestCartID %>" required="true">
+        </div>
+      <button type="submit">Update qutation</button>
+    </form>
+    <br />
+    <a href="/qutation">Index</a>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<h1>Show shoppingcart</h1>
+
+	<p>
+		<strong>itemId:</strong>
+		<%= element.itemId %>
+	</p>
+	<p>
+		<strong>name:</strong>
+		<%= element.name %>
+	</p>
+	<p>
+		<strong>quantity:</strong>
+		<%= element.quantity %>
+	</p>
+	<p>
+		<strong>shoppingCartID:</strong>
+		<%= element.shoppingCartID %>
+	</p>
+	<p>
+		<strong>clientAccountID:</strong>
+		<%= element.clientAccountID %>
+	</p>
+
+<br>
+<a href="/shoppingcart/edit/<%= element.id %>">Edit</a>
+<a href="/shoppingcart/create">New</a>
+<a href="/shoppingcart">Back</a>

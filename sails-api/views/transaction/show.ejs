@@ -1,0 +1,39 @@
+<h1>Show transaction</h1>
+
+	<p>
+		<strong>date:</strong>
+		<%= element.date %>
+	</p>
+	<p>
+		<strong>transactionTitle:</strong>
+		<%= element.transactionTitle %>
+	</p>
+	<p>
+		<strong>transactionID:</strong>
+		<%= element.transactionID %>
+	</p>
+	<p>
+		<strong>branchID:</strong>
+		<%= element.branchID %>
+	</p>
+	<p>
+		<strong>financialYearID:</strong>
+		<%= element.financialYearID %>
+	</p>
+	<p>
+		<strong>entryDateTime:</strong>
+		<%= element.entryDateTime %>
+	</p>
+	<p>
+		<strong>userID:</strong>
+		<%= element.userID %>
+	</p>
+	<p>
+		<strong>paymentID:</strong>
+		<%= element.paymentID %>
+	</p>
+
+<br>
+<a href="/transaction/edit/<%= element.id %>">Edit</a>
+<a href="/transaction/create">New</a>
+<a href="/transaction">Back</a>

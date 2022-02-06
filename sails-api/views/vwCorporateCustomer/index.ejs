@@ -1,0 +1,103 @@
+<h1>vwCorporateCustomer</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 vwCorporateCustomer
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>clientID</th>
+			<th>date</th>
+			<th>companyName</th>
+			<th>contactPersonName</th>
+			<th>designation</th>
+			<th>contactNo</th>
+			<th>emailAddress</th>
+			<th>website</th>
+			<th>addressLine1</th>
+			<th>addressLine2</th>
+			<th>postcode</th>
+			<th>city</th>
+			<th>country</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.clientID %>
+					</td>
+					<td>
+						<%= item.date %>
+					</td>
+					<td>
+						<%= item.companyName %>
+					</td>
+					<td>
+						<%= item.contactPersonName %>
+					</td>
+					<td>
+						<%= item.designation %>
+					</td>
+					<td>
+						<%= item.contactNo %>
+					</td>
+					<td>
+						<%= item.emailAddress %>
+					</td>
+					<td>
+						<%= item.website %>
+					</td>
+					<td>
+						<%= item.addressLine1 %>
+					</td>
+					<td>
+						<%= item.addressLine2 %>
+					</td>
+					<td>
+						<%= item.postcode %>
+					</td>
+					<td>
+						<%= item.city %>
+					</td>
+					<td>
+						<%= item.country %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/vwCorporateCustomer/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/vwCorporateCustomer/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/vwCorporateCustomer/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/vwCorporateCustomer/create">New</a>

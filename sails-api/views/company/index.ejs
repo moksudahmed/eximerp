@@ -1,0 +1,79 @@
+<h1>company</h1>
+
+
+<% if (result.length == 0) { %>
+  <h4>
+    0 company
+  </h4>
+<% } else { %>
+<table>
+	<thead>
+    <th>#</th>
+		<th>id</th>
+			<th>companyName</th>
+			<th>contactPersonName</th>
+			<th>designation</th>
+			<th>contactNo</th>
+			<th>emailAddress</th>
+			<th>website</th>
+			<th>companyID</th>
+
+		<th>created at</th>
+		<th>updated at</th>
+		<th colspan="3"></th>
+	</thead>
+
+	<tbody>
+		<% result.forEach((item, i) => { %>
+			<tr>
+				<td>
+					<%= (i + 1) %>
+				</td>
+				<td>
+					<%= item.id %>
+				</td>
+					<td>
+						<%= item.companyName %>
+					</td>
+					<td>
+						<%= item.contactPersonName %>
+					</td>
+					<td>
+						<%= item.designation %>
+					</td>
+					<td>
+						<%= item.contactNo %>
+					</td>
+					<td>
+						<%= item.emailAddress %>
+					</td>
+					<td>
+						<%= item.website %>
+					</td>
+					<td>
+						<%= item.companyID %>
+					</td>
+				<td>
+					<%= item.createdAt %>
+				</td>
+				<td>
+					<%= item.updatedAt %>
+				</td>
+				<td>
+					<a href="/company/show/<%= item.id %>">Show</a>
+				</td>
+				<td>
+					<a href="/company/delete/<%= item.id %>">Delete</a>
+				</td>
+        <td>
+					<a href="/company/edit/<%= item.id %>">Edit</a>
+				</td>
+			</tr>
+			<% }) %>
+	</tbody>
+</table>
+
+<% } %>
+
+<br>
+<a href="/company/create">New</a>
