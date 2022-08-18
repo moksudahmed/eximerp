@@ -63,7 +63,7 @@ module.exports.datastores = {
       ssl: false
     }*/
     adapter: 'sails-postgresql',
-    url: 'postgresql://postgres:dream@3030.com@localhost:5432/db_eximERPv1.1',
+    url: 'postgresql://postgres:root@localhost:5432/db_eximERPv1.1',
     wlNext: {
      caseSensitive: true
    }
